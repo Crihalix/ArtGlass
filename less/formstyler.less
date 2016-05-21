@@ -1,0 +1,91 @@
+.jq-selectbox {
+    color:#333;
+    font:15px/15px @roboto;
+    cursor: pointer;
+    vertical-align: middle;
+    width: 100%;
+
+}
+
+.jq-selectbox__select {
+    background: #eff4f8;
+    //border: 1px solid #dbe0e4;
+    border:none;
+    border-radius:3px;
+    height: 45px;
+    width: 100%;
+    box-shadow:inset 0 1px 2px rgba(0,0,0,0.11);
+    -webkit-transition: border-color .2s;
+    transition: border-color .2s;
+}
+
+.jq-selectbox__select-text {
+    position: absolute;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100% !important;
+    padding: 14px 40px 16px 19px;
+    line-height: 15px;
+}
+
+.jq-selectbox__trigger {
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 37px;
+    border:1px solid #e8e8e8;
+    border-radius:0 3px 3px 0;
+    background:#fff;
+}
+
+.jq-selectbox__trigger-arrow {
+    position: absolute;
+    width:11px;
+    height: 7px;
+    left: 50%;
+    top: 50%;
+    margin: -3px 0 0 -6px;
+    background: url(../img/icons.png) -11px -50px no-repeat;
+}
+.jq-selectbox__select:hover .jq-selectbox__trigger-arrow{
+    background-position:-11px -60px;
+}
+
+.opened .jq-selectbox__trigger-arrow  {
+    background-position: 0 -50px;
+}
+.opened .jq-selectbox__select:hover .jq-selectbox__trigger-arrow{
+    background-position: 0 -60px;
+}
+
+.jq-selectbox__dropdown {
+    background: #fff;
+    border: 1px solid #e8e8e8;
+    border-radius:3px;
+    margin-top:-1px;
+    width: 100% !important;
+    box-shadow: 0 6px 14px -10px rgba(114, 114, 114, .13);
+
+    ul {
+        //max-height: 220px;
+        overflow: auto;
+        padding:0;
+    }
+
+    li {
+        border-bottom:1px solid #e8e8e8;
+        padding: 15px 19px;
+
+        &.selected,
+        &:hover {
+            color: #39c1ff;
+        }
+
+        &:last-child{
+            border:none;
+        }
+    }
+}
