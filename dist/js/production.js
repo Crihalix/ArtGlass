@@ -9322,6 +9322,7 @@ $(document).ready(function() {
 
         $(window).on('resize', function () {
             winWidth = window.innerWidth;
+            //setSize();
         });
 
         //jq_list
