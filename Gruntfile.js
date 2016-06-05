@@ -68,6 +68,18 @@ module.exports = function(grunt) {
             }
         },
 
+        autoprefixer: {
+
+            options: {
+                browsers: ['Chrome > 25', 'Safari > 6', 'iOS 7', 'Firefox >= 15', 'ie >= 9']
+            },
+            dist: {
+                //diff: false,
+                //expand: true,
+                //flatten: true,
+               src:  'dist/css/*.css'
+            }
+        },
         watch: {
             options: {
                 livereload: true
@@ -96,18 +108,6 @@ module.exports = function(grunt) {
                     spawn: false,
                     event: ['added', 'changed']
                 }
-            }
-        },
-        autoprefixer: {
-
-            options: {
-                browsers: ['Chrome > 25', 'Safari > 6', 'iOS 7', 'Firefox >= 15', 'ie >= 9']
-            },
-            dist: {
-               // diff: false,
-               // expand: true,
-               // flatten: true ,
-               src:  'dist/css*.css'
             }
         }
     });
