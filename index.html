@@ -23,28 +23,30 @@
         <div class="container clear_fix">
             <div class="logo fl_left">
                 <a href="">
-                    <img src="dist/img/temp/logo.png" alt="">
+                    <img class="hid_tbl mbl_hide" src="dist/img/temp/logo.png" alt="">
+                    <img class="hid_dsk mbl_hide" src="dist/img/temp/logo_tablet.png" alt="">
+                    <img class="mbl_show" src="dist/img/temp/logo_mobile.png" alt="">
                 </a>
             </div>
             <div class="h_curt fl_right">
                 <a href="" class="go_to_curt">
                     <span class="fa fa-shopping-cart"></span>
                     <h4 class="tit">Корзина:</h4>
-                    <div class="curt_price">12 шт. 250 640 <span class="rouble">6</span></div>
+                    <div class="curt_price"><span class="h_curt_count"> 12</span><span class="hid_tbl"> шт. 250 640 <span class="rouble_sans">:</span></span></div>
                 </a>
-                <a href="" class="go_to_order red_link fa fa-angle-right">Оформить заказ</a>
+                <a href="" class="go_to_order red_link fa fa-angle-right hid_tbl">Оформить заказ</a>
             </div>
             <div class="h_info_bl clear_fix">
                 <div class="h_col h_feedback">
-                    <h4 class="tit fa fa-phone">Позвоните нам!</h4>
+                    <h4 class="tit fa fa-phone hid_tbl">Позвоните нам!</h4>
                     <div class="h_tel">
                         <a href="tel:+74955734117" class="h_tel_link">+7 (495) 573-41-17</a>
                     </div>
                     <div>
-                        <a href="" class=" red_link fa fa-angle-right"><span class="hidden_tablet">заказать</span> обратный звонок</a>
+                        <a href="" class="h_feedback_link red_link fa fa-angle-right"><span class="hid_tbl">заказать</span> обратный звонок</a>
                     </div>
                 </div>
-                <div class="h_col h_address">
+                <div class="h_col h_address hid_tbl">
                     <h4 class="tit fa fa-map-marker">Химки</h4>
                     <p class="h_addres_txt">
                         ул. Транспортный проезд д. 3
@@ -56,7 +58,7 @@
             </div>
         </div>
     </div>
-    <div class="container ">
+    <div class="container clear_fix">
         <div class="center_header clear_fix">
             <div class="h_search fl_left">
                 <fieldset class="h_search_wrap">
@@ -71,31 +73,35 @@
             </div>
             <div class="viewed_a_pending">
                 <div class="item viewed">
-                    <a href="" class="btn viewed_btn">Просмотренно <span class="count_ico">234</span></a>
+                    <a href="" class="btn viewed_btn">Просмотренно <span class="count_ico">234</span><span class="fa fa-eye"></span></a>
                 </div>
                 <div class="item pending">
-                    <a href="" class="btn pending_btn">Отложено <span class="count_ico">5</span></a>
+                    <a href="" class="btn pending_btn">Отложено <span class="count_ico">5</span><span class="fa fa-clock-o"></span></a>
                 </div>
             </div>
         </div>
         <div class="bottom_header clear_fix">
             <div class="catalog_menu catalog_menu_main_page fl_left">
                 <div class="headline_catalog">
-                    <button class="btn mbl_catalog_btn fa fa-bars"></button>
-                    <span class="hidden_mbl">Каталог <span class="hidden_tablet">товаров</span></span>
+                    <button class="btn mbl_catalog_btn fa fa-bars">
+                        <span class="hidden_mbl">Каталог <span class="hid_tbl">товаров</span></span>
+                    </button>
                 </div>
                 <div class="catalog_menu_dropdown">
-                    <div class="ico_dropdown_menu"></div>
+                    <button class="btn back_mobile_btn fa fa-arrow-circle-left hid_dsk"></button>
+                    <div class="ico_dropdown_menu hid_tbl"></div>
                     <ul class="list_lvl1 drpd_menu_list">
                         <li class="has_dropdown_list ">
                             <a href=""><span>Стекло Цветное</span></a>
+                            <span class="open_cat_drpd_btn hid_dsk"></span>
 
                             <ul class="list_lvl2 drpd_menu_list">
                                 <li>
-                                    <a href=""><span>Wissmach Glass </span></a>
+                                    <a href=""><span>Wissmach Glass</span></a>
                                 </li>
                                 <li class="has_dropdown_list">
                                     <a href=""><span>Spectrum Glass</span></a>
+                                    <span class="open_cat_drpd_btn hid_dsk"></span>
                                     <div class="drpd_bl_lvl3 drpd_menu_block">
                                         <ul class="list_lvl3">
                                             <li><a href="">A-Z (Списком)</a></li>
@@ -128,7 +134,7 @@
                                             <li><a href="">Spirit</a></li>
                                             <li><a href="">Waterglass</a></li>
                                         </ul>
-                                        <div class="drpd_banner clear_fix">
+                                        <div class="drpd_banner clear_fix hid_tbl">
                                             <div class="img">
                                                 <a href="">
                                                     <img src="dist/img/temp/drpd_banner_img.jpg" alt="">
@@ -142,11 +148,11 @@
                                                 4&nbsp;425 <span class="rouble">6</span>
                                             </div>
                                         </div>
-                </div>
-                </li>
-                <li><a href=""><span>Kokomo Glass</span></a></li>
-                <li><a href=""><span>Uroboros Glass</span></a></li>
-                <li><a href=""><span>Bullseye Glass</span></a></li>
+                                    </div>
+                                </li>
+                                <li><a href=""><span>Kokomo Glass</span></a></li>
+                                <li><a href=""><span>Uroboros Glass</span></a></li>
+                                <li><a href=""><span>Bullseye Glass</span></a></li>
                                 <li><a href=""><span>Youghiogheny Glass</span></a></li>
                                 <li><a href=""><span>Schott</span></a></li>
                                 <li><a href=""><span>Разные Стекла</span></a></li>
@@ -154,9 +160,11 @@
                         </li>
                         <li class="has_dropdown_list ">
                             <a href=""><span>Стекло для фьюзинга</span></a>
+                            <span class="open_cat_drpd_btn hid_dsk"></span>
                             <ul class="list_lvl2 drpd_menu_list">
                                 <li class="has_dropdown_list ">
                                     <a href=""><span>Wissmach Glass 2</span></a>
+                                    <span class="open_cat_drpd_btn hid_dsk"></span>
                                     <div class="drpd_bl_lvl3 drpd_menu_block">
                                         <ul class="list_lvl3">
                                             <li><a href="">A-Z (Списком)</a></li>
@@ -189,7 +197,7 @@
                                             <li><a href="">Spirit</a></li>
                                             <li><a href="">Waterglass</a></li>
                                         </ul>
-                                        <div class="drpd_banner clear_fix">
+                                        <div class="drpd_banner clear_fix hid_tbl">
                                             <div class="img">
                                                 <a href="">
                                                     <img src="dist/img/temp/drpd_banner_img.jpg" alt="">
@@ -207,6 +215,7 @@
                                 </li>
                                 <li class="has_dropdown_list">
                                     <a href=""><span>Spectrum Glass 2</span></a>
+                                    <span class="open_cat_drpd_btn hid_dsk"></span>
                                     <div class="drpd_bl_lvl3 drpd_menu_block">
                                         <ul class="list_lvl3">
                                             <li><a href="">A-Z (Списком)</a></li>
@@ -269,7 +278,7 @@
                                             <li><a href="">Spirit</a></li>
                                             <li><a href="">Waterglass</a></li>
                                         </ul>
-                                        <div class="drpd_banner clear_fix">
+                                        <div class="drpd_banner clear_fix hid_tbl">
                                             <div class="img">
                                                 <a href="">
                                                     <img src="dist/img/temp/drpd_banner_img.jpg" alt="">
@@ -290,13 +299,13 @@
                                 <li><a href=""><span>Bullseye Glass</span></a></li>
                                 <li><a href=""><span>Youghiogheny Glass</span></a></li>
                                 <li><a href=""><span>Schott</span></a></li>
-                                    <li><a href=""><span>Разные Стекла</span></a></li>
-                                    <li><a href=""><span>Kokomo Glass</span></a></li>
-                                    <li><a href=""><span>Uroboros Glass</span></a></li>
-                                    <li><a href=""><span>Bullseye Glass</span></a></li>
-                                    <li><a href=""><span>Youghiogheny Glass</span></a></li>
-                                    <li><a href=""><span>Schott</span></a></li>
-                                    <li><a href=""><span>Разные Стекла</span></a></li>
+                                <li><a href=""><span>Разные Стекла</span></a></li>
+                                <li><a href=""><span>Kokomo Glass</span></a></li>
+                                <li><a href=""><span>Uroboros Glass</span></a></li>
+                                <li><a href=""><span>Bullseye Glass</span></a></li>
+                                <li><a href=""><span>Youghiogheny Glass</span></a></li>
+                                <li><a href=""><span>Schott</span></a></li>
+                                <li><a href=""><span>Разные Стекла</span></a></li>
                             </ul>
                         </li>
                         <li><a href=""><span>Инструмент</span></a></li>
@@ -311,96 +320,109 @@
                 </div>
             </div>
             <nav class="site_menu_wrap">
-                <button class="btn mbl_site_menu_btn fa fa-bars hidden_desktop"></button>
-                <ul class="site_menu">
-                    <li>
-                        <a href="">Новые товары</a>
-                    </li>
-                    <li class="active">
-                        <a href="">О компании</a>
-                    </li>
-                    <li>
-                        <a href="">Обучение и семинары</a>
-                    </li>
-                    <li>
-                        <a href="">Оплата и доставка</a>
-                    </li>
-                    <li>
-                        <a href="">Акции</a>
-                    </li>
-                    <li>
-                        <a href="">Контакты</a>
-                    </li>
-                </ul>
+                <button class="btn mbl_site_menu_btn fa fa-bars hid_dsk"></button>
+                <div class="site_menu">
+                    <button class="btn back_mobile_btn fa fa-arrow-circle-left hid_dsk"></button>
+                    <ul class="site_menu_list">
+                        <li>
+                            <a href="">Новые товары</a>
+                        </li>
+                        <li class="active">
+                            <a href="">О компании</a>
+                        </li>
+                        <li>
+                            <a href="">Обучение и семинары</a>
+                        </li>
+                        <li>
+                            <a href="">Оплата и доставка</a>
+                        </li>
+                        <li>
+                            <a href="">Акции</a>
+                        </li>
+                        <li>
+                            <a href="">Контакты</a>
+                        </li>
+                    </ul>
+                    <div class="user_link_mobile hid_dsk">
+                        <div class="sing_in_mob">
+                            <a href="">Вход</a>
+                        </div>
+                        <div class="registr_mob">
+                            <a href="">Регистрация</a>
+                        </div>
+                    </div>
+                </div>
             </nav>
         </div>
     </div>
 </header>
 
 
+<section class="main_slier_section container">
+    <!--main slider-->
+    <div class="main_slider_wrap">
+        <ul class="main_slider">
+            <li class="slide">
+                <img class="slide_img" src="dist/img/temp/main_alsider_img1.jpg" alt="">
+                <div class="slider_cnt">
+                    <div class="table">
+                        <div class="table_cell">
+                            <h2 class="title_slab">
+                                Настольная лампа<br>
+                                Тиффани <span>Searchlight</span>
+                            </h2>
+                            <ul class="prod_sl_params">
+                                <li>Материал стекло / металл</li>
+                                <li>Цвет разноцветный / античная латунь</li>
+                                <li>Цоколь E27</li>
+                                <li>Мощность 100 Вт</li>
+                            </ul>
+                            <div class="sl_price_a_links clear_fix">
+                                <div class="price fl_left">18 500<span class="rouble">6</span></div>
+                                <div class="links">
+                                    <a href="" class="det_link ">Подробнее</a>
+                                    <span class="delimiter">&nbsp;</span>
+                                    <a href="" class="buy_link">Купить</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="slide">
+                <img class="slide_img" src="dist/img/temp/main_alsider_img1.jpg" alt="">
+                <div class="slider_cnt">
+                    <div class="table">
+                        <div class="table_cell">
+                            <h2 class="title_slab">
+                                Настольная лампа<br>
+                                Тиффани <span>Searchlight</span>
+                            </h2>
+                            <ul class="prod_sl_params">
+                                <li>Материал стекло / металл</li>
+                                <li>Цвет разноцветный / античная латунь</li>
+                                <li>Цоколь E27</li>
+                                <li>Мощность 100 Вт</li>
+                            </ul>
+                            <div class="sl_price_a_links clear_fix">
+                                <div class="price fl_left">18 500<span class="rouble">6</span></div>
+                                <div class="links ">
+                                    <a href="" class="det_link">Подробнее</a>
+                                    <span class="delimiter">&nbsp;</span>
+                                    <a href="" class="buy_link">Купить</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <!--end main slider-->
+</section>
+
 <section class="content">
     <div class="container">
-        <!--main slider-->
-        <div class="main_slider_wrap">
-            <ul class="main_slider">
-                <li class="slide">
-                    <img class="slide_img" src="dist/img/temp/main_alsider_img1.jpg" alt="">
-                    <div class="slider_cnt">
-                        <div class="table">
-                            <div class="table_cell">
-                                <h2 class="title_slab">
-                                    Настольная лампа<br>
-                                    Тиффани <span>Searchlight</span>
-                                </h2>
-                                <ul class="prod_sl_params">
-                                    <li>Материал стекло / металл</li>
-                                    <li>Цвет разноцветный / античная латунь</li>
-                                    <li>Цоколь E27</li>
-                                    <li>Мощность 100 Вт</li>
-                                </ul>
-                                <div class="sl_price_a_links clear_fix">
-                                    <div class="price fl_left">18 500<span class="rouble">6</span></div>
-                                    <div class="links">
-                                        <a href="" class="det_link ">Подробнее</a>
-                                        <span class="delimiter">&nbsp;</span>
-                                        <a href="" class="buy_link">Купить</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li class="slide">
-                    <img class="slide_img" src="dist/img/temp/main_alsider_img1.jpg" alt="">
-                    <div class="slider_cnt">
-                        <div class="table">
-                            <div class="table_cell">
-                                <h2 class="title_slab">
-                                    Настольная лампа<br>
-                                    Тиффани <span>Searchlight</span>
-                                </h2>
-                                <ul class="prod_sl_params">
-                                    <li>Материал стекло / металл</li>
-                                    <li>Цвет разноцветный / античная латунь</li>
-                                    <li>Цоколь E27</li>
-                                    <li>Мощность 100 Вт</li>
-                                </ul>
-                                <div class="sl_price_a_links clear_fix">
-                                    <div class="price fl_left">18 500<span class="rouble">6</span></div>
-                                    <div class="links ">
-                                        <a href="" class="det_link">Подробнее</a>
-                                        <span class="delimiter">&nbsp;</span>
-                                        <a href="" class="buy_link">Купить</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </div>
-        <!--end main slider-->
-
         <!--categories-->
         <div class="categories">
             <div class="row">
@@ -841,10 +863,10 @@
     </div>
 </div>
 
-<script src="jquery.min.js"></script>
-<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>-->
-<script src="jquery-ui.min.js"></script>
-<!--<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script>-->
+<!--<script src="jquery.min.js"></script>-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<!--<script src="jquery-ui.min.js"></script>-->
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script>
 <!--<script src="dist/js/production.min.js"></script>&ndash;&gt;-->
 <script src="dist/js/production.js"></script>
 
