@@ -100,15 +100,22 @@
         border-color:#e0e0d5;
         box-shadow:none;
     }
-    .btn{
+    .search_btn{
         position:absolute;
         right:0;
         top:0;
         z-index:2;
         height:30px;
-        width:28px;
+        width:34px;
         line-height:30px;
         font-size:16px;
+        
+        &:before{
+            padding-bottom:4px;
+            display:block;
+            line-height:26px;
+            box-sizing:border-box;
+        }
     }
 }
 .h_search_wrap{
@@ -225,6 +232,10 @@
     &:before{
         margin-right:7px;
     }
+
+    &:hover{
+        color:@white;
+    }
 }
 .ico_dropdown_menu{
     position:absolute;
@@ -283,6 +294,10 @@
         width:248px;
         padding:0;
         position:relative;
+
+        &.list_lvl1{
+            padding-top:3px;
+        }
         >li{
 
             &:first-child{
@@ -319,7 +334,7 @@
     .list_lvl2,
     .drpd_bl_lvl3{
         width:248px;
-        padding:0;
+        padding:3px 0 0;
         position:absolute;
         left:100%;
         top:0;
@@ -483,3 +498,62 @@
     }
 }
 // end site_menu
+
+
+.h_feedback_block{
+    position:relative;
+}
+
+.dropdown{
+    padding:22px 29px 32px;
+    border:1px solid @redDarken;
+    background-color:@white;
+
+    &:before,
+    &:after{
+        content:'';
+        position:absolute;
+        left:50%;
+        top:-11px;
+        margin-left:-9px;
+        border-bottom:11px solid @redDarken;
+        border-left:9px solid transparent;
+        border-right:9px solid transparent;
+    }
+    &:after{
+        margin-top:1px;
+        border-bottom-color:@white; 
+    }
+
+}
+.fb_call_pp{
+    width:320px;
+    left:50%;
+    margin-top:20px;
+    margin-left:-160px;
+    
+
+    .field{
+        line-height:28px;
+        height:30px;
+        padding:1px 9px 0 ;
+    }
+    .caption{
+        margin-bottom:13px;
+    }
+}
+.tel_code_txt{
+    width:25px;
+    line-height:30px;
+}
+.tel_code_row{
+    width:55px;
+    margin-right:10px;
+}
+.tel_num_row{
+    margin-left:90px;
+}
+.headline_pp{
+    margin:0 0 13px;
+    border-bottom:2px solid @grayBorder;
+}
