@@ -325,26 +325,320 @@ $(document).ready(function() {
 
 
 
-    //pdp carousel
+    //pdp slider
     (function(){
         $('.pdp_slider').bxSlider({
             pagerCustom: '.pdp_small_img'
         });
     })();
 
+    //show/hide password
+    (function() {
+        var $body = $('body');
+
+        $body.on('click', '.show_password', showPassword);
+        $body.on('click', '.hide_password', hidePassword);
+
+        function showPassword(e) {
+            e.preventDefault();
+            $(this).removeClass('show_password fa-eye-slash').addClass('hide_password fa-eye').parent().find('input').prop('type', 'text');
+        }
+
+        function hidePassword(e) {
+            e.preventDefault();
+            $(this).removeClass('hide_password fa-eye').addClass('show_password fa-eye-slash').parent().find('input').prop('type', 'password');
+        }
+    })();
+
+    $('.tooltip_btn').tooltip();
+
+
+    (function() {
+
+        var copyBnt =  $('.copy_txt_btn');
+
+        copyBnt.bind('click', function() {
+            var input = document.querySelector('#vendor-code');
+
+            input.setSelectionRange(0, input.value.length + 1);
+            try {
+                var success = document.execCommand('copy');
+                if (success) {
+                    $(this).trigger('copied', ['Артикул скопирован в буфер обмена']);
+                } else {
+                    $(this).trigger('copied', ['Скопируйте с помощью клавиш Ctrl+С']);
+                }
+            } catch (err) {
+                $(this).trigger('copied', ['Скопируйте с помощью клавиш Ctrl+С']);
+            }
+        });
+
+        // Handler for updating the tooltip message.
+        copyBnt.bind('copied', function(event, message) {
+            $(this).attr('title', message)
+                .tooltip('fixTitle')
+                .tooltip('show')
+                .attr('title', ['Скопировать артикул в буфер обмена'])
+                .tooltip('fixTitle');
+        });
+    })();
+
+
+
+    $(function () {
+        $('[data-toggle="popover"]').popover({
+                html: true,
+                placement : 'top',
+                template: '<div class="popover"><button class="popover_close btn fa fa-close"></button><div class="popover-content"></div><div class="arrow"></div></div>'
+            });
+    });
+
+
+    //show all with text replace
+    (function(){
+        $('body').on(clickHandler, '.show_all', function(){
+
+            var _this = $(this),
+                thisAttrTxt = _this.attr('data-toggle-text'),
+                thisTxt = _this.text(),
+                wrapArtTxt = _this.closest('.show_all_wrap');
+
+            function replaceTxt(){
+                _this.attr('data-toggle-text',thisTxt);
+                thisTxt = _this.text(thisAttrTxt);
+            }
+
+            if(_this.closest('.show_all_wrap').hasClass('opened')){
+                _this.removeClass('opened');
+                wrapArtTxt.removeClass('opened');
+                replaceTxt();
+            } else{
+                _this.addClass('opened');
+                wrapArtTxt.addClass('opened');
+                replaceTxt();
+            }
+        });
+    })();
+
+
+
+//modal
+    (function() {
+        var lastHref = '';
+        $('body').on('click', '[data-toggle="modal"]', function(e) {
+            e.preventDefault();
+            var $modal = $('#modal'),
+                $this = $(this),
+                winWith = window.innerWidth;
+
+
+            // когда мы кликаем на войти\регистрацию с мобильного меню
+            if($this.hasClass('mbl_pp_link')){
+
+                $('.site_menu').removeClass('open_menu');
+                $('.backdrop').remove();
+                $body.removeClass('backdrop_in');
+                $body.css('padding-right', 0);
+
+                setTimeout(function(){
+                    showModal();
+                }, 500);
+            } else{
+                showModal();
+            }
+
+            $modal.on('shown.bs.modal', centeredPopUp);
+            $modal.on('show.bs.modal', centeredPopUp);
+            $(window).on('resize', centeredPopUp);
+
+            function showModal(){
+                if(lastHref === $this.data('href') && !$this.hasClass('pp_no_bg')){
+                    paramsModal();
+                    console.log('ravnu!')
+                } else {
+                    $modal.find('.modal_content').load($this.data('href'), paramsModal);
+
+                }
+            }
+            function paramsModal() {
+                $modal.iePlaceholder();
+                //$modal.find('.modal_block').removeClass('without_close');
+
+
+                $modal.find('.styler').styler({
+                    selectSmartPositioning: false,
+                    singleSelectzIndex: 1
+                });
+                $(this).find('.jq-selectbox').removeAttr('data-validavalidate'); //for correct work with validate class, must be before validate init
+
+
+                if($modal.find('.scroll-pane').length){
+                    $modal.find('.scroll-pane').jScrollPane({
+                        autoReinitialise: true,
+                        verticalDragMinHeight: 17,
+                        verticalDragMaxHeight: 17
+                    });
+                }
+                $modal.find('.mask_tel').inputmask('+38 (999) 999 99 99', {'placeholder': '+38 (___) ___ __ __'});
+
+
+                //$modal.find('.question_ico').popover({trigger: 'manual'}).on(clickHandler, function(e) {
+                //    // if any other popovers are visible, hide them
+                //    if(isVisiblePP) {
+                //        hideAllPopovers();
+                //    }
+                //    $(this).popover('show');
+                //    // handle clicking on the popover itself
+                //    $('.popover').off(clickHandler).on(clickHandler, function(e) {
+                //        e.stopPropagation(); // prevent event for bubbling up => will not get caught with document.onclick
+                //    });
+                //
+                //    isVisiblePP = true;
+                //    e.stopPropagation();
+                //});
+
+
+                $modal.find('.datepicker').datepicker({
+                    maxDate: "+0d"
+                });
+
+                //if($modal.find('#map').length){
+                //
+                //    var latitude = "49.982403";
+                //    var longitude = "36.247789";
+                //    var zoommap = 17;
+                //
+                //    (function() {
+                //        google.maps.event.addDomListener(window, 'load', init);
+                //        function init() {
+                //            var mapOptions = {
+                //                center: new google.maps.LatLng(latitude, longitude),
+                //                zoom: zoommap,
+                //                zoomControl: false,
+                //                disableDoubleClickZoom: true,
+                //                mapTypeControl: false,
+                //                scaleControl: false,
+                //                scrollwheel: true,
+                //                panControl: false,
+                //                streetViewControl: false,
+                //                draggable : true,
+                //                overviewMapControl: false,
+                //                overviewMapControlOptions: {
+                //                    opened: false
+                //                },
+                //                mapTypeId: google.maps.MapTypeId.ROADMAP
+                //            };
+                //            var mapElement = document.getElementById('our_addr_map');
+                //            var map = new google.maps.Map(mapElement, mapOptions);
+                //
+                //
+                //
+                //
+                //            new google.maps.Marker({
+                //                position: new google.maps.LatLng(latitude,longitude),
+                //                map: map,
+                //                icon: 'dist/img/gg_map_pin_ico.png'
+                //            });
+                //
+                //        }
+                //    })();
+                //}
 
 
 
 
+                //validations
+                $('.validation_wish_pp').formValidation({
+                    successEvent: function() {
+                        //отправить форму аяксом, в ответ можно присылать нужный html
+                        $modal.find('.modal_block').find('.modal_content').load('ajax/wish_popup_add.php', paramsModal);
+                        centeredPopUp();
+                    }
+                }).on('submit', function() {
+                    return false;
+                });
+                //
+                ////validations
+                //$('.order_call,.buy_one_click_form').formValidation({
+                //    successEvent: function() {
+                //        //отправить форму аяксом, в ответ можно присылать нужный html
+                //        $modal.find('.modal_block').addClass('without_close').find('.modal_content').html('<div class="modal_content_inner notice"><p class="notice_descript">Спасибо! <br> Мы в ближайшее время свяжемся с Вами!</p></div>');
+                //        centeredPopUp();
+                //    }
+                //}).on('submit', function() {
+                //    return false;
+                //});
+                //
+                ////formValidation
+                //$('.sing_in_form, .tell_payment_form, .leave_review_form, .report_entry_form, .ask_question_pp_form').formValidation({
+                //    successEvent: function() {
+                //        //отправить форму аяксом, в ответ можно присылать нужный html
+                //        //$modal.find('.modal_block').addClass('without_close').find('.modal_content').html('<div class="modal_content_inner notice"><p class="notice_descript">Спасибо! <br> Мы в ближайшее время свяжемся с Вами!</p></div>');
+                //        //centeredPopUp();
+                //    }
+                //}).on('submit', function() {
+                //    return false;
+                //});
 
 
+                lastHref = $this.data('href');
+
+                if($this.hasClass('pp_no_bg')){
+                    $modal.modal({
+                        backdrop: false,
+                        hasScroll: true
+                    });
+                    console.log(2)
+                } else{
+                    $modal.modal();
+                }
+            }
+            return false;
+        });
 
 
+        function centeredPopUp() {
+            var $modal = $('.modal_block'),
+                blockHeight = $modal.outerHeight(),
+                windowHeight = $(window).outerHeight(),
+                margin = (windowHeight - blockHeight)/2;
+
+            if(windowHeight < blockHeight) {
+                $modal.css('marginTop', 20);
+            } else {
+                $modal.css('marginTop', margin);
+            }
+        }
+
+        $('body').on('hidden.bs.modal', '#modal', function () {
+            $(this).removeData('bs.modal');
+        });
+    })();
 
 
+    //anchor
+    (function() {
+        $('a[href*=#]').bind(clickHandler, function(scrolling){
+            var anchor = $(this);
+            $('html, body').stop().animate({
+                scrollTop: $(anchor.attr('href')).offset().top - 15}, 500);
+            scrolling.preventDefault();
+        });
+    })();
 
+    (function() {
+        var reviewForm = $('.leave_review'),
+            timeAnim = 400;
 
-
+        function showReviewForm(){
+            reviewForm.slideDown(timeAnim);
+        }
+        function hideReviewForm(){
+            reviewForm.slideUp(timeAnim);
+        }
+        $('body').on('click', '.open_review_form', showReviewForm);
+        $('body').on('click', '.close_review_form', hideReviewForm);
+    })();
 
 
 
@@ -475,12 +769,12 @@ $(document).ready(function() {
     //}());
 
     //filter views_btns
-    (function(){
-        $('body').on(clickHandler, '.views_btns a', function(){
-            $(this).closest('.views_btns').find('.view_btn').removeClass('active');
-            $(this).addClass('active')
-        });
-    }());
+    //(function(){
+    //    $('body').on(clickHandler, '.views_btns a', function(){
+    //        $(this).closest('.views_btns').find('.view_btn').removeClass('active');
+    //        $(this).addClass('active')
+    //    });
+    //}());
 
 
 
@@ -493,204 +787,41 @@ $(document).ready(function() {
         var idPopover = $('.popover').attr('id');
         $('[aria-describedby="'+idPopover+'"]').popover('hide');
     });*/
-    var isVisiblePP = false;
-    var hideAllPopovers = function() {
-        $('[data-toggle="popover"]').each(function() {
-            $(this).popover('hide');
-        });
-    };
-    $('body').on(clickHandler, function(e) {
-        if($('.popover').is(':visible')){
-            hideAllPopovers();
-            isVisiblePP = false;
-            e.stopPropagation();
-            console.log(2)
-        }
-    });
-    $(function () {
-
-        $('[data-toggle="popover"]').popover({
-            trigger: 'manual'
-        }).on(clickHandler, function(e) {
-            // if any other popovers are visible, hide them
-            if(isVisiblePP) {
-                hideAllPopovers();
-            }
-
-            $(this).popover('show');
-
-            // handle clicking on the popover itself
-            $('.popover').off(clickHandler).on(clickHandler, function(e) {
-                e.stopPropagation(); // prevent event for bubbling up => will not get caught with document.onclick
-            });
-
-            isVisiblePP = true;
-            e.stopPropagation();
-        });
-    });
-
-
-//modal
-    (function() {
-
-        $('body').on('click', '[data-toggle="modal"]', function(e) {
-            e.preventDefault();
-            var $modal = $('#modal'),
-                $this = $(this),
-                winWith = window.innerWidth;
-
-            if($this.hasClass('go_to_sing_in')){
-                if(winWith >= 479 ){
-                    $('.sing_in[data-toggle="dropdown"]').dropdown('toggle');
-                } else {
-                    $modal.find('.modal_content').load($this.attr('data-href'), showModal);
-                }
-            } else{
-                $modal.find('.modal_content').load($this.attr('href'), showModal);
-            }
-
-            $modal.on('shown.bs.modal', centeredPopUp);
-            $modal.on('show.bs.modal', centeredPopUp);
-            $(window).on('resize', centeredPopUp);
-
-            function showModal() {
-                $modal.iePlaceholder();
-                $modal.find('.modal_block').removeClass('without_close');
-
-
-                $modal.find('.styler').styler({
-                    selectSmartPositioning: false,
-                    singleSelectzIndex: 1
-                });
-                $(this).find('.jq-selectbox').removeAttr('data-validavalidate'); //for correct work with validate class, must be before validate init
-
-
-                if($modal.find('.scroll-pane').length){
-                    $modal.find('.scroll-pane').jScrollPane({
-                        autoReinitialise: true
-                    });
-                }
-                $modal.find('.mask_tel').inputmask('+38 (999) 999 99 99', {'placeholder': '+38 (___) ___ __ __'});
-
-
-                $modal.find('.question_ico').popover({trigger: 'manual'}).on(clickHandler, function(e) {
-                    // if any other popovers are visible, hide them
-                    if(isVisiblePP) {
-                        hideAllPopovers();
-                    }
-                    $(this).popover('show');
-                    // handle clicking on the popover itself
-                    $('.popover').off(clickHandler).on(clickHandler, function(e) {
-                        e.stopPropagation(); // prevent event for bubbling up => will not get caught with document.onclick
-                    });
-
-                    isVisiblePP = true;
-                    e.stopPropagation();
-                });
-
-
-                $modal.find('.datepicker').datepicker({
-                    maxDate: "+0d"
-                });
-
-                if($modal.find('#map').length){
-
-                    var latitude = "49.982403";
-                    var longitude = "36.247789";
-                    var zoommap = 17;
-
-                    (function() {
-                        google.maps.event.addDomListener(window, 'load', init);
-                        function init() {
-                            var mapOptions = {
-                                center: new google.maps.LatLng(latitude, longitude),
-                                zoom: zoommap,
-                                zoomControl: false,
-                                disableDoubleClickZoom: true,
-                                mapTypeControl: false,
-                                scaleControl: false,
-                                scrollwheel: true,
-                                panControl: false,
-                                streetViewControl: false,
-                                draggable : true,
-                                overviewMapControl: false,
-                                overviewMapControlOptions: {
-                                    opened: false
-                                },
-                                mapTypeId: google.maps.MapTypeId.ROADMAP
-                            };
-                            var mapElement = document.getElementById('our_addr_map');
-                            var map = new google.maps.Map(mapElement, mapOptions);
-
-
-
-
-                            new google.maps.Marker({
-                                position: new google.maps.LatLng(latitude,longitude),
-                                map: map,
-                                icon: 'dist/img/gg_map_pin_ico.png'
-                            });
-
-                        }
-                    })();
-                }
-
-
-
-
-                //validations
-                $('.recover_pass_form').formValidation({
-                    successEvent: function() {
-                        //отправить форму аяксом, в ответ можно присылать нужный html
-                        $modal.find('.modal_block').addClass('without_close').find('.modal_content').html('<div class="modal_content_inner notice"><p class="notice_descript">Проверьте почту. Мы отправили вам письмо<br>с дальнейшими инструкциями</p></div>');
-                        centeredPopUp();
-                    }
-                }).on('submit', function() {
-                    return false;
-                });
-
-                //validations
-                $('.order_call,.buy_one_click_form').formValidation({
-                    successEvent: function() {
-                        //отправить форму аяксом, в ответ можно присылать нужный html
-                        $modal.find('.modal_block').addClass('without_close').find('.modal_content').html('<div class="modal_content_inner notice"><p class="notice_descript">Спасибо! <br> Мы в ближайшее время свяжемся с Вами!</p></div>');
-                        centeredPopUp();
-                    }
-                }).on('submit', function() {
-                    return false;
-                });
-
-                //formValidation
-                $('.sing_in_form, .tell_payment_form, .leave_review_form, .report_entry_form, .ask_question_pp_form').formValidation({
-                    successEvent: function() {
-                        //отправить форму аяксом, в ответ можно присылать нужный html
-                        //$modal.find('.modal_block').addClass('without_close').find('.modal_content').html('<div class="modal_content_inner notice"><p class="notice_descript">Спасибо! <br> Мы в ближайшее время свяжемся с Вами!</p></div>');
-                        //centeredPopUp();
-                    }
-                }).on('submit', function() {
-                    return false;
-                });
-
-
-                $modal.modal();
-            }
-            return false;
-        });
-
-
-        function centeredPopUp() {
-            var $modal = $('.modal_block'),
-                blockHeight = $modal.outerHeight(),
-                windowHeight = $(window).outerHeight(),
-                margin = (windowHeight - blockHeight)/2;
-
-            if(windowHeight < blockHeight) {
-                $modal.css('marginTop', 20);
-            } else {
-                $modal.css('marginTop', margin);
-            }
-        }
-    })();
+    //var isVisiblePP = false;
+    //var hideAllPopovers = function() {
+    //    $('[data-toggle="popover"]').each(function() {
+    //        $(this).popover('hide');
+    //    });
+    //};
+    //$('body').on(clickHandler, function(e) {
+    //    if($('.popover').is(':visible')){
+    //        hideAllPopovers();
+    //        isVisiblePP = false;
+    //        e.stopPropagation();
+    //        console.log(2)
+    //    }
+    //});
+    //$(function () {
+    //
+    //    $('[data-toggle="popover"]').popover({
+    //        trigger: 'manual'
+    //    }).on(clickHandler, function(e) {
+    //        // if any other popovers are visible, hide them
+    //        if(isVisiblePP) {
+    //            hideAllPopovers();
+    //        }
+    //
+    //        $(this).popover('show');
+    //
+    //        // handle clicking on the popover itself
+    //        $('.popover').off(clickHandler).on(clickHandler, function(e) {
+    //            e.stopPropagation(); // prevent event for bubbling up => will not get caught with document.onclick
+    //        });
+    //
+    //        isVisiblePP = true;
+    //        e.stopPropagation();
+    //    });
+    //});
 
 
 
@@ -700,31 +831,7 @@ $(document).ready(function() {
 
 
 
-    //show all text on haracteristic in detailed
-    (function(){
-        $('body').on(clickHandler, '.show_all', function(){
 
-            var _this = $(this),
-                thisAttrTxt = _this.attr('data-toggle-text'),
-                thisTxt = _this.text(),
-                wrapArtTxt = _this.closest('.show_all_wrap');
-
-            function replaceTxt(){
-                _this.attr('data-toggle-text',thisTxt);
-                thisTxt = _this.text(thisAttrTxt);
-            }
-
-            if(_this.closest('.show_all_wrap').hasClass('opened')){
-                _this.removeClass('opened');
-                wrapArtTxt.removeClass('opened');
-                replaceTxt();
-            } else{
-                _this.addClass('opened');
-                wrapArtTxt.addClass('opened');
-                replaceTxt();
-            }
-        });
-    })();
     //pay_bonus
     (function(){
         $('body').on(clickHandler, '.pay_bonus', function(e){
@@ -985,14 +1092,6 @@ $(document).ready(function() {
 
 
 
-    $(function (){
-         $('a[href*=#]').bind(clickHandler, function(scrolling){
-             var anchor = $(this);
-             $('html, body').stop().animate({
-             scrollTop: $(anchor.attr('href')).offset().top - 55}, 500);
-         scrolling.preventDefault();
-         });
-     });
 
 
 

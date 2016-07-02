@@ -1,16 +1,19 @@
-<div class="modal_content_inner pp_form text_center">
-    <h2 class="title_pp text_center">
-        Восстановление пароля
-    </h2>
-
-    <div class="modal_cnt_wrap text_center">
-        <form class="recover_pass_form">
-            <div class="row">
-                <input type="text" data-validate="required" class="field" value="" placeholder="Введите e-mail адрес">
-            </div>
-            <div class="row text_center">
-                <input type="submit" class="btn" value="Отправить">
-            </div>
-        </form>
+<div class="modal_content_inner form_popup ">
+    <h2 class="subtitle text_center">Восстановление пароля</h2>
+    <div class="sub_pp_txt text_center">
+        Введите e-mail указанный при регистрации.<br>
+        Мы отправим на него новый пароль
     </div>
+    <form class="validation_form">
+        <div class="field_group">
+            <label class="tit_label" for="login_email">E-mail</label>
+            <label class="field_wrap fa fa-envelope">
+                <input type="email" id="login_email" class="field big_field" value="" placeholder="">
+            </label>
+        </div>
+        <a href="" data-toggle="modal" data-href="ajax/sing_in.php">Уже вспомнил!:)<br> (если надо переход назад на попап Входа)</a>
+        <div class="popup_btn_groupe">
+            <input type="submit" class="btn btn_red w_190" value="Войти">
+        </div>
+    </form>
 </div>

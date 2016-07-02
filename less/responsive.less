@@ -382,6 +382,7 @@
         background:@redDarken;
 
         &:hover{
+            color:@white;
             background:@redDarken_hover;
         }
     }
@@ -863,6 +864,15 @@
             top:0; 
         }
     }
+    .backdrop{
+        position:absolute;
+        left:0;
+        top:0;
+        height:100%;
+        width:100%;
+        background:rgba(115,115,115,0.3);
+        z-index:104;
+    }
 }
 
 
@@ -932,7 +942,6 @@
 
     .h_search_mbl_pp{
         height:195px;
-        padding:70px 15px 16px;
         position:fixed;
         left:0;
         top:-200px;
@@ -950,6 +959,10 @@
             visibility:visible;
             transform:translate3d(0,200px,0);
             transition:transform 500ms ease;
+        }
+        .container{
+            position:relative;
+            padding:70px 15px 16px;
         }
     }
     .title_search{
@@ -1300,6 +1313,7 @@
             }
         }
     }
+
 }
 
 //------------------------------------------680

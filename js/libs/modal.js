@@ -38,7 +38,8 @@
   Modal.DEFAULTS = {
     backdrop: true,
     keyboard: true,
-    show: true
+    show: true,
+    hasScroll: false
   }
 
   Modal.prototype.toggle = function (_relatedTarget) {
@@ -57,7 +58,12 @@
 
     this.checkScrollbar()
     this.setScrollbar()
-    this.$body.addClass('modal-open')
+
+    console.log(!this.options.hasScroll)
+
+    if(!this.options.hasScroll){
+      this.$body.addClass('modal-open')
+    }
 
     this.escape()
     this.resize()
@@ -254,8 +260,10 @@
   }
 
   Modal.prototype.setScrollbar = function () {
-    var bodyPad = parseInt((this.$body.css('padding-right') || 0), 10)
-    if (this.bodyIsOverflowing) this.$body.css('padding-right', bodyPad + this.scrollbarWidth)
+    if(!this.options.hasScroll){
+      var bodyPad = parseInt((this.$body.css('padding-right') || 0), 10)
+      if (this.bodyIsOverflowing) this.$body.css('padding-right', bodyPad + this.scrollbarWidth)
+    }
   }
 
   Modal.prototype.resetScrollbar = function () {

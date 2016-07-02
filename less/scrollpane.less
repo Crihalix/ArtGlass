@@ -4,7 +4,9 @@
  * Include this stylesheet in your site or copy and paste the styles below into your stylesheet - jScrollPane
  * may not operate correctly without them.
  */
-
+.scroll-pane{
+  margin-right:-9px;
+}
 .jspContainer
 {
   overflow: hidden;
@@ -23,8 +25,8 @@
 {
   position: absolute;
   top: 0;
-  right: 0;
-  width: 4px;
+  right: 9px;
+  width: 5px;
   height: 100%;
 }
 
@@ -49,22 +51,30 @@
 
 .jspTrack
 {
-  background: transparent;
   position: relative;
+  height:100%;
+  background-color:@blueIcons;
+  border:1px solid @grayLight;
+  border-radius:3px;
+  border-top:0;
+  border-bottom:none;
 }
 
-.jspDrag
-{
-  background: #8dd0fb;
+.jspDrag{
+  width:17px;
+  //height:17px!important;
   position: relative;
   top: 0;
-  left: 0;
-  cursor: pointer;
-  border-radius:2px;
+  left: -7px;
+  border-radius:50%;
+  //border-bottom:2px solid @footerBg;
+  background: @linkColor;
   transition:background-color 200ms ease;
+  cursor: pointer;
+  box-shadow:inset 0 -2px ;
 
   &.jspHover{
-    background-color:#30a7f3;
+    background-color:@footerBg;
   }
 }
 

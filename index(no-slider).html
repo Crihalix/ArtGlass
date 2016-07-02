@@ -63,7 +63,7 @@
 
                                 </div>
                                 <div class="btn_row ">
-                                    <input type="submit" class="btn btn-default full_w" value="Жду звонка">
+                                    <input type="submit" class="btn btn_default full_w" value="Жду звонка">
                                 </div>
                             </form>
                         </div>
@@ -86,18 +86,20 @@
             <div class="h_search fl_left">
                 <button class="btn open_search_pp fa fa-search mbl_show"></button>
                 <div class="h_search_mbl_pp">
-                    <button class="btn close_pp_btn close_search_pp fa fa-close mbl_show"></button>
-                    <h3 class="title_search mbl_show">Поиск в каталоге</h3>
-                    <fieldset class="h_search_wrap">
-                        <input type="search" value="" placeholder="" class="field">
-                        <button class="btn search_btn fa fa-search"></button>
-                    </fieldset>
+                    <div class="container">
+                        <button class="btn close_pp_btn close_search_pp fa fa-close mbl_show"></button>
+                        <h3 class="title_search mbl_show">Поиск в каталоге</h3>
+                        <fieldset class="h_search_wrap">
+                            <input type="search" value="" placeholder="" class="field">
+                            <button class="btn search_btn fa fa-search"></button>
+                        </fieldset>
+                    </div>
                 </div>
             </div>
             <div class="h_user_links fl_right">
-                <a href="" class="sing_in fa fa-user">Вход</a>
+                <a href="" class="sing_in fa fa-user" data-toggle="modal" data-href="ajax/sing_in.php">Вход</a>
                 <span class="separator">|</span>
-                <a href="" class="">Регистрация</a>
+                <a href="" class="registr_link" data-toggle="modal" data-href="ajax/registration.php">Регистрация</a>
             </div>
             <div class="viewed_a_pending">
                 <div class="item viewed">
@@ -373,10 +375,11 @@
                     </ul>
                     <div class="user_link_mobile hid_dsk">
                         <div class="sing_in_mob">
-                            <a href="">Вход</a>
+                            <a href="" class="mbl_pp_link" data-toggle="modal" data-href="ajax/sing_in.php">Вход</a>
+
                         </div>
                         <div class="registr_mob">
-                            <a href="">Регистрация</a>
+                            <a href="" class="mbl_pp_link" data-toggle="modal" data-href="ajax/registration.php">Регистрация</a>
                         </div>
                     </div>
                 </div>

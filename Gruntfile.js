@@ -80,6 +80,7 @@ module.exports = function(grunt) {
                src:  'dist/css/*.css'
             }
         },
+
         watch: {
             options: {
                 livereload: true

@@ -615,6 +615,748 @@
 
 }(jQuery);
 
+/*!
+ * clipboard.js v1.5.12
+ * https://zenorocha.github.io/clipboard.js
+ *
+ * Licensed MIT © Zeno Rocha
+ */
+(function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.Clipboard = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+var matches = require('matches-selector')
+
+module.exports = function (element, selector, checkYoSelf) {
+  var parent = checkYoSelf ? element : element.parentNode
+
+  while (parent && parent !== document) {
+    if (matches(parent, selector)) return parent;
+    parent = parent.parentNode
+  }
+}
+
+},{"matches-selector":5}],2:[function(require,module,exports){
+var closest = require('closest');
+
+/**
+ * Delegates event to a selector.
+ *
+ * @param {Element} element
+ * @param {String} selector
+ * @param {String} type
+ * @param {Function} callback
+ * @param {Boolean} useCapture
+ * @return {Object}
+ */
+function delegate(element, selector, type, callback, useCapture) {
+    var listenerFn = listener.apply(this, arguments);
+
+    element.addEventListener(type, listenerFn, useCapture);
+
+    return {
+        destroy: function() {
+            element.removeEventListener(type, listenerFn, useCapture);
+        }
+    }
+}
+
+/**
+ * Finds closest match and invokes callback.
+ *
+ * @param {Element} element
+ * @param {String} selector
+ * @param {String} type
+ * @param {Function} callback
+ * @return {Function}
+ */
+function listener(element, selector, type, callback) {
+    return function(e) {
+        e.delegateTarget = closest(e.target, selector, true);
+
+        if (e.delegateTarget) {
+            callback.call(element, e);
+        }
+    }
+}
+
+module.exports = delegate;
+
+},{"closest":1}],3:[function(require,module,exports){
+/**
+ * Check if argument is a HTML element.
+ *
+ * @param {Object} value
+ * @return {Boolean}
+ */
+exports.node = function(value) {
+    return value !== undefined
+        && value instanceof HTMLElement
+        && value.nodeType === 1;
+};
+
+/**
+ * Check if argument is a list of HTML elements.
+ *
+ * @param {Object} value
+ * @return {Boolean}
+ */
+exports.nodeList = function(value) {
+    var type = Object.prototype.toString.call(value);
+
+    return value !== undefined
+        && (type === '[object NodeList]' || type === '[object HTMLCollection]')
+        && ('length' in value)
+        && (value.length === 0 || exports.node(value[0]));
+};
+
+/**
+ * Check if argument is a string.
+ *
+ * @param {Object} value
+ * @return {Boolean}
+ */
+exports.string = function(value) {
+    return typeof value === 'string'
+        || value instanceof String;
+};
+
+/**
+ * Check if argument is a function.
+ *
+ * @param {Object} value
+ * @return {Boolean}
+ */
+exports.fn = function(value) {
+    var type = Object.prototype.toString.call(value);
+
+    return type === '[object Function]';
+};
+
+},{}],4:[function(require,module,exports){
+var is = require('./is');
+var delegate = require('delegate');
+
+/**
+ * Validates all params and calls the right
+ * listener function based on its target type.
+ *
+ * @param {String|HTMLElement|HTMLCollection|NodeList} target
+ * @param {String} type
+ * @param {Function} callback
+ * @return {Object}
+ */
+function listen(target, type, callback) {
+    if (!target && !type && !callback) {
+        throw new Error('Missing required arguments');
+    }
+
+    if (!is.string(type)) {
+        throw new TypeError('Second argument must be a String');
+    }
+
+    if (!is.fn(callback)) {
+        throw new TypeError('Third argument must be a Function');
+    }
+
+    if (is.node(target)) {
+        return listenNode(target, type, callback);
+    }
+    else if (is.nodeList(target)) {
+        return listenNodeList(target, type, callback);
+    }
+    else if (is.string(target)) {
+        return listenSelector(target, type, callback);
+    }
+    else {
+        throw new TypeError('First argument must be a String, HTMLElement, HTMLCollection, or NodeList');
+    }
+}
+
+/**
+ * Adds an event listener to a HTML element
+ * and returns a remove listener function.
+ *
+ * @param {HTMLElement} node
+ * @param {String} type
+ * @param {Function} callback
+ * @return {Object}
+ */
+function listenNode(node, type, callback) {
+    node.addEventListener(type, callback);
+
+    return {
+        destroy: function() {
+            node.removeEventListener(type, callback);
+        }
+    }
+}
+
+/**
+ * Add an event listener to a list of HTML elements
+ * and returns a remove listener function.
+ *
+ * @param {NodeList|HTMLCollection} nodeList
+ * @param {String} type
+ * @param {Function} callback
+ * @return {Object}
+ */
+function listenNodeList(nodeList, type, callback) {
+    Array.prototype.forEach.call(nodeList, function(node) {
+        node.addEventListener(type, callback);
+    });
+
+    return {
+        destroy: function() {
+            Array.prototype.forEach.call(nodeList, function(node) {
+                node.removeEventListener(type, callback);
+            });
+        }
+    }
+}
+
+/**
+ * Add an event listener to a selector
+ * and returns a remove listener function.
+ *
+ * @param {String} selector
+ * @param {String} type
+ * @param {Function} callback
+ * @return {Object}
+ */
+function listenSelector(selector, type, callback) {
+    return delegate(document.body, selector, type, callback);
+}
+
+module.exports = listen;
+
+},{"./is":3,"delegate":2}],5:[function(require,module,exports){
+
+/**
+ * Element prototype.
+ */
+
+var proto = Element.prototype;
+
+/**
+ * Vendor function.
+ */
+
+var vendor = proto.matchesSelector
+  || proto.webkitMatchesSelector
+  || proto.mozMatchesSelector
+  || proto.msMatchesSelector
+  || proto.oMatchesSelector;
+
+/**
+ * Expose `match()`.
+ */
+
+module.exports = match;
+
+/**
+ * Match `el` to `selector`.
+ *
+ * @param {Element} el
+ * @param {String} selector
+ * @return {Boolean}
+ * @api public
+ */
+
+function match(el, selector) {
+  if (vendor) return vendor.call(el, selector);
+  var nodes = el.parentNode.querySelectorAll(selector);
+  for (var i = 0; i < nodes.length; ++i) {
+    if (nodes[i] == el) return true;
+  }
+  return false;
+}
+},{}],6:[function(require,module,exports){
+function select(element) {
+    var selectedText;
+
+    if (element.nodeName === 'INPUT' || element.nodeName === 'TEXTAREA') {
+        element.focus();
+        element.setSelectionRange(0, element.value.length);
+
+        selectedText = element.value;
+    }
+    else {
+        if (element.hasAttribute('contenteditable')) {
+            element.focus();
+        }
+
+        var selection = window.getSelection();
+        var range = document.createRange();
+
+        range.selectNodeContents(element);
+        selection.removeAllRanges();
+        selection.addRange(range);
+
+        selectedText = selection.toString();
+    }
+
+    return selectedText;
+}
+
+module.exports = select;
+
+},{}],7:[function(require,module,exports){
+function E () {
+	// Keep this empty so it's easier to inherit from
+  // (via https://github.com/lipsmack from https://github.com/scottcorgan/tiny-emitter/issues/3)
+}
+
+E.prototype = {
+	on: function (name, callback, ctx) {
+    var e = this.e || (this.e = {});
+
+    (e[name] || (e[name] = [])).push({
+      fn: callback,
+      ctx: ctx
+    });
+
+    return this;
+  },
+
+  once: function (name, callback, ctx) {
+    var self = this;
+    function listener () {
+      self.off(name, listener);
+      callback.apply(ctx, arguments);
+    };
+
+    listener._ = callback
+    return this.on(name, listener, ctx);
+  },
+
+  emit: function (name) {
+    var data = [].slice.call(arguments, 1);
+    var evtArr = ((this.e || (this.e = {}))[name] || []).slice();
+    var i = 0;
+    var len = evtArr.length;
+
+    for (i; i < len; i++) {
+      evtArr[i].fn.apply(evtArr[i].ctx, data);
+    }
+
+    return this;
+  },
+
+  off: function (name, callback) {
+    var e = this.e || (this.e = {});
+    var evts = e[name];
+    var liveEvents = [];
+
+    if (evts && callback) {
+      for (var i = 0, len = evts.length; i < len; i++) {
+        if (evts[i].fn !== callback && evts[i].fn._ !== callback)
+          liveEvents.push(evts[i]);
+      }
+    }
+
+    // Remove event from queue to prevent memory leak
+    // Suggested by https://github.com/lazd
+    // Ref: https://github.com/scottcorgan/tiny-emitter/commit/c6ebfaa9bc973b33d110a84a307742b7cf94c953#commitcomment-5024910
+
+    (liveEvents.length)
+      ? e[name] = liveEvents
+      : delete e[name];
+
+    return this;
+  }
+};
+
+module.exports = E;
+
+},{}],8:[function(require,module,exports){
+(function (global, factory) {
+    if (typeof define === "function" && define.amd) {
+        define(['module', 'select'], factory);
+    } else if (typeof exports !== "undefined") {
+        factory(module, require('select'));
+    } else {
+        var mod = {
+            exports: {}
+        };
+        factory(mod, global.select);
+        global.clipboardAction = mod.exports;
+    }
+})(this, function (module, _select) {
+    'use strict';
+
+    var _select2 = _interopRequireDefault(_select);
+
+    function _interopRequireDefault(obj) {
+        return obj && obj.__esModule ? obj : {
+            default: obj
+        };
+    }
+
+    var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) {
+        return typeof obj;
+    } : function (obj) {
+        return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj;
+    };
+
+    function _classCallCheck(instance, Constructor) {
+        if (!(instance instanceof Constructor)) {
+            throw new TypeError("Cannot call a class as a function");
+        }
+    }
+
+    var _createClass = function () {
+        function defineProperties(target, props) {
+            for (var i = 0; i < props.length; i++) {
+                var descriptor = props[i];
+                descriptor.enumerable = descriptor.enumerable || false;
+                descriptor.configurable = true;
+                if ("value" in descriptor) descriptor.writable = true;
+                Object.defineProperty(target, descriptor.key, descriptor);
+            }
+        }
+
+        return function (Constructor, protoProps, staticProps) {
+            if (protoProps) defineProperties(Constructor.prototype, protoProps);
+            if (staticProps) defineProperties(Constructor, staticProps);
+            return Constructor;
+        };
+    }();
+
+    var ClipboardAction = function () {
+        /**
+         * @param {Object} options
+         */
+
+        function ClipboardAction(options) {
+            _classCallCheck(this, ClipboardAction);
+
+            this.resolveOptions(options);
+            this.initSelection();
+        }
+
+        /**
+         * Defines base properties passed from constructor.
+         * @param {Object} options
+         */
+
+
+        ClipboardAction.prototype.resolveOptions = function resolveOptions() {
+            var options = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+
+            this.action = options.action;
+            this.emitter = options.emitter;
+            this.target = options.target;
+            this.text = options.text;
+            this.trigger = options.trigger;
+
+            this.selectedText = '';
+        };
+
+        ClipboardAction.prototype.initSelection = function initSelection() {
+            if (this.text) {
+                this.selectFake();
+            } else if (this.target) {
+                this.selectTarget();
+            }
+        };
+
+        ClipboardAction.prototype.selectFake = function selectFake() {
+            var _this = this;
+
+            var isRTL = document.documentElement.getAttribute('dir') == 'rtl';
+
+            this.removeFake();
+
+            this.fakeHandlerCallback = function () {
+                return _this.removeFake();
+            };
+            this.fakeHandler = document.body.addEventListener('click', this.fakeHandlerCallback) || true;
+
+            this.fakeElem = document.createElement('textarea');
+            // Prevent zooming on iOS
+            this.fakeElem.style.fontSize = '12pt';
+            // Reset box model
+            this.fakeElem.style.border = '0';
+            this.fakeElem.style.padding = '0';
+            this.fakeElem.style.margin = '0';
+            // Move element out of screen horizontally
+            this.fakeElem.style.position = 'absolute';
+            this.fakeElem.style[isRTL ? 'right' : 'left'] = '-9999px';
+            // Move element to the same position vertically
+            this.fakeElem.style.top = (window.pageYOffset || document.documentElement.scrollTop) + 'px';
+            this.fakeElem.setAttribute('readonly', '');
+            this.fakeElem.value = this.text;
+
+            document.body.appendChild(this.fakeElem);
+
+            this.selectedText = (0, _select2.default)(this.fakeElem);
+            this.copyText();
+        };
+
+        ClipboardAction.prototype.removeFake = function removeFake() {
+            if (this.fakeHandler) {
+                document.body.removeEventListener('click', this.fakeHandlerCallback);
+                this.fakeHandler = null;
+                this.fakeHandlerCallback = null;
+            }
+
+            if (this.fakeElem) {
+                document.body.removeChild(this.fakeElem);
+                this.fakeElem = null;
+            }
+        };
+
+        ClipboardAction.prototype.selectTarget = function selectTarget() {
+            this.selectedText = (0, _select2.default)(this.target);
+            this.copyText();
+        };
+
+        ClipboardAction.prototype.copyText = function copyText() {
+            var succeeded = undefined;
+
+            try {
+                succeeded = document.execCommand(this.action);
+            } catch (err) {
+                succeeded = false;
+            }
+
+            this.handleResult(succeeded);
+        };
+
+        ClipboardAction.prototype.handleResult = function handleResult(succeeded) {
+            if (succeeded) {
+                this.emitter.emit('success', {
+                    action: this.action,
+                    text: this.selectedText,
+                    trigger: this.trigger,
+                    clearSelection: this.clearSelection.bind(this)
+                });
+            } else {
+                this.emitter.emit('error', {
+                    action: this.action,
+                    trigger: this.trigger,
+                    clearSelection: this.clearSelection.bind(this)
+                });
+            }
+        };
+
+        ClipboardAction.prototype.clearSelection = function clearSelection() {
+            if (this.target) {
+                this.target.blur();
+            }
+
+            window.getSelection().removeAllRanges();
+        };
+
+        ClipboardAction.prototype.destroy = function destroy() {
+            this.removeFake();
+        };
+
+        _createClass(ClipboardAction, [{
+            key: 'action',
+            set: function set() {
+                var action = arguments.length <= 0 || arguments[0] === undefined ? 'copy' : arguments[0];
+
+                this._action = action;
+
+                if (this._action !== 'copy' && this._action !== 'cut') {
+                    throw new Error('Invalid "action" value, use either "copy" or "cut"');
+                }
+            },
+            get: function get() {
+                return this._action;
+            }
+        }, {
+            key: 'target',
+            set: function set(target) {
+                if (target !== undefined) {
+                    if (target && (typeof target === 'undefined' ? 'undefined' : _typeof(target)) === 'object' && target.nodeType === 1) {
+                        if (this.action === 'copy' && target.hasAttribute('disabled')) {
+                            throw new Error('Invalid "target" attribute. Please use "readonly" instead of "disabled" attribute');
+                        }
+
+                        if (this.action === 'cut' && (target.hasAttribute('readonly') || target.hasAttribute('disabled'))) {
+                            throw new Error('Invalid "target" attribute. You can\'t cut text from elements with "readonly" or "disabled" attributes');
+                        }
+
+                        this._target = target;
+                    } else {
+                        throw new Error('Invalid "target" value, use a valid Element');
+                    }
+                }
+            },
+            get: function get() {
+                return this._target;
+            }
+        }]);
+
+        return ClipboardAction;
+    }();
+
+    module.exports = ClipboardAction;
+});
+
+},{"select":6}],9:[function(require,module,exports){
+(function (global, factory) {
+    if (typeof define === "function" && define.amd) {
+        define(['module', './clipboard-action', 'tiny-emitter', 'good-listener'], factory);
+    } else if (typeof exports !== "undefined") {
+        factory(module, require('./clipboard-action'), require('tiny-emitter'), require('good-listener'));
+    } else {
+        var mod = {
+            exports: {}
+        };
+        factory(mod, global.clipboardAction, global.tinyEmitter, global.goodListener);
+        global.clipboard = mod.exports;
+    }
+})(this, function (module, _clipboardAction, _tinyEmitter, _goodListener) {
+    'use strict';
+
+    var _clipboardAction2 = _interopRequireDefault(_clipboardAction);
+
+    var _tinyEmitter2 = _interopRequireDefault(_tinyEmitter);
+
+    var _goodListener2 = _interopRequireDefault(_goodListener);
+
+    function _interopRequireDefault(obj) {
+        return obj && obj.__esModule ? obj : {
+            default: obj
+        };
+    }
+
+    function _classCallCheck(instance, Constructor) {
+        if (!(instance instanceof Constructor)) {
+            throw new TypeError("Cannot call a class as a function");
+        }
+    }
+
+    function _possibleConstructorReturn(self, call) {
+        if (!self) {
+            throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+        }
+
+        return call && (typeof call === "object" || typeof call === "function") ? call : self;
+    }
+
+    function _inherits(subClass, superClass) {
+        if (typeof superClass !== "function" && superClass !== null) {
+            throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);
+        }
+
+        subClass.prototype = Object.create(superClass && superClass.prototype, {
+            constructor: {
+                value: subClass,
+                enumerable: false,
+                writable: true,
+                configurable: true
+            }
+        });
+        if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
+    }
+
+    var Clipboard = function (_Emitter) {
+        _inherits(Clipboard, _Emitter);
+
+        /**
+         * @param {String|HTMLElement|HTMLCollection|NodeList} trigger
+         * @param {Object} options
+         */
+
+        function Clipboard(trigger, options) {
+            _classCallCheck(this, Clipboard);
+
+            var _this = _possibleConstructorReturn(this, _Emitter.call(this));
+
+            _this.resolveOptions(options);
+            _this.listenClick(trigger);
+            return _this;
+        }
+
+        /**
+         * Defines if attributes would be resolved using internal setter functions
+         * or custom functions that were passed in the constructor.
+         * @param {Object} options
+         */
+
+
+        Clipboard.prototype.resolveOptions = function resolveOptions() {
+            var options = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+
+            this.action = typeof options.action === 'function' ? options.action : this.defaultAction;
+            this.target = typeof options.target === 'function' ? options.target : this.defaultTarget;
+            this.text = typeof options.text === 'function' ? options.text : this.defaultText;
+        };
+
+        Clipboard.prototype.listenClick = function listenClick(trigger) {
+            var _this2 = this;
+
+            this.listener = (0, _goodListener2.default)(trigger, 'click', function (e) {
+                return _this2.onClick(e);
+            });
+        };
+
+        Clipboard.prototype.onClick = function onClick(e) {
+            var trigger = e.delegateTarget || e.currentTarget;
+
+            if (this.clipboardAction) {
+                this.clipboardAction = null;
+            }
+
+            this.clipboardAction = new _clipboardAction2.default({
+                action: this.action(trigger),
+                target: this.target(trigger),
+                text: this.text(trigger),
+                trigger: trigger,
+                emitter: this
+            });
+        };
+
+        Clipboard.prototype.defaultAction = function defaultAction(trigger) {
+            return getAttributeValue('action', trigger);
+        };
+
+        Clipboard.prototype.defaultTarget = function defaultTarget(trigger) {
+            var selector = getAttributeValue('target', trigger);
+
+            if (selector) {
+                return document.querySelector(selector);
+            }
+        };
+
+        Clipboard.prototype.defaultText = function defaultText(trigger) {
+            return getAttributeValue('text', trigger);
+        };
+
+        Clipboard.prototype.destroy = function destroy() {
+            this.listener.destroy();
+
+            if (this.clipboardAction) {
+                this.clipboardAction.destroy();
+                this.clipboardAction = null;
+            }
+        };
+
+        return Clipboard;
+    }(_tinyEmitter2.default);
+
+    /**
+     * Helper function to retrieve attribute value.
+     * @param {String} suffix
+     * @param {Element} element
+     */
+    function getAttributeValue(suffix, element) {
+        var attribute = 'data-clipboard-' + suffix;
+
+        if (!element.hasAttribute(attribute)) {
+            return;
+        }
+
+        return element.getAttribute(attribute);
+    }
+
+    module.exports = Clipboard;
+});
+
+},{"./clipboard-action":8,"good-listener":4,"tiny-emitter":7}]},{},[9])(9)
+});
 /* ========================================================================
  * Bootstrap: dropdown.js v3.3.1
  * http://getbootstrap.com/javascript/#dropdowns
@@ -5861,7 +6603,8 @@
   Modal.DEFAULTS = {
     backdrop: true,
     keyboard: true,
-    show: true
+    show: true,
+    hasScroll: false
   }
 
   Modal.prototype.toggle = function (_relatedTarget) {
@@ -5880,7 +6623,12 @@
 
     this.checkScrollbar()
     this.setScrollbar()
-    this.$body.addClass('modal-open')
+
+    console.log(!this.options.hasScroll)
+
+    if(!this.options.hasScroll){
+      this.$body.addClass('modal-open')
+    }
 
     this.escape()
     this.resize()
@@ -6077,8 +6825,10 @@
   }
 
   Modal.prototype.setScrollbar = function () {
-    var bodyPad = parseInt((this.$body.css('padding-right') || 0), 10)
-    if (this.bodyIsOverflowing) this.$body.css('padding-right', bodyPad + this.scrollbarWidth)
+    if(!this.options.hasScroll){
+      var bodyPad = parseInt((this.$body.css('padding-right') || 0), 10)
+      if (this.bodyIsOverflowing) this.$body.css('padding-right', bodyPad + this.scrollbarWidth)
+    }
   }
 
   Modal.prototype.resetScrollbar = function () {
@@ -6220,7 +6970,7 @@
     function FormValidation(options) {
         this.options = $.extend({
             dataRequired: 'validate',
-            inputWrap: '.row',
+            inputWrap: '.row_vld',
             submitButton: 'input[type=submit]',
             event: 'keyup change',
             errorClass: 'error',
@@ -6661,26 +7411,320 @@ $(document).ready(function() {
 
 
 
-    //pdp carousel
+    //pdp slider
     (function(){
         $('.pdp_slider').bxSlider({
             pagerCustom: '.pdp_small_img'
         });
     })();
 
+    //show/hide password
+    (function() {
+        var $body = $('body');
+
+        $body.on('click', '.show_password', showPassword);
+        $body.on('click', '.hide_password', hidePassword);
+
+        function showPassword(e) {
+            e.preventDefault();
+            $(this).removeClass('show_password fa-eye-slash').addClass('hide_password fa-eye').parent().find('input').prop('type', 'text');
+        }
+
+        function hidePassword(e) {
+            e.preventDefault();
+            $(this).removeClass('hide_password fa-eye').addClass('show_password fa-eye-slash').parent().find('input').prop('type', 'password');
+        }
+    })();
+
+    $('.tooltip_btn').tooltip();
+
+
+    (function() {
+
+        var copyBnt =  $('.copy_txt_btn');
+
+        copyBnt.bind('click', function() {
+            var input = document.querySelector('#vendor-code');
+
+            input.setSelectionRange(0, input.value.length + 1);
+            try {
+                var success = document.execCommand('copy');
+                if (success) {
+                    $(this).trigger('copied', ['Артикул скопирован в буфер обмена']);
+                } else {
+                    $(this).trigger('copied', ['Скопируйте с помощью клавиш Ctrl+С']);
+                }
+            } catch (err) {
+                $(this).trigger('copied', ['Скопируйте с помощью клавиш Ctrl+С']);
+            }
+        });
+
+        // Handler for updating the tooltip message.
+        copyBnt.bind('copied', function(event, message) {
+            $(this).attr('title', message)
+                .tooltip('fixTitle')
+                .tooltip('show')
+                .attr('title', ['Скопировать артикул в буфер обмена'])
+                .tooltip('fixTitle');
+        });
+    })();
+
+
+
+    $(function () {
+        $('[data-toggle="popover"]').popover({
+                html: true,
+                placement : 'top',
+                template: '<div class="popover"><button class="popover_close btn fa fa-close"></button><div class="popover-content"></div><div class="arrow"></div></div>'
+            });
+    });
+
+
+    //show all with text replace
+    (function(){
+        $('body').on(clickHandler, '.show_all', function(){
+
+            var _this = $(this),
+                thisAttrTxt = _this.attr('data-toggle-text'),
+                thisTxt = _this.text(),
+                wrapArtTxt = _this.closest('.show_all_wrap');
+
+            function replaceTxt(){
+                _this.attr('data-toggle-text',thisTxt);
+                thisTxt = _this.text(thisAttrTxt);
+            }
+
+            if(_this.closest('.show_all_wrap').hasClass('opened')){
+                _this.removeClass('opened');
+                wrapArtTxt.removeClass('opened');
+                replaceTxt();
+            } else{
+                _this.addClass('opened');
+                wrapArtTxt.addClass('opened');
+                replaceTxt();
+            }
+        });
+    })();
+
+
+
+//modal
+    (function() {
+        var lastHref = '';
+        $('body').on('click', '[data-toggle="modal"]', function(e) {
+            e.preventDefault();
+            var $modal = $('#modal'),
+                $this = $(this),
+                winWith = window.innerWidth;
+
+
+            // когда мы кликаем на войти\регистрацию с мобильного меню
+            if($this.hasClass('mbl_pp_link')){
+
+                $('.site_menu').removeClass('open_menu');
+                $('.backdrop').remove();
+                $body.removeClass('backdrop_in');
+                $body.css('padding-right', 0);
+
+                setTimeout(function(){
+                    showModal();
+                }, 500);
+            } else{
+                showModal();
+            }
+
+            $modal.on('shown.bs.modal', centeredPopUp);
+            $modal.on('show.bs.modal', centeredPopUp);
+            $(window).on('resize', centeredPopUp);
+
+            function showModal(){
+                if(lastHref === $this.data('href') && !$this.hasClass('pp_no_bg')){
+                    paramsModal();
+                    console.log('ravnu!')
+                } else {
+                    $modal.find('.modal_content').load($this.data('href'), paramsModal);
+
+                }
+            }
+            function paramsModal() {
+                $modal.iePlaceholder();
+                //$modal.find('.modal_block').removeClass('without_close');
+
+
+                $modal.find('.styler').styler({
+                    selectSmartPositioning: false,
+                    singleSelectzIndex: 1
+                });
+                $(this).find('.jq-selectbox').removeAttr('data-validavalidate'); //for correct work with validate class, must be before validate init
+
+
+                if($modal.find('.scroll-pane').length){
+                    $modal.find('.scroll-pane').jScrollPane({
+                        autoReinitialise: true,
+                        verticalDragMinHeight: 17,
+                        verticalDragMaxHeight: 17
+                    });
+                }
+                $modal.find('.mask_tel').inputmask('+38 (999) 999 99 99', {'placeholder': '+38 (___) ___ __ __'});
+
+
+                //$modal.find('.question_ico').popover({trigger: 'manual'}).on(clickHandler, function(e) {
+                //    // if any other popovers are visible, hide them
+                //    if(isVisiblePP) {
+                //        hideAllPopovers();
+                //    }
+                //    $(this).popover('show');
+                //    // handle clicking on the popover itself
+                //    $('.popover').off(clickHandler).on(clickHandler, function(e) {
+                //        e.stopPropagation(); // prevent event for bubbling up => will not get caught with document.onclick
+                //    });
+                //
+                //    isVisiblePP = true;
+                //    e.stopPropagation();
+                //});
+
+
+                $modal.find('.datepicker').datepicker({
+                    maxDate: "+0d"
+                });
+
+                //if($modal.find('#map').length){
+                //
+                //    var latitude = "49.982403";
+                //    var longitude = "36.247789";
+                //    var zoommap = 17;
+                //
+                //    (function() {
+                //        google.maps.event.addDomListener(window, 'load', init);
+                //        function init() {
+                //            var mapOptions = {
+                //                center: new google.maps.LatLng(latitude, longitude),
+                //                zoom: zoommap,
+                //                zoomControl: false,
+                //                disableDoubleClickZoom: true,
+                //                mapTypeControl: false,
+                //                scaleControl: false,
+                //                scrollwheel: true,
+                //                panControl: false,
+                //                streetViewControl: false,
+                //                draggable : true,
+                //                overviewMapControl: false,
+                //                overviewMapControlOptions: {
+                //                    opened: false
+                //                },
+                //                mapTypeId: google.maps.MapTypeId.ROADMAP
+                //            };
+                //            var mapElement = document.getElementById('our_addr_map');
+                //            var map = new google.maps.Map(mapElement, mapOptions);
+                //
+                //
+                //
+                //
+                //            new google.maps.Marker({
+                //                position: new google.maps.LatLng(latitude,longitude),
+                //                map: map,
+                //                icon: 'dist/img/gg_map_pin_ico.png'
+                //            });
+                //
+                //        }
+                //    })();
+                //}
 
 
 
 
+                //validations
+                $('.validation_wish_pp').formValidation({
+                    successEvent: function() {
+                        //отправить форму аяксом, в ответ можно присылать нужный html
+                        $modal.find('.modal_block').find('.modal_content').load('ajax/wish_popup_add.php', paramsModal);
+                        centeredPopUp();
+                    }
+                }).on('submit', function() {
+                    return false;
+                });
+                //
+                ////validations
+                //$('.order_call,.buy_one_click_form').formValidation({
+                //    successEvent: function() {
+                //        //отправить форму аяксом, в ответ можно присылать нужный html
+                //        $modal.find('.modal_block').addClass('without_close').find('.modal_content').html('<div class="modal_content_inner notice"><p class="notice_descript">Спасибо! <br> Мы в ближайшее время свяжемся с Вами!</p></div>');
+                //        centeredPopUp();
+                //    }
+                //}).on('submit', function() {
+                //    return false;
+                //});
+                //
+                ////formValidation
+                //$('.sing_in_form, .tell_payment_form, .leave_review_form, .report_entry_form, .ask_question_pp_form').formValidation({
+                //    successEvent: function() {
+                //        //отправить форму аяксом, в ответ можно присылать нужный html
+                //        //$modal.find('.modal_block').addClass('without_close').find('.modal_content').html('<div class="modal_content_inner notice"><p class="notice_descript">Спасибо! <br> Мы в ближайшее время свяжемся с Вами!</p></div>');
+                //        //centeredPopUp();
+                //    }
+                //}).on('submit', function() {
+                //    return false;
+                //});
 
 
+                lastHref = $this.data('href');
+
+                if($this.hasClass('pp_no_bg')){
+                    $modal.modal({
+                        backdrop: false,
+                        hasScroll: true
+                    });
+                    console.log(2)
+                } else{
+                    $modal.modal();
+                }
+            }
+            return false;
+        });
 
 
+        function centeredPopUp() {
+            var $modal = $('.modal_block'),
+                blockHeight = $modal.outerHeight(),
+                windowHeight = $(window).outerHeight(),
+                margin = (windowHeight - blockHeight)/2;
+
+            if(windowHeight < blockHeight) {
+                $modal.css('marginTop', 20);
+            } else {
+                $modal.css('marginTop', margin);
+            }
+        }
+
+        $('body').on('hidden.bs.modal', '#modal', function () {
+            $(this).removeData('bs.modal');
+        });
+    })();
 
 
+    //anchor
+    (function() {
+        $('a[href*=#]').bind(clickHandler, function(scrolling){
+            var anchor = $(this);
+            $('html, body').stop().animate({
+                scrollTop: $(anchor.attr('href')).offset().top - 15}, 500);
+            scrolling.preventDefault();
+        });
+    })();
 
+    (function() {
+        var reviewForm = $('.leave_review'),
+            timeAnim = 400;
 
-
+        function showReviewForm(){
+            reviewForm.slideDown(timeAnim);
+        }
+        function hideReviewForm(){
+            reviewForm.slideUp(timeAnim);
+        }
+        $('body').on('click', '.open_review_form', showReviewForm);
+        $('body').on('click', '.close_review_form', hideReviewForm);
+    })();
 
 
 
@@ -6811,12 +7855,12 @@ $(document).ready(function() {
     //}());
 
     //filter views_btns
-    (function(){
-        $('body').on(clickHandler, '.views_btns a', function(){
-            $(this).closest('.views_btns').find('.view_btn').removeClass('active');
-            $(this).addClass('active')
-        });
-    }());
+    //(function(){
+    //    $('body').on(clickHandler, '.views_btns a', function(){
+    //        $(this).closest('.views_btns').find('.view_btn').removeClass('active');
+    //        $(this).addClass('active')
+    //    });
+    //}());
 
 
 
@@ -6829,204 +7873,41 @@ $(document).ready(function() {
         var idPopover = $('.popover').attr('id');
         $('[aria-describedby="'+idPopover+'"]').popover('hide');
     });*/
-    var isVisiblePP = false;
-    var hideAllPopovers = function() {
-        $('[data-toggle="popover"]').each(function() {
-            $(this).popover('hide');
-        });
-    };
-    $('body').on(clickHandler, function(e) {
-        if($('.popover').is(':visible')){
-            hideAllPopovers();
-            isVisiblePP = false;
-            e.stopPropagation();
-            console.log(2)
-        }
-    });
-    $(function () {
-
-        $('[data-toggle="popover"]').popover({
-            trigger: 'manual'
-        }).on(clickHandler, function(e) {
-            // if any other popovers are visible, hide them
-            if(isVisiblePP) {
-                hideAllPopovers();
-            }
-
-            $(this).popover('show');
-
-            // handle clicking on the popover itself
-            $('.popover').off(clickHandler).on(clickHandler, function(e) {
-                e.stopPropagation(); // prevent event for bubbling up => will not get caught with document.onclick
-            });
-
-            isVisiblePP = true;
-            e.stopPropagation();
-        });
-    });
-
-
-//modal
-    (function() {
-
-        $('body').on('click', '[data-toggle="modal"]', function(e) {
-            e.preventDefault();
-            var $modal = $('#modal'),
-                $this = $(this),
-                winWith = window.innerWidth;
-
-            if($this.hasClass('go_to_sing_in')){
-                if(winWith >= 479 ){
-                    $('.sing_in[data-toggle="dropdown"]').dropdown('toggle');
-                } else {
-                    $modal.find('.modal_content').load($this.attr('data-href'), showModal);
-                }
-            } else{
-                $modal.find('.modal_content').load($this.attr('href'), showModal);
-            }
-
-            $modal.on('shown.bs.modal', centeredPopUp);
-            $modal.on('show.bs.modal', centeredPopUp);
-            $(window).on('resize', centeredPopUp);
-
-            function showModal() {
-                $modal.iePlaceholder();
-                $modal.find('.modal_block').removeClass('without_close');
-
-
-                $modal.find('.styler').styler({
-                    selectSmartPositioning: false,
-                    singleSelectzIndex: 1
-                });
-                $(this).find('.jq-selectbox').removeAttr('data-validavalidate'); //for correct work with validate class, must be before validate init
-
-
-                if($modal.find('.scroll-pane').length){
-                    $modal.find('.scroll-pane').jScrollPane({
-                        autoReinitialise: true
-                    });
-                }
-                $modal.find('.mask_tel').inputmask('+38 (999) 999 99 99', {'placeholder': '+38 (___) ___ __ __'});
-
-
-                $modal.find('.question_ico').popover({trigger: 'manual'}).on(clickHandler, function(e) {
-                    // if any other popovers are visible, hide them
-                    if(isVisiblePP) {
-                        hideAllPopovers();
-                    }
-                    $(this).popover('show');
-                    // handle clicking on the popover itself
-                    $('.popover').off(clickHandler).on(clickHandler, function(e) {
-                        e.stopPropagation(); // prevent event for bubbling up => will not get caught with document.onclick
-                    });
-
-                    isVisiblePP = true;
-                    e.stopPropagation();
-                });
-
-
-                $modal.find('.datepicker').datepicker({
-                    maxDate: "+0d"
-                });
-
-                if($modal.find('#map').length){
-
-                    var latitude = "49.982403";
-                    var longitude = "36.247789";
-                    var zoommap = 17;
-
-                    (function() {
-                        google.maps.event.addDomListener(window, 'load', init);
-                        function init() {
-                            var mapOptions = {
-                                center: new google.maps.LatLng(latitude, longitude),
-                                zoom: zoommap,
-                                zoomControl: false,
-                                disableDoubleClickZoom: true,
-                                mapTypeControl: false,
-                                scaleControl: false,
-                                scrollwheel: true,
-                                panControl: false,
-                                streetViewControl: false,
-                                draggable : true,
-                                overviewMapControl: false,
-                                overviewMapControlOptions: {
-                                    opened: false
-                                },
-                                mapTypeId: google.maps.MapTypeId.ROADMAP
-                            };
-                            var mapElement = document.getElementById('our_addr_map');
-                            var map = new google.maps.Map(mapElement, mapOptions);
-
-
-
-
-                            new google.maps.Marker({
-                                position: new google.maps.LatLng(latitude,longitude),
-                                map: map,
-                                icon: 'dist/img/gg_map_pin_ico.png'
-                            });
-
-                        }
-                    })();
-                }
-
-
-
-
-                //validations
-                $('.recover_pass_form').formValidation({
-                    successEvent: function() {
-                        //отправить форму аяксом, в ответ можно присылать нужный html
-                        $modal.find('.modal_block').addClass('without_close').find('.modal_content').html('<div class="modal_content_inner notice"><p class="notice_descript">Проверьте почту. Мы отправили вам письмо<br>с дальнейшими инструкциями</p></div>');
-                        centeredPopUp();
-                    }
-                }).on('submit', function() {
-                    return false;
-                });
-
-                //validations
-                $('.order_call,.buy_one_click_form').formValidation({
-                    successEvent: function() {
-                        //отправить форму аяксом, в ответ можно присылать нужный html
-                        $modal.find('.modal_block').addClass('without_close').find('.modal_content').html('<div class="modal_content_inner notice"><p class="notice_descript">Спасибо! <br> Мы в ближайшее время свяжемся с Вами!</p></div>');
-                        centeredPopUp();
-                    }
-                }).on('submit', function() {
-                    return false;
-                });
-
-                //formValidation
-                $('.sing_in_form, .tell_payment_form, .leave_review_form, .report_entry_form, .ask_question_pp_form').formValidation({
-                    successEvent: function() {
-                        //отправить форму аяксом, в ответ можно присылать нужный html
-                        //$modal.find('.modal_block').addClass('without_close').find('.modal_content').html('<div class="modal_content_inner notice"><p class="notice_descript">Спасибо! <br> Мы в ближайшее время свяжемся с Вами!</p></div>');
-                        //centeredPopUp();
-                    }
-                }).on('submit', function() {
-                    return false;
-                });
-
-
-                $modal.modal();
-            }
-            return false;
-        });
-
-
-        function centeredPopUp() {
-            var $modal = $('.modal_block'),
-                blockHeight = $modal.outerHeight(),
-                windowHeight = $(window).outerHeight(),
-                margin = (windowHeight - blockHeight)/2;
-
-            if(windowHeight < blockHeight) {
-                $modal.css('marginTop', 20);
-            } else {
-                $modal.css('marginTop', margin);
-            }
-        }
-    })();
+    //var isVisiblePP = false;
+    //var hideAllPopovers = function() {
+    //    $('[data-toggle="popover"]').each(function() {
+    //        $(this).popover('hide');
+    //    });
+    //};
+    //$('body').on(clickHandler, function(e) {
+    //    if($('.popover').is(':visible')){
+    //        hideAllPopovers();
+    //        isVisiblePP = false;
+    //        e.stopPropagation();
+    //        console.log(2)
+    //    }
+    //});
+    //$(function () {
+    //
+    //    $('[data-toggle="popover"]').popover({
+    //        trigger: 'manual'
+    //    }).on(clickHandler, function(e) {
+    //        // if any other popovers are visible, hide them
+    //        if(isVisiblePP) {
+    //            hideAllPopovers();
+    //        }
+    //
+    //        $(this).popover('show');
+    //
+    //        // handle clicking on the popover itself
+    //        $('.popover').off(clickHandler).on(clickHandler, function(e) {
+    //            e.stopPropagation(); // prevent event for bubbling up => will not get caught with document.onclick
+    //        });
+    //
+    //        isVisiblePP = true;
+    //        e.stopPropagation();
+    //    });
+    //});
 
 
 
@@ -7036,31 +7917,7 @@ $(document).ready(function() {
 
 
 
-    //show all text on haracteristic in detailed
-    (function(){
-        $('body').on(clickHandler, '.show_all', function(){
 
-            var _this = $(this),
-                thisAttrTxt = _this.attr('data-toggle-text'),
-                thisTxt = _this.text(),
-                wrapArtTxt = _this.closest('.show_all_wrap');
-
-            function replaceTxt(){
-                _this.attr('data-toggle-text',thisTxt);
-                thisTxt = _this.text(thisAttrTxt);
-            }
-
-            if(_this.closest('.show_all_wrap').hasClass('opened')){
-                _this.removeClass('opened');
-                wrapArtTxt.removeClass('opened');
-                replaceTxt();
-            } else{
-                _this.addClass('opened');
-                wrapArtTxt.addClass('opened');
-                replaceTxt();
-            }
-        });
-    })();
     //pay_bonus
     (function(){
         $('body').on(clickHandler, '.pay_bonus', function(e){
@@ -7321,14 +8178,6 @@ $(document).ready(function() {
 
 
 
-    $(function (){
-         $('a[href*=#]').bind(clickHandler, function(scrolling){
-             var anchor = $(this);
-             $('html, body').stop().animate({
-             scrollTop: $(anchor.attr('href')).offset().top - 55}, 500);
-         scrolling.preventDefault();
-         });
-     });
 
 
 

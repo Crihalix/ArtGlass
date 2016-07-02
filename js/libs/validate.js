@@ -2,7 +2,7 @@
     function FormValidation(options) {
         this.options = $.extend({
             dataRequired: 'validate',
-            inputWrap: '.row',
+            inputWrap: '.row_vld',
             submitButton: 'input[type=submit]',
             event: 'keyup change',
             errorClass: 'error',
