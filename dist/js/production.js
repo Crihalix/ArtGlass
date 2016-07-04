@@ -7101,7 +7101,7 @@ $(document).ready(function() {
     });
     var $body = $('body');
 
-//dropdownMenu width
+    //dropdownMenu width
     (function () {
         var containerWidth,
             catalogDropdown = $('.catalog_menu_dropdown'),
@@ -7233,7 +7233,7 @@ $(document).ready(function() {
     })();
 
 
-    //open_textarea
+    //read_all_txt
     (function(){
         $('body').on(clickHandler, '.read_all_txt', function(){
 
@@ -7261,7 +7261,7 @@ $(document).ready(function() {
         });
     })();
 
-    //open_textarea
+    //h_search_mbl_pp
     (function(){
         var $searchBlock = $('.h_search_mbl_pp');
 
@@ -7373,6 +7373,11 @@ $(document).ready(function() {
 
     $('.dropdown_toggle').dropdown();
 
+    $('body').on('click', '.dropdown', function (e) {
+        if (!$(event.target).hasClass("dropdown").length) {
+            e.stopPropagation();
+        }
+    });
 
 
 
@@ -7436,8 +7441,9 @@ $(document).ready(function() {
         }
     })();
 
-    $('.tooltip_btn').tooltip();
 
+    //bootstrap tooltip
+    $('.tooltip_btn').tooltip();
 
     (function() {
 
@@ -7471,12 +7477,13 @@ $(document).ready(function() {
 
 
 
+    //bootstrap popover
     $(function () {
         $('[data-toggle="popover"]').popover({
-                html: true,
-                placement : 'top',
-                template: '<div class="popover"><button class="popover_close btn fa fa-close"></button><div class="popover-content"></div><div class="arrow"></div></div>'
-            });
+            html: true,
+            placement : 'top',
+            template: '<div class="popover"><button class="popover_close btn fa fa-close"></button><div class="popover-content"></div><div class="arrow"></div></div>'
+        });
     });
 
 
@@ -7543,7 +7550,12 @@ $(document).ready(function() {
                     console.log('ravnu!')
                 } else {
                     $modal.find('.modal_content').load($this.data('href'), paramsModal);
+                }
 
+                if($this.hasClass('pp_no_close')){
+                    $modal.find('.close_modal').addClass('hidden');
+                } else {
+                    $modal.find('.close_modal').removeClass('hidden');
                 }
             }
             function paramsModal() {
@@ -7712,6 +7724,7 @@ $(document).ready(function() {
         });
     })();
 
+    //leave review form
     (function() {
         var reviewForm = $('.leave_review'),
             timeAnim = 400;
@@ -7726,43 +7739,241 @@ $(document).ready(function() {
         $('body').on('click', '.close_review_form', hideReviewForm);
     })();
 
+    //open catalog in filter
+    (function() {
+            var timeAnim = 400;
+
+
+        $('body').on('click', '.filter_head_tg', function(){
+            var filterCatalogList = $(this).closest('.filter_catalog');
+
+            if(filterCatalogList.hasClass('opened')){
+                filterCatalogList.removeClass('opened');
+                filterCatalogList.find('.filter_catalog_list').slideUp(timeAnim);
+            } else {
+                filterCatalogList.addClass('opened');
+                filterCatalogList.find('.filter_catalog_list').slideDown(timeAnim);
+            }
+        });
+    })();
 
 
 
+    //slider ui
+    (function () {
+
+        var objectColor = [
+            {
+                code : '#ffffff',
+                name : 'белый'
+            }, {
+                code : '#ff0000',
+                name : 'Красный'
+            }, {
+                code : '#ff7700',
+                name : 'Оранжевый'
+            }, {
+                code : '#ffee00',
+                name : 'Желтый'
+            }, {
+                code : '#99ff00',
+                name : 'Жесто-салатовый'
+            }, {
+                code : '#22ff00',
+                name : 'Салатовый'
+            }, {
+                code : '#00ff2b',
+                name : 'Салатовой2'
+            }, {
+                code : '#00ffa2',
+                name : 'Голубой'
+            }, {
+                code : '#00e6ff',
+                name : 'Голубой2'
+            }, {
+                code : '#0080ff',
+                name : 'Светло-синий'
+            }, {
+                code : '#0008ff',
+                name : 'Синий'
+            }, {
+                code : '#6600ff',
+                name : 'Синий2'
+            }, {
+                code : '#e600ff',
+                name : 'Фиолетовый'
+            }, {
+                code : '#ff00a2',
+                name : 'Розовый'
+            }, {
+                code : '#333333',
+                name : 'Черный'
+            }
+        ];
+
+        var colorRange = $('.jq_colorRange'),
+            i;
+
+        if(colorRange.length){
+            for(i = 0; i < objectColor.length; i++) {
+                colorRange.append('<div class="table_cell" style="background-color: ' + objectColor[i].code + '">')
+            }
+
+            var colorSlider = $("#slider-color").slider({
+                range: "max",
+                min: 0,
+                max: objectColor.length-1,
+                value: 2,
+                slide: function (event, ui) {
+                    $(".ja_slider_color_name").text(objectColor[ui.value].name);
+                }
+            }).css('margin', '0 '+ $('.jq_colorRange').find('.table_cell').eq(0).width()/2 +'px');
+
+            $(".ja_slider_color_name").text(objectColor[colorSlider.slider("value")].name);
+
+            $('body').on(clickHandler, '.jq_colorRange .table_cell', function(){
+                colorSlider.slider('value', $(this).index());
+                $(".ja_slider_color_name").text(objectColor[$("#slider-color").slider("value")].name);
+            });
+
+        }
+
+    })();
 
 
+    //slider ui colors
+    (function () {
+
+        var $slider = $('#slider'),
+            minValue = 500,
+            maxValue = 10500;
+
+        $slider.slider({
+            range: true,
+            min: minValue,
+            max: maxValue,
+            values: [minValue, maxValue],
+            slide: function(event, ui) {
+                $('#from').val(ui.values[0]);
+                $('#to').val(ui.values[1]);
+            }
+        });
+
+        var fromInput = $('#from');
+        var toInput = $('#to');
+
+        fromInput.val($slider.slider('values', 0));
+        toInput.val($slider.slider('values', 1));
 
 
+        fromInput.on('change keyup', checkVal1);
+        toInput.on('change keyup', checkVal2);
 
+        function checkVal1() {
 
+            //if($slider.slider('values', 1) < +(fromInput.val())) {
+            //    $('#from').val(function (index, value) {
+            //        return value.substr(0, value.length - 1);
+            //    });
+            //}
+            $slider.slider('values', 0, $('#from').val());
+        }
+        //$slider.slider('values', 0, fromInput.val());
 
+        function checkVal2(){
 
+            //var _thisVal = $('#to').val();
+            //
+            //if( +($('#from').val()) >  +_thisVal ){
+            //    $('#to').val($('#from').val());
+            //    $slider.slider('values', 1, _thisVal);
+            //} else if(+_thisVal >  maxValue) {
+            //    $slider.slider('values', 1, maxValue);
+            //    $('#to').val(maxValue);
+            //} else {
+            //    $slider.slider('values', 1, _thisVal);
+            //}
+            $slider.slider('values', 1, $('#to').val());
+        }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    })();
 
 
 
     $('body').iePlaceholder();
 
-    $('body').on('click', '.dropdown', function (e) {
-        if (!$(event.target).hasClass("dropdown").length) {
-            e.stopPropagation();
-        }
-    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     (function () {

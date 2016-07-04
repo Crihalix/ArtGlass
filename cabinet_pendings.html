@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>Personal pendings</title>
+    <link href="dist/img/favicon.png" rel="shortcut icon">
+    <link href="dist/css/all.css" rel="stylesheet">
+
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,100italic,100,300,300italic,400italic,500,500italic,700,700italic,900,900italic&subset=cyrillic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,700italic,700,400italic,300italic&subset=cyrillic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Mono:400,700italic,500italic,700,500,400italic,300italic,300,100,100italic&subset=cyrillic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:700,100,300,400&subset=cyrillic' rel='stylesheet' type='text/css'>
+
+</head>
+
+<body>
+
+<header class="header">
+    <div class="top_header">
+        <div class="container clear_fix">
+            <div class="logo fl_left">
+                <a href="">
+                    <img class="hid_tbl mbl_hide" src="dist/img/temp/logo.png" alt="">
+                    <img class="hid_dsk mbl_hide" src="dist/img/temp/logo_tablet.png" alt="">
+                    <img class="mbl_show" src="dist/img/temp/logo_mobile.png" alt="">
+                </a>
+            </div>
+            <div class="h_curt fl_right">
+                <a href="" class="go_to_curt">
+                    <span class="fa fa-shopping-cart"></span>
+                    <h4 class="tit">Корзина:</h4>
+                    <div class="curt_price"><span class="h_curt_count"> 12</span><span class="hid_tbl"> шт. 250 640 <span class="rouble_sans">:</span></span></div>
+                </a>
+                <a href="" class="go_to_order red_link fa fa-angle-right hid_tbl">Оформить заказ</a>
+            </div>
+            <div class="h_info_bl clear_fix">
+                <div class="h_col h_feedback">
+                    <h4 class="tit fa fa-phone hid_tbl">Позвоните нам!</h4>
+                    <div class="h_tel">
+                        <a href="tel:+74955734117" class="h_tel_link">+7 (495) 573-41-17</a>
+                    </div>
+                    <div class="h_feedback_block">
+                        <a href="" class="h_feedback_link red_link fa fa-angle-right dropdown_toggle" data-toggle="dropdown"><span class="hid_tbl">заказать</span> обратный звонок</a>
+                        <div class="dropdown fb_call_pp text_center">
+                            <button class="btn close_btn white dropdown_toggle fa fa-close"></button>
+                            <form class="">
+                                <div class="tel_inputs_row clear_fix">
+                                    <div class="headline_pp">
+                                        <h3 class="caption">Заказать обратный звонок</h3>
+                                    </div>
+                                    <div class="tel_code_txt fl_left">
+                                        +7
+                                    </div>
+                                    <div class="form_item tel_code_row fl_left">
+                                        <input type="text" class="field number_input" value="" placeholder="" data-validate="required">
+                                    </div>
+                                    <div class="form_item tel_num_row">
+                                        <input type="text" class="field number_input" value="" placeholder="" data-validate="required">
+                                    </div>
+
+                                </div>
+                                <div class="btn_row ">
+                                    <input type="submit" class="btn btn_default full_w" value="Жду звонка">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="h_col h_address hid_tbl">
+                    <h4 class="tit fa fa-map-marker">Химки</h4>
+                    <p class="h_addres_txt">
+                        ул. Транспортный проезд д. 3
+                    </p>
+                    <div>
+                        <a href="" class=" red_link fa fa-angle-right">как добраться</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container clear_fix">
+        <div class="center_header clear_fix">
+            <div class="h_search fl_left">
+                <button class="btn open_search_pp fa fa-search mbl_show"></button>
+                <div class="h_search_mbl_pp">
+                    <div class="container">
+                        <button class="btn close_pp_btn close_search_pp fa fa-close mbl_show"></button>
+                        <h3 class="title_search mbl_show">Поиск в каталоге</h3>
+                        <fieldset class="h_search_wrap">
+                            <input type="search" value="" placeholder="" class="field">
+                            <button class="btn search_btn fa fa-search"></button>
+                        </fieldset>
+                    </div>
+                </div>
+            </div>
+            <div class="h_user_links fl_right">
+                <a href="" class="sing_in fa fa-user" data-toggle="modal" data-href="ajax/sing_in.php">Вход</a>
+                <span class="separator">|</span>
+                <a href="" class="registr_link" data-toggle="modal" data-href="ajax/registration.php">Регистрация</a>
+            </div>
+            <div class="viewed_a_pending">
+                <div class="item viewed">
+                    <a href="" class="btn viewed_btn">Просмотренно <span class="count_ico">234</span><span class="fa fa-eye"></span></a>
+                </div>
+                <div class="item pending">
+                    <a href="" class="btn pending_btn">Отложено <span class="count_ico">5</span><span class="fa fa-clock-o"></span></a>
+                </div>
+            </div>
+        </div>
+        <div class="bottom_header clear_fix">
+            <div class="catalog_menu  fl_left">
+                <div class="headline_catalog">
+                    <button class="btn mbl_catalog_btn fa fa-bars">
+                        <span class="hidden_mbl">Каталог <span class="hid_tbl">товаров</span></span>
+                    </button>
+                </div>
+                <div class="catalog_menu_dropdown">
+                    <button class="btn back_mobile_btn fa fa-arrow-circle-o-left hid_dsk"></button>
+                    <div class="ico_dropdown_menu hid_tbl"></div>
+                    <ul class="list_lvl1 drpd_menu_list">
+                        <li class="has_dropdown_list ">
+                            <a href=""><span>Стекло Цветное</span></a>
+                            <span class="open_cat_drpd_btn hid_dsk"></span>
+
+                            <ul class="list_lvl2 drpd_menu_list">
+                                <li>
+                                    <a href=""><span>Wissmach Glass</span></a>
+                                </li>
+                                <li class="has_dropdown_list">
+                                    <a href=""><span>Spectrum Glass</span></a>
+                                    <span class="open_cat_drpd_btn hid_dsk"></span>
+                                    <div class="drpd_bl_lvl3 drpd_menu_block">
+                                        <ul class="list_lvl3">
+                                            <li><a href="">A-Z (Списком)</a></li>
+                                            <li><a href="">Бесцветные</a></li>
+                                            <li><a href="">Белые</a></li>
+                                            <li><a href="">Бронза</a></li>
+                                            <li><a href="">Жёлтые</a></li>
+                                            <li><a href="">Зелёные</a></li>
+                                            <li><a href="">Красные</a></li>
+
+                                            <li><a href="">Оранжевые</a></li>
+                                            <li><a href="">Розовые</a></li>
+                                            <li><a href="">Серые</a></li>
+                                            <li><a href="">Синие</a></li>
+                                            <li><a href="">Фиолетовые</a></li>
+                                            <li><a href="">Чёрные</a></li>
+                                            <li><a href="">Шампань</a></li>
+
+                                            <li><a href="">Янтарные</a></li>
+                                            <li><a href="">Artique</a></li>
+                                            <li><a href="">Baroque</a></li>
+                                            <li><a href="">Crystal Opal</a></li>
+                                            <li><a href="">Home Collection</a></li>
+                                            <li><a href="">Iridescent</a></li>
+                                            <li><a href="">OpalArt</a></li>
+
+                                            <li><a href="">Pearl Opal</a></li>
+                                            <li><a href="">Rough Rolled</a></li>
+                                            <li><a href="">SilverCoats</a></li>
+                                            <li><a href="">Spirit</a></li>
+                                            <li><a href="">Waterglass</a></li>
+                                        </ul>
+                                        <div class="drpd_banner clear_fix hid_tbl">
+                                            <div class="img">
+                                                <a href="">
+                                                    <img src="dist/img/temp/drpd_banner_img.jpg" alt="">
+                                                </a>
+                                            </div>
+                                            <div class="name">
+                                                <a href="">Uroboros Premium<br>
+                                                    Rainbow Pack - 90 COE</a>
+                                            </div>
+                                            <div class="price">
+                                                4&nbsp;425 <span class="rouble">6</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li><a href=""><span>Kokomo Glass</span></a></li>
+                                <li><a href=""><span>Uroboros Glass</span></a></li>
+                                <li><a href=""><span>Bullseye Glass</span></a></li>
+                                <li><a href=""><span>Youghiogheny Glass</span></a></li>
+                                <li><a href=""><span>Schott</span></a></li>
+                                <li><a href=""><span>Разные Стекла</span></a></li>
+                            </ul>
+                        </li>
+                        <li class="has_dropdown_list ">
+                            <a href=""><span>Стекло для фьюзинга</span></a>
+                            <span class="open_cat_drpd_btn hid_dsk"></span>
+                            <ul class="list_lvl2 drpd_menu_list">
+                                <li class="has_dropdown_list ">
+                                    <a href=""><span>Wissmach Glass 2</span></a>
+                                    <span class="open_cat_drpd_btn hid_dsk"></span>
+                                    <div class="drpd_bl_lvl3 drpd_menu_block">
+                                        <ul class="list_lvl3">
+                                            <li><a href="">A-Z (Списком)</a></li>
+                                            <li><a href="">Бесцветные</a></li>
+                                            <li><a href="">Белые</a></li>
+                                            <li><a href="">Бронза</a></li>
+                                            <li><a href="">Жёлтые</a></li>
+                                            <li><a href="">Зелёные</a></li>
+                                            <li><a href="">Красные</a></li>
+
+                                            <li><a href="">Оранжевые</a></li>
+                                            <li><a href="">Розовые</a></li>
+                                            <li><a href="">Серые</a></li>
+                                            <li><a href="">Синие</a></li>
+                                            <li><a href="">Фиолетовые</a></li>
+                                            <li><a href="">Чёрные</a></li>
+                                            <li><a href="">Шампань</a></li>
+
+                                            <li><a href="">Янтарные</a></li>
+                                            <li><a href="">Artique</a></li>
+                                            <li><a href="">Baroque</a></li>
+                                            <li><a href="">Crystal Opal</a></li>
+                                            <li><a href="">Home Collection</a></li>
+                                            <li><a href="">Iridescent</a></li>
+                                            <li><a href="">OpalArt</a></li>
+
+                                            <li><a href="">Pearl Opal</a></li>
+                                            <li><a href="">Rough Rolled</a></li>
+                                            <li><a href="">SilverCoats</a></li>
+                                            <li><a href="">Spirit</a></li>
+                                            <li><a href="">Waterglass</a></li>
+                                        </ul>
+                                        <div class="drpd_banner clear_fix hid_tbl">
+                                            <div class="img">
+                                                <a href="">
+                                                    <img src="dist/img/temp/drpd_banner_img.jpg" alt="">
+                                                </a>
+                                            </div>
+                                            <div class="name">
+                                                <a href="">Uroboros Premium<br>
+                                                    Rainbow Pack - 90 COE</a>
+                                            </div>
+                                            <div class="price">
+                                                4 425 <span class="rouble">6</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="has_dropdown_list">
+                                    <a href=""><span>Spectrum Glass 2</span></a>
+                                    <span class="open_cat_drpd_btn hid_dsk"></span>
+                                    <div class="drpd_bl_lvl3 drpd_menu_block">
+                                        <ul class="list_lvl3">
+                                            <li><a href="">A-Z (Списком)</a></li>
+                                            <li><a href="">Бесцветные</a></li>
+                                            <li><a href="">Белые</a></li>
+                                            <li><a href="">Бронза</a></li>
+                                            <li><a href="">Жёлтые</a></li>
+                                            <li><a href="">Зелёные</a></li>
+                                            <li><a href="">Красные</a></li>
+
+                                            <li><a href="">Оранжевые</a></li>
+                                            <li><a href="">Розовые</a></li>
+                                            <li><a href="">Серые</a></li>
+                                            <li><a href="">Синие</a></li>
+                                            <li><a href="">Фиолетовые</a></li>
+                                            <li><a href="">Чёрные</a></li>
+                                            <li><a href="">Шампань</a></li>
+
+                                            <li><a href="">Янтарные</a></li>
+                                            <li><a href="">Artique</a></li>
+                                            <li><a href="">Baroque</a></li>
+                                            <li><a href="">Crystal Opal</a></li>
+                                            <li><a href="">Home Collection</a></li>
+                                            <li><a href="">Iridescent</a></li>
+                                            <li><a href="">OpalArt</a></li>
+
+                                            <li><a href="">Pearl Opal</a></li>
+                                            <li><a href="">Rough Rolled</a></li>
+                                            <li><a href="">SilverCoats</a></li>
+                                            <li><a href="">Spirit</a></li>
+                                            <li><a href="">Waterglass</a></li>
+
+                                            <li><a href="">A-Z (Списком)</a></li>
+                                            <li><a href="">Бесцветные</a></li>
+                                            <li><a href="">Белые</a></li>
+                                            <li><a href="">Бронза</a></li>
+                                            <li><a href="">Жёлтые</a></li>
+                                            <li><a href="">Зелёные</a></li>
+                                            <li><a href="">Красные</a></li>
+
+                                            <li><a href="">Оранжевые</a></li>
+                                            <li><a href="">Розовые</a></li>
+                                            <li><a href="">Серые</a></li>
+                                            <li><a href="">Синие</a></li>
+                                            <li><a href="">Фиолетовые</a></li>
+                                            <li><a href="">Чёрные</a></li>
+                                            <li><a href="">Шампань</a></li>
+
+                                            <li><a href="">Янтарные</a></li>
+                                            <li><a href="">Artique</a></li>
+                                            <li><a href="">Baroque</a></li>
+                                            <li><a href="">Crystal Opal</a></li>
+                                            <li><a href="">Home Collection</a></li>
+                                            <li><a href="">Iridescent</a></li>
+                                            <li><a href="">OpalArt</a></li>
+
+                                            <li><a href="">Pearl Opal</a></li>
+                                            <li><a href="">Rough Rolled</a></li>
+                                            <li><a href="">SilverCoats</a></li>
+                                            <li><a href="">Spirit</a></li>
+                                            <li><a href="">Waterglass</a></li>
+                                        </ul>
+                                        <div class="drpd_banner clear_fix hid_tbl">
+                                            <div class="img">
+                                                <a href="">
+                                                    <img src="dist/img/temp/drpd_banner_img.jpg" alt="">
+                                                </a>
+                                            </div>
+                                            <div class="name">
+                                                <a href="">Uroboros Premium<br>
+                                                    Rainbow Pack - 90 COE</a>
+                                            </div>
+                                            <div class="price">
+                                                4 425 <span class="rouble">6</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li><a href=""><span>Kokomo Glass</span></a></li>
+                                <li><a href=""><span>Uroboros Glass</span></a></li>
+                                <li><a href=""><span>Bullseye Glass</span></a></li>
+                                <li><a href=""><span>Youghiogheny Glass</span></a></li>
+                                <li><a href=""><span>Schott</span></a></li>
+                                <li><a href=""><span>Разные Стекла</span></a></li>
+                                <li><a href=""><span>Kokomo Glass</span></a></li>
+                                <li><a href=""><span>Uroboros Glass</span></a></li>
+                                <li><a href=""><span>Bullseye Glass</span></a></li>
+                                <li><a href=""><span>Youghiogheny Glass</span></a></li>
+                                <li><a href=""><span>Schott</span></a></li>
+                                <li><a href=""><span>Разные Стекла</span></a></li>
+                            </ul>
+                        </li>
+                        <li><a href=""><span>Инструмент</span></a></li>
+                        <li><a href=""><span>Оборудование</span></a></li>
+                        <li><a href=""><span>Материалы для Тиффани</span></a></li>
+                        <li><a href=""><span>Лампы Тиффани</span></a></li>
+                        <li><a href=""><span>Материалы для фьюззинга</span></a></li>
+                        <li><a href=""><span>Материалы для Лэмпворка</span></a></li>
+                        <li><a href=""><span>Фацетные элементы</span></a></li>
+                        <li><a href=""><span>Литература</span></a></li>
+                    </ul>
+                </div>
+            </div>
+            <nav class="site_menu_wrap">
+                <button class="btn mbl_site_menu_btn fa fa-bars hid_dsk"></button>
+                <div class="site_menu">
+                    <button class="btn back_mobile_btn fa fa-arrow-circle-o-left hid_dsk"></button>
+                    <ul class="site_menu_list">
+                        <li>
+                            <a href="">Новые товары</a>
+                        </li>
+                        <li class="active">
+                            <a href="">О компании</a>
+                        </li>
+                        <li>
+                            <a href="">Обучение и семинары</a>
+                        </li>
+                        <li>
+                            <a href="">Оплата и доставка</a>
+                        </li>
+                        <li>
+                            <a href="">Акции</a>
+                        </li>
+                        <li>
+                            <a href="">Контакты</a>
+                        </li>
+                    </ul>
+                    <div class="user_link_mobile hid_dsk">
+                        <div class="sing_in_mob">
+                            <a href="" class="mbl_pp_link" data-toggle="modal" data-href="ajax/sing_in.php">Вход</a>
+
+                        </div>
+                        <div class="registr_mob">
+                            <a href="" class="mbl_pp_link" data-toggle="modal" data-href="ajax/registration.php">Регистрация</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+<div class="content">
+    <div class="container">
+        <div class="bread_crumbs">
+            <ul class="clear_fix">
+                <li class="fa fa-angle-right"><a href="">Стекла</a></li>
+                <li class="fa fa-angle-right"><a href="">Личный кабинет</a></li>
+                <li>Отложенные товары</li>
+            </ul>
+        </div>
+
+        <!--cab-->
+        <section class="cab clear_fix">
+
+            <!--cab_aside-->
+            <aside class="cab_aside fl_right">
+                <!--cab_banner-->
+                <div class="cab_banner">
+                    <img src="dist/img/temp/cab_banner_img.jpg" alt="">
+                    <div class="cnt">
+                        <h3 class="title_slab">Фьюзинг</h3>
+                        <p class="descript">
+                            «Как не совершить<br>
+                            10 самых
+                            распространенных
+                            ошибок новичков»
+                        </p>
+                        <p>Семинар компании ART Glass</p>
+                        <p class="date">С 14 по 17 января</p>
+                        <p class="place">Санкт-Петербург,<br>
+                            Невский проспкт 14, оф 24</p>
+
+                        <a href="" class="btn btn_red h_40">Принять участие</a>
+                    </div>
+                </div>
+                <!--end cab_banner-->
+
+                <div class="link_list_aside">
+                    <h3 class="title_mark caption">Это интересно узнать</h3>
+                    <ul class="list_links">
+                        <li><a href="">Правильная нарезка стекла</a></li>
+                        <li><a href="">Отлом стекла</a></li>
+                        <li><a href="">Обтачивание стекла</a></li>
+                        <li><a href="">Обматывание стекла</a></li>
+                        <li><a href="">Пайка стекол</a></li>
+                        <li><a href="">Патинирование швов</a></li>
+                    </ul>
+                </div>
+            </aside>
+            <!--end cab_aside-->
+
+            <!--cab_cnt-->
+            <div class="cab_cnt">
+                <!--cab_tabs-->
+                <ul class="cab_tabs clear_fix">
+                    <li><a href="">Мои заказы</a></li>
+                    <li class="active"><a href="">Отложенные товары</a></li>
+                    <li><a href="">Персональные данные</a></li>
+                    <li><a href="">Мой аккаунт</a></li>
+                </ul>
+                <!--end cab_tabs-->
+
+                <!--cab_cnt_wrap-->
+                <div class="cab_cnt_wrap">
+
+                    <div class="pendings_list clear_fix">
+                        <div class="fast_cross fl_left">
+                            <h3 class="small_caption">Быстрый переход к списку:</h3>
+                            <select class="styler inline_select">
+                                <option value="">На Решельевскую 12 (21)</option>
+                                <option value="">На Решельевскую 12 (212)</option>
+                                <option value="">На Решельевскую 12 (213)</option>
+                            </select>
+                        </div>
+                        <div class="lists">
+                            <h3 class="small_caption">Последние созданные списки:</h3>
+                            <ul>
+                                <li>
+                                    <div class="date">12.11.2015</div>
+                                    <a href="" class="dashed">Лене для большого зеркала в гос... (7)</a>
+                                </li>
+                                <li>
+                                    <div class="date">01.12.2015</div>
+                                    <a href="" class="dashed">На Решельевскую 12 (21)</a>
+                                </li>
+                                <li>
+                                    <div class="date">20.12.2015</div>
+                                    <a href="" class="dashed">Список желаний 1 (3)</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!--cab_ord_item-->
+                    <div class="cab_ord_item">
+                        <div class="cab_ord_head clear_fix">
+                            <div class="num_ord inline_block">Список желаний 1</div>
+                            <div class="cab_status_bl fl_right">
+                                <button class="btn delete_pending fa fa-trash pp_no_bg pp_no_close"  data-toggle="modal" data-href="ajax/delete_pp.php"><span>Удалить</span></button>
+                                <button class="btn btn_default h_30 track_btn fa fa-cart-plus pp_no_bg " data-toggle="modal" data-href="ajax/add_to_curt.php">Купить все</button>
+                            </div>
+                        </div>
+                        <div class="cab_ord_item_cnt">
+                            <div class="pendings_table table">
+                                <div class="table_cell img_cell">
+                                    <div class="img">
+                                        <a href="">
+                                            <img src="dist/img/temp/product_img1.jpg" alt="">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="table_cell cnt_cell">
+                                    <div class="name">
+                                        <a href="">Wissmach W1 D, либо длинное название продукта</a>
+                                    </div>
+                                    <div class="price_inf">
+                                        Цена: <span class="nowrap">3 200<span class="rouble_sans">С</span><span class="name_size">/м<sup>2</sup></span></span> <span class="nowrap">2 400<span class="rouble_sans">С</span><span class="name_size">/лист</span></span></span>
+                                    </div>
+                                    <div class="sel_row">
+                                        <select class="styler inline_select">
+                                            <option value="">Целый лист: 61см. х 122 см.</option>
+                                            <option value="">Целый лист: 61см. х 122 см.2</option>
+                                            <option value="">Целый лист: 61см. х 122 см.3</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="table_cell amount_cell">
+                                    <div class="amount_goods">
+                                        <button class="btn less fa fa-minus"></button>
+                                        <input type="number" class="field number_input" value="0">
+                                        <button class="btn more fa fa-plus"></button>
+                                    </div>
+                                </div>
+                                <div class="table_cell price_cell">
+                                    <div class="price">1200<span class="rouble_sans">С</span></div>
+                                </div>
+                                <div class="table_cell buy_cell">
+                                    <button class="btn fa fa-cart-plus"><span>Купить</span></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--end cab_ord_item-->
+
+                    <!--cab_ord_item-->
+                    <div class="cab_ord_item">
+                        <div class="cab_ord_head clear_fix">
+                            <div class="num_ord inline_block">Заказ: №12122014 от 01.12.2015</div>
+                            <div class="cab_status_bl fl_right">
+                                <div class="status_txt success">Выполнен</div>
+                            </div>
+                        </div>
+                        <div class="cab_ord_item_cnt">
+                            <ul class="order_path table">
+                                <li class="done">Подтверждение</li>
+                                <li class="done">Комплектация</li>
+                                <li class="done">Доставка клиенту</li>
+                                <li class="done">Посылка доставлена</li>
+                            </ul>
+                            <div class="order_params">
+                                <p class="row_params">Оплачен: Да</p>
+                                <p class="row_params">Самовывоз</p>
+                                <p class="row_params">Оплата: Наличные</p>
+                            </div>
+                            <div class="cab_order_prod table">
+                                <div class="table_row">
+                                    <div class="table_cell name_cell">
+                                        <a href="">Wissmach W1D, либо длинное название продукта</a>
+                                    </div>
+                                    <div class="table_cell count_cell">1000</div>
+                                    <div class="table_cell size_cell">61 см. х 121 см.</div>
+                                    <div class="table_cell price_cell">218 000 <span class="rouble_sans">С</span></div>
+                                </div>
+                                <div class="table_row">
+                                    <div class="table_cell name_cell">
+                                        <a href="">Wissmach W1D, Spesial Edition</a>
+                                    </div>
+                                    <div class="table_cell count_cell">1</div>
+                                    <div class="table_cell size_cell">61 см. х 31 см.</div>
+                                    <div class="table_cell price_cell">759 000 <span class="rouble_sans">С</span></div>
+                                </div>
+                            </div>
+                            <div class="cab_total text_right">
+                                <h4 class="tit inline_block">ИТОГО:</h4>
+                                <div class="price inline_block">720 000 <span class="rouble_sans">С</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--end cab_ord_item-->
+                    <!--cab_ord_item-->
+                    <div class="cab_ord_item">
+                        <div class="cab_ord_head clear_fix">
+                            <div class="num_ord inline_block">Заказ: №12122014 от 01.12.2015</div>
+                            <div class="cab_status_bl fl_right">
+                                <div class="status_txt discard">Отменен</div>
+                            </div>
+                        </div>
+                        <div class="cab_ord_item_cnt">
+                            <ul class="order_path table">
+                                <li class="fail">Подтверждение</li>
+                                <li class="fail">Комплектация</li>
+                                <li class="fail">Доставка клиенту</li>
+                                <li class="fail">Посылка доставлена</li>
+                            </ul>
+                            <div class="order_params">
+                                <p class="row_params">Оплачен: Нет</p>
+                                <p class="row_params">Доставка: Байкал-сервис, Москва, отделение №12 <span class="fa fa-map-marker"></span></p>
+                                <p class="row_params">Оплата: Visa/Mastercard</p>
+                            </div>
+                            <div class="cab_order_prod table">
+                                <div class="table_row">
+                                    <div class="table_cell name_cell">
+                                        <a href="">Wissmach W1D, либо длинное название продукта</a>
+                                    </div>
+                                    <div class="table_cell count_cell">1000</div>
+                                    <div class="table_cell size_cell">61 см. х 121 см.</div>
+                                    <div class="table_cell price_cell">218 000 <span class="rouble_sans">С</span></div>
+                                </div>
+                                <div class="table_row">
+                                    <div class="table_cell name_cell">
+                                        <a href="">Wissmach W1D, Spesial Edition</a>
+                                    </div>
+                                    <div class="table_cell count_cell">1</div>
+                                    <div class="table_cell size_cell">61 см. х 31 см.</div>
+                                    <div class="table_cell price_cell">759 000 <span class="rouble_sans">С</span></div>
+                                </div>
+                            </div>
+                            <div class="cab_total text_right">
+                                <h4 class="tit inline_block">ИТОГО:</h4>
+                                <div class="price inline_block">718 000 <span class="rouble_sans">С</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--end cab_ord_item-->
+                </div>
+                <!--end cab_cnt_wrap-->
+
+                <!--end products-->
+                <div class="pagination_block">
+                    <ul class="pagination">
+                        <li class="arr first"><a href="">Первая</a></li>
+                        <li><a href="">1</a></li>
+                        <li class="active"><a href="">2</a></li>
+                        <li><a href="">3</a></li>
+                        <li class="dotteds"><a href="" >...</a></li>
+                        <li><a href="">11</a></li>
+                        <li><a href="">12</a></li>
+                        <li class="arr last"><a href="">Последняя</a></li>
+                    </ul>
+                </div>
+
+            </div>
+            <!--end cab_cnt-->
+
+        </section>
+    </div>
+</div>
+
+
+<footer class="footer">
+    <div class="container">
+        <div class="f_menu table">
+            <div class="table_cell goods_cell hid_tbl">
+                <div class="f_list_wrap">
+                    <h3 class="caption">Товары</h3>
+                    <ul class="f_list">
+                        <li><a href="">Стекла</a></li>
+                        <li><a href="">Материалы</a></li>
+                        <li><a href="">Инструмент</a></li>
+                        <li><a href="">Лампы Тиффани</a></li>
+                        <li><a href="">Оборудование</a></li>
+                        <li><a href="">Фацет</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="table_cell buyer_cell">
+                <div class="f_list_wrap">
+                    <h3 class="caption">Покупателю</h3>
+                    <ul class="f_list">
+                        <li><a href="">О компании</a></li>
+                        <li><a href="">Оплата и доставка</a></li>
+                        <li><a href="">Гаранития и возврат</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="table_cell training_cell">
+                <div class="f_list_wrap">
+                    <h3 class="caption">Обучение </h3>
+                    <ul class="f_list">
+                        <li><a href="">Семинары</a></li>
+                        <li><a href="">Статьи</a></li>
+                        <li><a href="">Видео</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="table_cell contact_cell">
+                <div class="f_list_wrap">
+                    <h3 class="caption">Контакты</h3>
+                    <ul class="f_contacts">
+                        <li>ул. Транспортный проезд д. 3</li>
+                        <li><a href="tel:+74957534114">+7 (495) 753-41-14</a></li>
+                        <li><a class="email_link" href="mailto:info@witrag.ru">info@witrag.ru</a></li>
+                    </ul>
+                    <ul class="f_social clear_fix">
+                        <li><a href="" class="soc_link fa fa-facebook"></a></li>
+                        <li><a href="" class="soc_link fa fa-twitter"></a></li>
+                        <li><a href="" class="soc_link fa fa-vk"></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <small>© ArtGlass.ru 2016 г. </small>
+        </div>
+    </div>
+</footer>
+
+
+
+<div id="modal" class="modal fade" style="display:none;">
+    <div class="modal_block" style="transform:scale">
+        <div class="modal_content">
+        </div>
+        <a class="close_modal fa fa-close" data-dismiss="modal" href="javascript:void(0);"></a>
+    </div>
+</div>
+
+<!--<script src="jquery.min.js"></script>-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<!--<script src="jquery-ui.min.js"></script>-->
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script>
+<!--<script src="dist/js/production.min.js"></script>&ndash;&gt;-->
+<script src="dist/js/production.js"></script>
+
+</body>
+</html>

@@ -25,9 +25,10 @@
 @textColorDark: #262626;
 @black: #000;
 @gray: #b2b2b2;
-@grayBorder: #e6e6e2;
+@grayBorder: #e6e6e6;
 @grayLight: #b3b3b3;
 @grayDark: #999;
+@green: #4b9806;
 
 
 
@@ -61,6 +62,15 @@ a{
         color:@linkColor_hover;
         transition: color .2s;
         text-decoration:none;
+    }
+
+    &.dashed{
+        text-decoration:none;
+        border-bottom:1px dashed @linkColor;
+
+        &:hover{
+            border-bottom-color:transparent;
+        }
     }
 }
 .red_link{
@@ -124,6 +134,14 @@ h2,
 .headline_title{
     margin-bottom:15px;
     font:400 32px/35px @roboto;
+    letter-spacing:0.025em;
+}
+.headline_title{
+    margin-bottom:0;
+
+    span{
+        color:@redDarken;
+    }
 }
 .small_caption,
 h3{
@@ -138,7 +156,7 @@ h4{
     margin:0 0 25px;
     padding:0;
     color:@textColorDark;
-    font:300 40px/50px @robotoSlab;
+    font: 40px/50px @robotoSlab;
 
     span{
         color:@redDarken;
@@ -445,6 +463,13 @@ textarea.field{
             text-decoration:none;
         }
     }
+    &.dashed{
+        border-bottom:1px dashed @linkColor;
+
+        &:hover{
+            border-bottom-color:transparent;
+        }
+    }
 }
 
 .buy_btn,
@@ -523,6 +548,11 @@ textarea.field{
     &.h_40{
         padding: 8px 18px 10px;
     }
+    &.h_30{
+        font-size:15px;
+        letter-spacing:0.01em;
+        padding: 3px 18px 5px;
+    }
     &.fa{
         &:before{
             margin-right:8px;
@@ -571,7 +601,7 @@ textarea.field{
 }
 .white_btn{
     //height:40px;
-    padding:7px 9px 6px 7px;
+    padding:7px 9px 7px 7px;
     font-size:16px;
     line-height:22px;
     border:2px solid @linkColor;
@@ -660,3 +690,212 @@ sup { vertical-align: top; font-size: 0.6em; }
     }
 }
 
+.jq-selectbox {
+    color:@textColor;
+    font:15px/15px @roboto;
+    cursor: pointer;
+    vertical-align: middle;
+    width: 100%;
+
+
+    &.dropdown{
+        padding:0;
+        border:none;
+    }
+    &:before,
+    &:after{
+        display:none;
+    }
+}
+
+.jq-selectbox__select {
+    background: @white;
+    border:1px solid @textColor;
+    height: 34px;
+    width: 100%;
+    box-shadow:inset 0 1px 2px rgba(0,0,0,0.11);
+    transition: border-color .2s;
+}
+
+.jq-selectbox__select-text {
+    position: absolute;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100% !important;
+    padding: 6px 22px 8px 14px;
+    line-height: 20px;
+}
+
+.jq-selectbox__trigger {
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 22px;
+}
+
+.jq-selectbox__trigger-arrow {
+    position: absolute;
+    left: 2px;
+    top: 50%;
+    margin: -3px 0 0 0;
+    border-top:7px solid @textColorDark;
+    border-left:6px solid transparent;
+    border-right:6px solid transparent;
+}
+.jq-selectbox__select:hover .jq-selectbox__trigger-arrow{
+    //background-position:-11px -60px;
+}
+
+.opened .jq-selectbox__trigger-arrow  {
+    border-bottom:7px solid @textColorDark;
+    border-top:0;
+}
+.opened .jq-selectbox__select:hover .jq-selectbox__trigger-arrow{
+    //background-position: 0 -60px;
+}
+
+.jq-selectbox__dropdown {
+    background: #fff;
+    border: 1px solid @textColorDark;
+    margin-top:-1px;
+    width: 100% !important;
+    box-shadow:0 2px 3px rgba(0,0,0,0.2);
+
+    ul {
+        overflow: auto;
+        padding:0;
+    }
+
+    li {
+        position:relative;
+        padding: 9px 14px 10px 14px;
+        transition:all 150ms ease;
+
+        &.selected,
+        &:hover {
+            color: @white;
+            background-color:@linkColor;
+
+            &:after{
+                border-bottom-color:transparent;
+            }
+        }
+
+        &:last-child{
+
+            &:after{
+                display:none;
+            }
+        }
+
+        &:after{
+            content:'';
+            position:absolute;
+            left:14px;
+            right:14px;
+            bottom:0;
+            border-bottom:1px solid @grayBorder;
+        }
+    }
+}
+
+.inline_select{
+    display:inline-block;
+    width:auto !important;
+    vertical-align:top;
+
+    &.dropdown{
+        background:none;
+    }
+    //fix default select
+    .inline_select{
+        max-width:100%;
+        display:block;
+    }
+
+    .jq-selectbox__select{
+        border:none;
+        box-shadow:none;
+        background:none;
+        padding-right:22px;
+        height:20px;
+
+
+        &:hover{
+            .jq-selectbox__select-text{
+                border-bottom:1px dashed transparent;
+            }
+        }
+    }
+    .jq-selectbox__select-text{
+        padding:0;
+        position:relative;
+        border-bottom:1px dashed @linkColor;
+        z-index:2;
+    }
+    &.opened .jq-selectbox__select-text{
+        text-decoration:none;
+    }
+    &.opened .jq-selectbox__trigger-arrow,
+    .jq-selectbox__trigger-arrow{
+        margin-top:-2px;
+        left:3px;
+        border-top: 6px solid @linkColor;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-bottom:none;
+        z-index:2;
+    }
+    //&.opened .jq-selectbox__trigger-arrow{
+    //    border-top:0;
+    //    border-bottom: 6px solid @linkColor;
+    //}
+    .jq-selectbox__dropdown{
+        width:auto !important;
+        top:0!important;
+        margin:-7px -15px 0 -15px;
+        border-color:@grayBorder;
+        box-shadow:0 5px 10px rgba(0,0,0,0.35);
+
+        ul{
+            padding-top:35px;
+        }
+        li{
+            padding: 9px 14px 10px 14px;
+            color:@linkColor;
+
+            &:hover,
+            &.selected{
+                color:@linkColor;
+                background-color:@footerCaption;
+            }
+
+            &.sel{
+                height:0;
+                padding: 0 24px 0 14px;
+                overflow:hidden;
+                visibility:hidden;
+                opacity:0;
+            }
+        }
+    }
+}
+
+.big_download_link{
+    padding-left:37px;
+    min-height:34px;
+    position:relative;
+    display:inline-block;
+
+    &:before{
+        position:absolute;
+        left:0;
+        top:5px;
+        font-size:30px;
+        line-height:34px;
+        color:@redLinks;
+    }
+}
