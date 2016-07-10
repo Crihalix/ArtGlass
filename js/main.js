@@ -429,7 +429,7 @@ $(document).ready(function() {
 
 
 
-//modal
+//modal и ваидация
     (function() {
         var lastHref = '';
         $('body').on('click', '[data-toggle="modal"]', function(e) {
@@ -600,7 +600,7 @@ $(document).ready(function() {
                         backdrop: false,
                         hasScroll: true
                     });
-                    console.log(2)
+                    console.log('попап без бекграунда!')
                 } else{
                     $modal.modal();
                 }
@@ -625,6 +625,39 @@ $(document).ready(function() {
         $('body').on('hidden.bs.modal', '#modal', function () {
             $(this).removeData('bs.modal');
         });
+
+
+        //валидация форм
+        (function () {
+            var $form_cab = $('.form_cab_data');
+            $form_cab.formValidation({
+                successEvent: function() {
+                    //отправить форму аяксом, в ответ можно присылать нужный html
+                    var $modal = $('#modal');
+
+                    if($form_cab.hasClass('pp_no_close')){
+                        $modal.find('.close_modal').addClass('hidden');
+                    } else {
+                        $modal.find('.close_modal').removeClass('hidden');
+                    }
+
+                    $modal.find('.modal_content').load('ajax/cab_success_data.php');
+
+                    if($form_cab.hasClass('pp_no_bg')){
+                        $modal.modal({
+                            backdrop: false,
+                            hasScroll: true
+                        });
+                    } else{
+                        $modal.modal();
+                    }
+                    centeredPopUp();
+                }
+            }).on('submit', function() {
+                return false;
+            });
+
+        })();
     })();
 
 
@@ -819,7 +852,62 @@ $(document).ready(function() {
 
 
 
+    (function () {
+        var $pendItem;
 
+        //удалить товар из списка
+        $('body').on(clickHandler, '.js-del-pend-item-btn', function(){
+            $pendItem = $(this).closest('.js-del-pend-item');
+        });
+
+        //удалить список товаров
+        $('body').on(clickHandler, '.js-del-pend-list-btn', function(){
+            $pendItem = $(this).closest('.js-del-pend-list');
+        });
+
+
+        //подтверждение удаления
+        $('body').on(clickHandler, '.js-approve-del-pend', function(){
+            if($pendItem.length){
+                $pendItem.remove();
+                $('#modal').modal('hide');
+            }
+        });
+
+    })();
+
+
+
+
+    //repeated password
+    (function() {
+        $('body').on('submit keyup', '.form_cab_data', function () {
+            var $repeatedPass = $(this).find('.repeated_password'),
+                valueX = $(this).find('.password_input').val(),
+                valueY = $repeatedPass.val();
+
+            if(!(valueY === '')){
+                if (valueX !== valueY) {
+                    $repeatedPass.parent().removeClass('correct').addClass('error');
+                    return false;
+                } else {
+                    $repeatedPass.parent().removeClass('error').addClass('correct');
+                }
+            }
+        });
+    })();
+
+    $('.js-mask_tel').inputmask('+7 (999) 999 99 99', {'placeholder': '+7 (___) ___ __ __'});
+
+
+
+
+
+
+    (function () {
+
+
+    })();
 
 
 
@@ -917,7 +1005,6 @@ $(document).ready(function() {
     })();
 
 
-    $('.mask_tel').inputmask('+38 (999) 999 99 99', {'placeholder': '+38 (___) ___ __ __'});
 
 
     $('.styler').styler({
@@ -1062,23 +1149,6 @@ $(document).ready(function() {
         });
     })();
 
-//repeated password
-    (function() {
-        $('body').on('submit keyup', '.registration_form,.change_pass_form', function () {
-            var $repeatedPass = $(this).find('.repeated_password'),
-                valueX = $(this).find('.password_input').val(),
-                valueY = $repeatedPass.val();
-
-            if(!(valueY === '')){
-                if (valueX !== valueY) {
-                    $repeatedPass.parent().removeClass('correct').addClass('error');
-                    return false;
-                } else {
-                    $repeatedPass.parent().removeClass('error').addClass('correct');
-                }
-            }
-        });
-    })();
 
 
     //accordions faq

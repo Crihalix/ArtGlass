@@ -59,7 +59,7 @@
     this.checkScrollbar()
     this.setScrollbar()
 
-    console.log(!this.options.hasScroll)
+    //console.log(!this.options.hasScroll)
 
     if(!this.options.hasScroll){
       this.$body.addClass('modal-open')

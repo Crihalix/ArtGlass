@@ -28,6 +28,7 @@
 @grayBorder: #e6e6e6;
 @grayLight: #b3b3b3;
 @grayDark: #999;
+@grayBtn: #ccc;
 @green: #4b9806;
 
 
@@ -39,6 +40,50 @@
 *{
     box-sizing: border-box;
 }
+
+/*ie warning*/
+.ie-warning{
+    width:100%;
+    height:98px;
+    position:absolute;
+    z-index:999;
+    color:#ffecec;
+    font:20px/28px @roboto;
+
+    a{
+        color:#fff;
+        font:bold 20px/28px @roboto;
+        text-decoration:underline;
+
+        &:hover{
+            color:#fff;
+            text-decoration:none;
+        }
+        &:visited{
+            color:#fff!important;
+        }
+    }
+    .wrapper1{
+        padding-bottom:8px;
+        background:url(../img/ie_warning_bg1.png) 0 100% repeat-x;}
+    .wrapper2{
+        height:100px;
+        padding:20px;
+        overflow:hidden;
+        text-align:center;
+        background:#f93333 url(../img/ie_warning_bg2.gif) repeat-x;}
+    .wrapper3{
+        display:inline-block;*zoom:1;*display:inline;
+    }
+    .image{
+        width:62px;
+        height:58px;
+        float:left;
+    }
+    .text{margin-left:75px;}
+}
+.ie-warning-empty-block{height:98px;}
+//end ie warning
 
 body{
     color:@textColorDark;
@@ -81,6 +126,9 @@ a{
         color:@redLinks;
         text-decoration:underline;
     }
+}
+.red_txt{
+    color:@redDarken;
 }
 .background(@x, @y){
     background:url(../img/icons.png) @x @y no-repeat;
@@ -241,7 +289,7 @@ b,strong{
     width:100%;
     height:34px;
     padding:0 19px 2px;
-    color:@textColorDark;
+    color:@textColor;
     font:15px/32px @roboto;
     border:1px solid @textColor;
     border-radius:0;
@@ -255,6 +303,9 @@ b,strong{
     &_blue{
         padding:0 10px 2px;
         background-color:@footerCaption;
+    }
+    &_telephone{
+        max-width:185px;
     }
 }
 .field::-webkit-input-placeholder{
@@ -271,6 +322,11 @@ b,strong{
         .field{
             margin-bottom:0;
         }
+    }
+}
+.small_field_row{
+    .field{
+        width:80px;
     }
 }
 .field_wrap{
@@ -312,6 +368,11 @@ b,strong{
     margin:0 0 6px;
     display:inline-block;
     color:@textColor;
+}
+.title_inputs{
+    font-size:16px;
+    font-weight:500;
+    margin:0 0 6px;
 }
 textarea.field{
     height:154px;
@@ -355,6 +416,7 @@ textarea.field{
     display:inline-block;
     cursor:pointer;
 
+
     .checkbox_ico{
         width:20px;
         height:20px;
@@ -377,6 +439,17 @@ textarea.field{
         border-color:@linkColor;
         background-color:@linkColor;
         color:@white;
+    }
+
+    &_big{
+
+        .checkbox_ico{
+            top:5px;
+            width:25px;
+            height:25px;
+            font-size:14px;
+            line-height:23px;
+        }
     }
 }
 //radio_item
@@ -842,7 +915,7 @@ sup { vertical-align: top; font-size: 0.6em; }
     &.opened .jq-selectbox__trigger-arrow,
     .jq-selectbox__trigger-arrow{
         margin-top:-2px;
-        left:3px;
+        left:6px;
         border-top: 6px solid @linkColor;
         border-left: 5px solid transparent;
         border-right: 5px solid transparent;
@@ -898,4 +971,8 @@ sup { vertical-align: top; font-size: 0.6em; }
         line-height:34px;
         color:@redLinks;
     }
+}
+
+.mrg_right_45{
+    margin-right:45px;
 }

@@ -18,6 +18,22 @@
 
 <body>
 
+<!--ie warning-->
+<!--[if lte IE 8]>
+<div class="ie-warning">
+    <div class="wrapper1"><div class="wrapper2"><div class="wrapper3">
+        <div class="image">
+            <img src="dist/img/temp/ie_warning_image.gif" alt="warning">
+        </div>
+        <div class="text">
+            Ваша версия интернет-обозревателя устарела, просмотр сайта может быть затруднен.<br />
+            Пожалуйста, <a href="https://www.microsoft.com/ru-ru/download/internet-explorer.aspx">загрузите актуальную версию интернет-обозревателя</a>.
+        </div>
+    </div></div></div>
+</div>
+<div class="ie-warning-empty-block">&nbsp;</div>
+<![endif]-->
+
 <header class="header">
     <div class="top_header">
         <div class="container clear_fix">
@@ -452,7 +468,7 @@
                 <!--cab_cnt_wrap-->
                 <div class="cab_cnt_wrap">
 
-                    <div class="pendings_list clear_fix">
+                    <div class="pending_list clear_fix">
                         <div class="fast_cross fl_left">
                             <h3 class="small_caption">Быстрый переход к списку:</h3>
                             <select class="styler inline_select">
@@ -481,50 +497,139 @@
                     </div>
 
                     <!--cab_ord_item-->
-                    <div class="cab_ord_item">
+                    <div class="cab_ord_item pending_items js-del-pend-list">
                         <div class="cab_ord_head clear_fix">
                             <div class="num_ord inline_block">Список желаний 1</div>
                             <div class="cab_status_bl fl_right">
-                                <button class="btn delete_pending fa fa-trash pp_no_bg pp_no_close"  data-toggle="modal" data-href="ajax/delete_pp.php"><span>Удалить</span></button>
+                                <button class="btn delete_pending fa fa-trash pp_no_bg pp_no_close js-del-pend-list-btn"  data-toggle="modal" data-href="ajax/delete_pp.php"><span>Удалить</span></button>
                                 <button class="btn btn_default h_30 track_btn fa fa-cart-plus pp_no_bg " data-toggle="modal" data-href="ajax/add_to_curt.php">Купить все</button>
                             </div>
                         </div>
                         <div class="cab_ord_item_cnt">
-                            <div class="pendings_table table">
-                                <div class="table_cell img_cell">
-                                    <div class="img">
-                                        <a href="">
-                                            <img src="dist/img/temp/product_img1.jpg" alt="">
-                                        </a>
+                            <div class="pending_table table">
+                                <div class="table_row js-del-pend-item">
+                                    <div class="table_cell delete_cell">
+                                        <button class="btn delete_pending_item fa fa-times-circle js-del-pend-item-btn pp_no_bg pp_no_close" data-toggle="modal" data-href="ajax/delete_item_pp.php"></button>
+                                    </div>
+                                    <div class="table_cell img_cell">
+                                        <div class="img">
+                                            <a href="">
+                                                <img src="dist/img/temp/product_img2.jpg" alt="">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="table_cell cnt_cell">
+                                        <div class="name">
+                                            <a href="">Wissmach W1 D, либо длинное название продукта</a>
+                                        </div>
+                                        <div class="price_inf">
+                                            Цена: <span class="nowrap">3 200<span class="rouble_sans">С</span><span class="name_size">/м<sup>2</sup></span></span> <span class="nowrap">2 400<span class="rouble_sans">С</span><span class="name_size">/лист</span></span></span>
+                                        </div>
+                                        <div class="sel_row">
+                                            <select class="styler inline_select">
+                                                <option value="">Целый лист: 61см. х 122 см.</option>
+                                                <option value="">Целый лист: 61см. х 122 см.2</option>
+                                                <option value="">Целый лист: 61см. х 122 см.3</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="table_cell amount_cell">
+                                        <div class="amount_goods">
+                                            <button class="btn less fa fa-minus"></button>
+                                            <input type="number" class="field number_input" value="1">
+                                            <button class="btn more fa fa-plus"></button>
+                                        </div>
+                                    </div>
+                                    <div class="table_cell price_cell">
+                                        <div class="price">1200<span class="rouble_sans">С</span></div>
+                                    </div>
+                                    <div class="table_cell buy_cell">
+                                        <button class="btn pend_buy_btn fa fa-cart-plus"><span>Купить</span></button>
                                     </div>
                                 </div>
-                                <div class="table_cell cnt_cell">
-                                    <div class="name">
-                                        <a href="">Wissmach W1 D, либо длинное название продукта</a>
+                                <div class="table_row js-del-pend-item">
+                                    <div class="table_cell delete_cell">
+                                        <button class="btn delete_pending_item fa fa-times-circle js-del-pend-item-btn pp_no_bg pp_no_close" data-toggle="modal" data-href="ajax/delete_item_pp.php"></button>
                                     </div>
-                                    <div class="price_inf">
-                                        Цена: <span class="nowrap">3 200<span class="rouble_sans">С</span><span class="name_size">/м<sup>2</sup></span></span> <span class="nowrap">2 400<span class="rouble_sans">С</span><span class="name_size">/лист</span></span></span>
+                                    <div class="table_cell img_cell">
+                                        <div class="img">
+                                            <a href="">
+                                                <img src="dist/img/temp/product_img3.jpg" alt="">
+                                            </a>
+                                        </div>
                                     </div>
-                                    <div class="sel_row">
-                                        <select class="styler inline_select">
-                                            <option value="">Целый лист: 61см. х 122 см.</option>
-                                            <option value="">Целый лист: 61см. х 122 см.2</option>
-                                            <option value="">Целый лист: 61см. х 122 см.3</option>
-                                        </select>
+                                    <div class="table_cell cnt_cell">
+                                        <div class="name">
+                                            <a href="">Wissmach W1 D, либо длинное название продукта</a>
+                                        </div>
+                                        <div class="price_inf">
+                                            Цена: <span class="nowrap">3 200<span class="rouble_sans">С</span><span class="name_size">/м<sup>2</sup></span></span> <span class="nowrap">2 400<span class="rouble_sans">С</span><span class="name_size">/лист</span></span></span>
+                                        </div>
+                                        <div class="sel_row">
+                                            <select class="styler inline_select">
+                                                <option value="">Целый лист: 61см. х 122 см.</option>
+                                                <option value="">Целый лист: 61см. х 122 см.2</option>
+                                                <option value="">Целый лист: 61см. х 122 см.3</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="table_cell amount_cell">
+                                        <div class="amount_goods">
+                                            <button class="btn less fa fa-minus"></button>
+                                            <input type="number" class="field number_input" value="1">
+                                            <button class="btn more fa fa-plus"></button>
+                                        </div>
+                                    </div>
+                                    <div class="table_cell price_cell">
+                                        <div class="price">1200<span class="rouble_sans">С</span></div>
+                                    </div>
+                                    <div class="table_cell buy_cell">
+                                        <button class="btn pend_buy_btn fa fa-cart-plus"><span>Купить</span></button>
                                     </div>
                                 </div>
-                                <div class="table_cell amount_cell">
-                                    <div class="amount_goods">
-                                        <button class="btn less fa fa-minus"></button>
-                                        <input type="number" class="field number_input" value="0">
-                                        <button class="btn more fa fa-plus"></button>
+                                <div class="table_row js-del-pend-item">
+                                    <div class="table_cell delete_cell">
+                                        <button class="btn delete_pending_item fa fa-times-circle js-del-pend-item-btn pp_no_bg pp_no_close" data-toggle="modal" data-href="ajax/delete_item_pp.php"></button>
                                     </div>
-                                </div>
-                                <div class="table_cell price_cell">
-                                    <div class="price">1200<span class="rouble_sans">С</span></div>
-                                </div>
-                                <div class="table_cell buy_cell">
-                                    <button class="btn fa fa-cart-plus"><span>Купить</span></button>
+                                    <div class="table_cell img_cell">
+                                        <div class="img">
+                                            <a href="">
+                                                <img src="dist/img/temp/product_img1.jpg" alt="">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="table_cell cnt_cell">
+                                        <div class="name">
+                                            <a href="">Wissmach W1 D, либо длинное название продукта</a>
+                                        </div>
+                                        <div class="price_inf">
+                                            Цена: <span class="nowrap">3 200<span class="rouble_sans">С</span><span class="name_size">/м<sup>2</sup></span></span> <span class="nowrap">2 400<span class="rouble_sans">С</span><span class="name_size">/лист</span></span></span>
+                                        </div>
+                                        <div class="sel_row">
+                                            <select class="styler inline_select">
+                                                <option value="">Целый лист: 61см. х 122 см.</option>
+                                                <option value="">Целый лист: 61см. х 122 см.2</option>
+                                                <option value="">Целый лист: 61см. х 122 см.3</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="table_cell amount_cell">
+                                        <div class="amount_goods">
+                                            <button class="btn less fa fa-minus"></button>
+                                            <input type="number" class="field number_input" value="1">
+                                            <button class="btn more fa fa-plus"></button>
+                                        </div>
+                                    </div>
+                                    <div class="table_cell price_cell">
+                                        <div class="price">1200<span class="rouble_sans">С</span></div>
+                                        <div class="discount_txt">
+                                            <b class="nowrap">Скидка 5%</b>
+                                            (240 С)
+                                        </div>
+                                    </div>
+                                    <div class="table_cell buy_cell">
+                                        <button class="btn pend_buy_btn fa fa-cart-plus"><span>Купить</span></button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -532,95 +637,145 @@
                     <!--end cab_ord_item-->
 
                     <!--cab_ord_item-->
-                    <div class="cab_ord_item">
+                    <div class="cab_ord_item pending_items js-del-pend-list">
                         <div class="cab_ord_head clear_fix">
-                            <div class="num_ord inline_block">Заказ: №12122014 от 01.12.2015</div>
+                            <div class="num_ord inline_block">Лене для большого зеркала в гостинной</div>
                             <div class="cab_status_bl fl_right">
-                                <div class="status_txt success">Выполнен</div>
+                                <button class="btn delete_pending fa fa-trash pp_no_bg pp_no_close js-del-pend-list-btn"  data-toggle="modal" data-href="ajax/delete_pp.php"><span>Удалить</span></button>
+                                <button class="btn btn_default h_30 track_btn fa fa-cart-plus pp_no_bg " data-toggle="modal" data-href="ajax/add_to_curt.php">Купить все</button>
                             </div>
                         </div>
                         <div class="cab_ord_item_cnt">
-                            <ul class="order_path table">
-                                <li class="done">Подтверждение</li>
-                                <li class="done">Комплектация</li>
-                                <li class="done">Доставка клиенту</li>
-                                <li class="done">Посылка доставлена</li>
-                            </ul>
-                            <div class="order_params">
-                                <p class="row_params">Оплачен: Да</p>
-                                <p class="row_params">Самовывоз</p>
-                                <p class="row_params">Оплата: Наличные</p>
-                            </div>
-                            <div class="cab_order_prod table">
-                                <div class="table_row">
-                                    <div class="table_cell name_cell">
-                                        <a href="">Wissmach W1D, либо длинное название продукта</a>
+                            <div class="pending_table table">
+                                <div class="table_row js-del-pend-item">
+                                    <div class="table_cell delete_cell">
+                                        <button class="btn delete_pending_item fa fa-times-circle js-del-pend-item-btn pp_no_bg pp_no_close" data-toggle="modal" data-href="ajax/delete_item_pp.php"></button>
                                     </div>
-                                    <div class="table_cell count_cell">1000</div>
-                                    <div class="table_cell size_cell">61 см. х 121 см.</div>
-                                    <div class="table_cell price_cell">218 000 <span class="rouble_sans">С</span></div>
-                                </div>
-                                <div class="table_row">
-                                    <div class="table_cell name_cell">
-                                        <a href="">Wissmach W1D, Spesial Edition</a>
+                                    <div class="table_cell img_cell">
+                                        <div class="img">
+                                            <a href="">
+                                                <img src="dist/img/temp/product_img6.jpg" alt="">
+                                            </a>
+                                        </div>
                                     </div>
-                                    <div class="table_cell count_cell">1</div>
-                                    <div class="table_cell size_cell">61 см. х 31 см.</div>
-                                    <div class="table_cell price_cell">759 000 <span class="rouble_sans">С</span></div>
+                                    <div class="table_cell cnt_cell">
+                                        <div class="name">
+                                            <a href="">Wissmach W1 D, либо длинное название продукта</a>
+                                        </div>
+                                        <div class="price_inf">
+                                            Цена: <span class="nowrap">3 200<span class="rouble_sans">С</span><span class="name_size">/м<sup>2</sup></span></span> <span class="nowrap">2 400<span class="rouble_sans">С</span><span class="name_size">/лист</span></span></span>
+                                        </div>
+                                        <div class="sel_row">
+                                            <select class="styler inline_select">
+                                                <option value="">Целый лист: 61см. х 122 см.</option>
+                                                <option value="">Целый лист: 61см. х 122 см.2</option>
+                                                <option value="">Целый лист: 61см. х 122 см.3</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="table_cell amount_cell">
+                                        <div class="amount_goods">
+                                            <button class="btn less fa fa-minus"></button>
+                                            <input type="number" class="field number_input" value="1">
+                                            <button class="btn more fa fa-plus"></button>
+                                        </div>
+                                    </div>
+                                    <div class="table_cell price_cell">
+                                        <div class="price">1200<span class="rouble_sans">С</span></div>
+                                    </div>
+                                    <div class="table_cell buy_cell">
+                                        <button class="btn pend_buy_btn fa fa-cart-plus"><span>Купить</span></button>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="cab_total text_right">
-                                <h4 class="tit inline_block">ИТОГО:</h4>
-                                <div class="price inline_block">720 000 <span class="rouble_sans">С</span></div>
+                                <div class="table_row js-del-pend-item">
+                                    <div class="table_cell delete_cell">
+                                        <button class="btn delete_pending_item fa fa-times-circle js-del-pend-item-btn pp_no_bg pp_no_close" data-toggle="modal" data-href="ajax/delete_item_pp.php"></button>
+                                    </div>
+                                    <div class="table_cell img_cell">
+                                        <div class="img">
+                                            <a href="">
+                                                <img src="dist/img/temp/product_img7.jpg" alt="">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="table_cell cnt_cell">
+                                        <div class="name">
+                                            <a href="">Wissmach W1 D, либо длинное название продукта</a>
+                                        </div>
+                                        <div class="price_inf">
+                                            Цена: <span class="nowrap">3 200<span class="rouble_sans">С</span><span class="name_size">/м<sup>2</sup></span></span> <span class="nowrap">2 400<span class="rouble_sans">С</span><span class="name_size">/лист</span></span></span>
+                                        </div>
+                                        <div class="sel_row">
+                                            <select class="styler inline_select">
+                                                <option value="">Целый лист: 61см. х 122 см.</option>
+                                                <option value="">Целый лист: 61см. х 122 см.2</option>
+                                                <option value="">Целый лист: 61см. х 122 см.3</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="table_cell amount_cell">
+                                        <div class="amount_goods">
+                                            <button class="btn less fa fa-minus"></button>
+                                            <input type="number" class="field number_input" value="1">
+                                            <button class="btn more fa fa-plus"></button>
+                                        </div>
+                                    </div>
+                                    <div class="table_cell price_cell">
+                                        <div class="price">1200<span class="rouble_sans">С</span></div>
+                                    </div>
+                                    <div class="table_cell buy_cell">
+                                        <button class="btn pend_buy_btn fa fa-cart-plus"><span>Купить</span></button>
+                                    </div>
+                                </div>
+                                <div class="table_row js-del-pend-item">
+                                    <div class="table_cell delete_cell">
+                                        <button class="btn delete_pending_item fa fa-times-circle js-del-pend-item-btn pp_no_bg pp_no_close" data-toggle="modal" data-href="ajax/delete_item_pp.php"></button>
+                                    </div>
+                                    <div class="table_cell img_cell">
+                                        <div class="img">
+                                            <a href="">
+                                                <img src="dist/img/temp/product_img1.jpg" alt="">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="table_cell cnt_cell">
+                                        <div class="name">
+                                            <a href="">Wissmach W1 D, либо длинное название продукта</a>
+                                        </div>
+                                        <div class="price_inf">
+                                            Цена: <span class="nowrap">3 200<span class="rouble_sans">С</span><span class="name_size">/м<sup>2</sup></span></span> <span class="nowrap">2 400<span class="rouble_sans">С</span><span class="name_size">/лист</span></span></span>
+                                        </div>
+                                        <div class="sel_row">
+                                            <select class="styler inline_select">
+                                                <option value="">Целый лист: 61см. х 122 см.</option>
+                                                <option value="">Целый лист: 61см. х 122 см.2</option>
+                                                <option value="">Целый лист: 61см. х 122 см.3</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="table_cell amount_cell">
+                                        <div class="amount_goods">
+                                            <button class="btn less fa fa-minus"></button>
+                                            <input type="number" class="field number_input" value="1">
+                                            <button class="btn more fa fa-plus"></button>
+                                        </div>
+                                    </div>
+                                    <div class="table_cell price_cell">
+                                        <div class="price">1200<span class="rouble_sans">С</span></div>
+                                        <div class="discount_txt">
+                                            <b class="nowrap">Скидка 5%</b>
+                                            (240 С)
+                                        </div>
+                                    </div>
+                                    <div class="table_cell buy_cell">
+                                        <button class="btn pend_buy_btn fa fa-cart-plus"><span>Купить</span></button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <!--end cab_ord_item-->
-                    <!--cab_ord_item-->
-                    <div class="cab_ord_item">
-                        <div class="cab_ord_head clear_fix">
-                            <div class="num_ord inline_block">Заказ: №12122014 от 01.12.2015</div>
-                            <div class="cab_status_bl fl_right">
-                                <div class="status_txt discard">Отменен</div>
-                            </div>
-                        </div>
-                        <div class="cab_ord_item_cnt">
-                            <ul class="order_path table">
-                                <li class="fail">Подтверждение</li>
-                                <li class="fail">Комплектация</li>
-                                <li class="fail">Доставка клиенту</li>
-                                <li class="fail">Посылка доставлена</li>
-                            </ul>
-                            <div class="order_params">
-                                <p class="row_params">Оплачен: Нет</p>
-                                <p class="row_params">Доставка: Байкал-сервис, Москва, отделение №12 <span class="fa fa-map-marker"></span></p>
-                                <p class="row_params">Оплата: Visa/Mastercard</p>
-                            </div>
-                            <div class="cab_order_prod table">
-                                <div class="table_row">
-                                    <div class="table_cell name_cell">
-                                        <a href="">Wissmach W1D, либо длинное название продукта</a>
-                                    </div>
-                                    <div class="table_cell count_cell">1000</div>
-                                    <div class="table_cell size_cell">61 см. х 121 см.</div>
-                                    <div class="table_cell price_cell">218 000 <span class="rouble_sans">С</span></div>
-                                </div>
-                                <div class="table_row">
-                                    <div class="table_cell name_cell">
-                                        <a href="">Wissmach W1D, Spesial Edition</a>
-                                    </div>
-                                    <div class="table_cell count_cell">1</div>
-                                    <div class="table_cell size_cell">61 см. х 31 см.</div>
-                                    <div class="table_cell price_cell">759 000 <span class="rouble_sans">С</span></div>
-                                </div>
-                            </div>
-                            <div class="cab_total text_right">
-                                <h4 class="tit inline_block">ИТОГО:</h4>
-                                <div class="price inline_block">718 000 <span class="rouble_sans">С</span></div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--end cab_ord_item-->
+
                 </div>
                 <!--end cab_cnt_wrap-->
 

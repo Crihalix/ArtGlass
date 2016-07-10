@@ -65,7 +65,7 @@
                     }
                     break;
                 case 'required-number':
-                    var reg = /^[+]38 [(][0-9]{3}[)] [0-9]{3} [0-9]{2} [0-9]{2}$/;
+                    var reg = /^[+]7 [(][0-9]{3}[)] [0-9]{3} [0-9]{2} [0-9]{2}$/;
                     if(!reg.test(value) || value === ""){
                         item.closest(this.options.inputWrap).addClass(this.options.errorClass).removeClass(this.options.correctClass);
                     } else {
