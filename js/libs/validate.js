@@ -73,7 +73,7 @@
                     }
                     break;
                 case 'required-select':
-                    if(value === ""){
+                    if(value === "0"){
                         item.closest(this.options.inputWrap).addClass(this.options.errorClass).removeClass(this.options.correctClass);
                     } else {
                         item.closest(this.options.inputWrap).removeClass(this.options.errorClass).addClass(this.options.correctClass);

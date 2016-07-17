@@ -108,6 +108,9 @@ a{
         transition: color .2s;
         text-decoration:none;
     }
+    &.btn:hover{
+        transition: all .2s;
+    }
 
     &.dashed{
         text-decoration:none;
@@ -307,9 +310,18 @@ b,strong{
     &_telephone{
         max-width:185px;
     }
+    &.h_30{
+        height:30px;
+        line-height: 28px;
+    }
 }
 .field::-webkit-input-placeholder{
     color:@textColorDark;
+    text-overflow:ellipsis;
+}
+.field::-moz-placeholder{
+    color:@textColorDark;
+    text-overflow:ellipsis;
 }
 .field_group{
     margin:0 0 14px;
@@ -383,30 +395,29 @@ textarea.field{
 }
 .error .field,
 .error .jq-selectbox__select{
-    //color:#ff583d;
     background:#fff4f4!important;
-    //border-color:rgba(255,0,0,0.5)!important;
-    //box-shadow:inset 0 1px 2px  rgba(255,0,0,0.5);
 }
-//.correct {
-//    position:relative;
-//
-//    &:before{
-//        content:'';
-//        width:9px;
-//        height:6px;
-//        position:absolute;
-//        left:100%;
-//        top:50%;
-//        margin:-6px 0 0 6px;
-//        .background(-20px, -630px);
-//    }
-//
-//    .field{
-//        //border-color:rgba(1,206,7,1)!important;
-//        //box-shadow:inset 0 1px 2px  rgba(1,206,7,1);
-//    }
-//}
+.correct {
+    //position:relative;
+    //
+    //&:before{
+    //    content:'';
+    //    width:9px;
+    //    height:6px;
+    //    position:absolute;
+    //    left:100%;
+    //    top:50%;
+    //    margin:-6px 0 0 6px;
+    //    .background(-20px, -630px);
+    //}
+
+    .field{
+        border-color:@green;
+    }
+    .jq-selectbox__select{
+        border-color:@green;
+    }
+}
 //checkbox_item
 .checkbox_item{
     min-height:21px;
@@ -457,37 +468,42 @@ textarea.field{
     min-height:18px;
     padding:0 0 0 28px;
     position:relative;
-    font: 14px/19px @roboto;
+    font: 15px/20px @roboto;
     display:inline-block;
     cursor:pointer;
 
     .radio_ico{
-        width:19px;
-        height:19px;
-        border:1px solid #d6dde2;
+        width:18px;
+        height:18px;
+        border:1px solid @grayBorder;
+        background-color: @whiteText;
         border-radius:50%;
         display:block;
         position:absolute;
         top:0;
         left:0;
+        transition: all 300ms ease;
+    }
 
-        :hover{
-            border-color:#76bdea;
+    &:hover{
+        .radio_ico{
+            border-color: @linkColor;
         }
     }
     input:checked+.radio_ico{
-        border-color:#7ac3f1;
+        border-color:@linkColor;
+        background-color: @linkColor;
 
         &:after{
             content:'';
-            width:7px;
-            height:7px;
+            width:6px;
+            height:6px;
             position:absolute;
             top:50%;
             left:50%;
-            margin:-3.5px 0 0 -3.5px;
+            margin:-3px 0 0 -3px;
             border-radius:50%;
-            background:#30a7f3;
+            background:@white;
         }
     }
 }
@@ -507,6 +523,7 @@ textarea.field{
     outline:none;
     border-radius:0;
     display: inline-block;
+    vertical-align: top;
     color:@linkColor;
     font:400 15px/20px @roboto;
     text-decoration: none;
@@ -517,7 +534,7 @@ textarea.field{
     &:hover{
         color:darken(@linkColor, 7%);
         text-decoration: none;
-        background:none;
+        background-color:transparent;
     }
 
     &.light_clr{
@@ -543,63 +560,7 @@ textarea.field{
             border-bottom-color:transparent;
         }
     }
-}
 
-.buy_btn,
-.order_btn{
-    height:30px;
-    width:45px;
-    font-size:0;
-    line-height:0;
-    text-align:center;
-    color:@white;
-    background-color:@redDarken;
-    border-bottom:2px solid #7e1728;
-
-    &:before{
-        padding:0;
-        font-size:18px;
-        line-height:30px;
-    }
-
-    &:hover{
-        background-color:@redDarken_hover;
-        color:@white;
-    }
-
-    &:active{
-        background-color:darken(@redDarken_hover, 8%);
-        border-bottom:2px solid darken(#7e1728, 8%);
-    }
-}
-
-.btn_default,
-.btn_red{
-    padding: 8px 16px 10px;
-    border-radius:0;
-    border-bottom:2px solid @footerBg;
-    color:@white;
-    font-size:18px;
-    line-height:20px;
-    text-align:center;
-    white-space:normal;
-    background-color:@linkColor;
-    letter-spacing:0.025em;
-    transition: background .2s ease;
-
-    &:hover{
-        color:@white;
-        background-color:@linkColor_hover;
-    }
-
-    &:active{
-        background-color:@footerBg;
-        border-bottom:2px solid darken(@footerBg, 8%);
-    }
-    &.long_btn{
-        width:100%;
-        max-width:240px;
-    }
     &.full_w{
         width:100%;
     }
@@ -626,10 +587,65 @@ textarea.field{
         letter-spacing:0.01em;
         padding: 3px 18px 5px;
     }
-    &.fa{
-        &:before{
-            margin-right:8px;
-        }
+    &.h_50{
+        padding: 13px 18px 15px;
+    }
+    &.long_btn{
+        width:100%;
+        max-width:240px;
+    }
+}
+
+.buy_btn,
+.order_btn{
+    height:30px;
+    width:45px;
+    font-size:0;
+    line-height:0;
+    text-align:center;
+    color:@white;
+    background-color:@redDarken;
+    border-bottom:2px solid #7e1728;
+
+    &.fa:before{
+        padding:0;
+        margin: 0;
+        font-size:18px;
+        line-height:30px;
+    }
+    &:hover{
+        background-color:@redDarken_hover;
+        color:@white;
+    }
+
+    &:active{
+        background-color:darken(@redDarken_hover, 8%);
+        border-bottom:2px solid darken(#7e1728, 8%);
+    }
+}
+
+.btn_default,
+.btn_red,
+.btn_gray{
+    padding: 8px 16px 10px;
+    border-radius:0;
+    border-bottom:2px solid @footerBg;
+    color:@white;
+    font-size:18px;
+    line-height:20px;
+    text-align:center;
+    white-space:normal;
+    background-color:@linkColor;
+    letter-spacing:0.025em;
+
+    &:hover{
+        color:@white;
+        background-color:@linkColor_hover;
+    }
+
+    &:active{
+        background-color:@footerBg;
+        border-bottom:2px solid darken(@footerBg, 8%);
     }
 }
 .btn_red{
@@ -637,15 +653,27 @@ textarea.field{
     background-color:@redDarken;
     border-bottom:2px solid #7e1728;
 
-
     &:hover{
         color:@white;
         background-color:@redDarken_hover;
     }
-
     &:active{
         background-color:darken(@redDarken_hover, 3%);
         border-bottom:2px solid darken(#7e1728, 8%);
+    }
+}
+.btn_gray{
+    padding:13px 20px 15px 20px;
+    background-color:@grayLight;
+    border-bottom:2px solid @textColor;
+
+    &:hover{
+        color:@white;
+        background-color:darken(@grayLight, 5%);
+    }
+    &:active{
+        background-color:darken(@grayLight, 8%);
+        border-bottom:2px solid darken(@textColor, 8%);
     }
 }
 .buy_btn_big{
@@ -695,8 +723,18 @@ textarea.field{
             color:@white;
         }
     }
+    &.h_30{
+        padding: 1px 18px 3px;
+    }
+    &.h_50{
+        padding: 11px 18px 13px;
+    }
 }
-
+.arrow_btn{
+    width: 30px;
+    height: 30px;
+    background:@linkColor url(../img/icons.png) 0 -340px no-repeat;
+}
 
 .dropdown{
     display:none;
@@ -972,7 +1010,18 @@ sup { vertical-align: top; font-size: 0.6em; }
         color:@redLinks;
     }
 }
-
+.js-show_block{
+    display: none;
+}
 .mrg_right_45{
     margin-right:45px;
+}
+.required_ico{
+    color:@redDarken;
+}
+.t_upper{
+    text-transform: uppercase;
+}
+.mrg_btn10{
+    margin-bottom: 10px;
 }

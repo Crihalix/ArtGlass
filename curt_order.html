@@ -423,372 +423,236 @@
     <div class="container">
 
         <div class="headline">
-            <h1 class="headline_title fa fa-shopping-cart">Товары в корзине</h1>
+            <h1 class="headline_title">Оформление заказа</h1>
         </div>
         <!--cart-->
         <section class="cart clear_fix">
 
-            <!--cart_aside-->
-            <aside class="cart_aside fl_right">
-                <div class="packing">
-                    <div class="pdp_check_headline">
-                        <span class="pdp_check_icon pack_ico"></span>
-                        <h3 class="caption">Упаковка вашего заказа:</h3>
-                    </div>
-                    <p class="descript">Стекла упаковываются в стандартные боксы по 15, 25 или 80 штук.<br>
-                        Обратите внимание, что стекла всегда упаковываются отдельно от инструментов, материалов или оборудования</p>
-                    <h4 class="small_caption">Упаковано:</h4>
-                    <div class="pack_info table">
-                        <div class="table_row">
-                            <div class="table_cell">
-                                Стандартный бокс<br>
-                                61 см. х 61 см.
-                            </div>
-                            <div class="table_cell">
-                                1 штука<br>
-                                800 <span class="rouble_sans">С</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="box_lists_bl">
-                        <p class="hint_txt">Бокс 61 см х 61 см. Добавлено 4 листа из 8</p>
-                        <div class="box_lists">
-                            <div class="box_list_range" style="width:50%;"></div>
-                        </div>
-                    </div>
-                    <div class="btn_block">
-                        <button class="btn dashed">Что будет внутри</button>
-                    </div>
-                    <div class="pack_info table">
-                        <div class="table_row">
-                            <div class="table_cell">
-                                Стандартный бокс<br>
-                                61 см. х 61 см.
-                            </div>
-                            <div class="table_cell">
-                                1 штука<br>
-                                650 <span class="rouble_sans">С</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="box_lists_bl">
-                        <p class="hint_txt">Бокс 31 см х 61 см. Добавлено: 1 лист из 8</p>
-                        <div class="box_lists">
-                            <div class="box_list_range" style="width:12.5%;"></div>
-                        </div>
-                    </div>
-                    <div class="prod_pack_list table">
-                        <div class="table_row">
-                            <div class="table_cell">
-                                Wissmach W1 D, либо длинное название продукта
-                            </div>
-                            <div class="table_cell number_cell">
-                                <span class="nowrap">1 шт.</span>
-                            </div>
-                        </div>
-                        <div class="table_row">
-                            <div class="table_cell">
-                                SmowGlass W3 FS
-                            </div>
-                            <div class="table_cell number_cell">
-                                <span class="nowrap">4 шт.</span>
-                            </div>
-                        </div>
-                        <div class="table_row">
-                            <div class="table_cell">
-                                Spectrum Cristal Opal W2 DA
-                            </div>
-                            <div class="table_cell number_cell">
-                                <span class="nowrap">1 шт.</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="btn_block">
-                        <button class="btn dashed">Свернуть</button>
-                    </div>
-                    <div class="total_pack table">
-                        <div class="table_cell small_caption">
-                            Итого за упаковку:
-                        </div>
-                        <div class="table_cell price">
-                            <span class="nowrap">1 450 <span class="rouble_sans">С</span></span>
-                        </div>
-                    </div>
-                </div>
-            </aside>
-            <!--end cart_aside-->
 
-            <!--cart_cnt-->
-            <div class="cart_cnt">
+            <!--cart_order-->
+            <div class="cart_order">
 
-                <div class="cart_table table">
-                    <div class="table_row js-del-pend-item">
-                        <div class="table_cell img_cell">
-                            <div class="img">
-                                <a href="">
-                                    <img src="dist/img/temp/product_img2.jpg" alt="">
-                                </a>
+                <form class="cart_order_form">
+                    <!--cart_order_data-->
+                    <div class="table form_table cart_order_data">
+                        <div class="table_row">
+                            <div class="table_cell name_cell">
+                                <label class="nowrap"><span class="required_ico">*</span>Фамилия, имя:</label>
+                            </div>
+                            <div class="table_cell input_cell">
+                                <div class="row_vld">
+                                    <input type="text" class="field" value="Константинопольский Александр Константинович" placeholder="" data-validate="required">
+                                </div>
                             </div>
                         </div>
-                        <div class="table_cell cnt_cell">
-                            <div class="name">
-                                <a href="">Wissmach W1 D, либо длинное название продукта</a>
+                        <div class="table_row">
+                            <div class="table_cell name_cell">
+                                <label class="nowrap"><span class="required_ico">*</span>Ваш е-mail:</label>
                             </div>
-                            <div class="price_inf">
-                                Цена: <span class="nowrap">3 200<span class="rouble_sans">С</span><span class="name_size">/м<sup>2</sup></span></span> <span class="nowrap">2 400<span class="rouble_sans">С</span><span class="name_size">/лист</span></span></span>
-                            </div>
-                            <div class="sel_row">
-                                <select class="styler inline_select">
-                                    <option value="">Целый лист: 61см. х 122 см.</option>
-                                    <option value="">Целый лист: 61см. х 122 см.2</option>
-                                    <option value="">Целый лист: 61см. х 122 см.3</option>
-                                </select>
+                            <div class="table_cell input_cell">
+                                <div class="row_vld">
+                                    <input type="email" class="field" value="" placeholder="" data-validate="required-email">
+                                </div>
                             </div>
                         </div>
-                        <div class="table_cell amount_cell">
-                            <div class="amount_goods">
-                                <button class="btn less fa fa-minus"></button>
-                                <input type="number" class="field number_input" value="1">
-                                <button class="btn more fa fa-plus"></button>
+                        <div class="table_row">
+                            <div class="table_cell name_cell">
+                                <label class="nowrap"><span class="required_ico">*</span>Ваш телефон:</label>
+                            </div>
+                            <div class="table_cell input_cell">
+                                <div class="row_vld">
+                                    <input type="tel" class="field field_telephone js-mask_tel" value="" placeholder="+7 (___) ___ __ __" data-validate="required-number">
+                                </div>
+                                <div class="checkbox_row">
+                                    <label class="checkbox_item checkbox_item_big">
+                                        <input type="checkbox" value="" class="hide">
+                                        <span class="checkbox_ico fa fa-check"></span>
+                                        Я хочу получать бесплатные смс-уведомления<br>
+                                        об изменении статуса заказа
+                                    </label>
+                                </div>
                             </div>
                         </div>
-                        <div class="table_cell price_cell">
-                            <div class="price">1200<span class="rouble_sans">С</span></div>
-                        </div>
-                        <div class="table_cell delete_cell">
-                            <button class="btn delete_prod_item fa fa-trash-o js-del-pend-item-btn pp_no_bg pp_no_close" data-toggle="modal" data-href="ajax/delete_prod_cart_pp.php"></button>
-                        </div>
-                    </div>
-                    <div class="table_row js-del-pend-item">
-                        <div class="table_cell img_cell">
-                            <div class="img">
-                                <a href="">
-                                    <img src="dist/img/temp/product_img3.jpg" alt="">
-                                </a>
+                        <div class="table_row">
+                            <div class="table_cell name_cell name_town_cell text_right">
+                                <label class="nowrap"><span class="required_ico">*</span>Город:</label>
                             </div>
-                        </div>
-                        <div class="table_cell cnt_cell">
-                            <div class="name">
-                                <a href="">Wissmach W1 D, либо длинное название продукта</a>
-                            </div>
-                            <div class="price_inf">
-                                Цена: <span class="nowrap">3 200<span class="rouble_sans">С</span><span class="name_size">/м<sup>2</sup></span></span> <span class="nowrap">2 400<span class="rouble_sans">С</span><span class="name_size">/лист</span></span></span>
-                            </div>
-                            <div class="sel_row">
-                                <select class="styler inline_select">
-                                    <option value="">Целый лист: 61см. х 122 см.</option>
-                                    <option value="">Целый лист: 61см. х 122 см.2</option>
-                                    <option value="">Целый лист: 61см. х 122 см.3</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="table_cell amount_cell">
-                            <div class="amount_goods">
-                                <button class="btn less fa fa-minus"></button>
-                                <input type="number" class="field number_input" value="1">
-                                <button class="btn more fa fa-plus"></button>
-                            </div>
-                        </div>
-                        <div class="table_cell price_cell">
-                            <div class="price">1200<span class="rouble_sans">С</span></div>
-                        </div>
-                        <div class="table_cell delete_cell">
-                            <button class="btn delete_prod_item fa fa-trash-o js-del-pend-item-btn pp_no_bg pp_no_close" data-toggle="modal" data-href="ajax/delete_prod_cart_pp.php"></button>
-                        </div>
-                    </div>
-                    <div class="table_row js-del-pend-item">
-                        <div class="table_cell img_cell">
-                            <div class="img">
-                                <a href="">
-                                    <img src="dist/img/temp/product_img1.jpg" alt="">
-                                </a>
-                            </div>
-                        </div>
-                        <div class="table_cell cnt_cell">
-                            <div class="name">
-                                <a href="">Wissmach W1 D, либо длинное название продукта</a>
-                            </div>
-                            <div class="price_inf">
-                                Цена: <span class="nowrap">3 200<span class="rouble_sans">С</span><span class="name_size">/м<sup>2</sup></span></span> <span class="nowrap">2 400<span class="rouble_sans">С</span><span class="name_size">/лист</span></span></span>
-                            </div>
-                            <div class="sel_row">
-                                <select class="styler inline_select">
-                                    <option value="">Целый лист: 61см. х 122 см.</option>
-                                    <option value="">Целый лист: 61см. х 122 см.2</option>
-                                    <option value="">Целый лист: 61см. х 122 см.3</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="table_cell amount_cell">
-                            <div class="amount_goods">
-                                <button class="btn less fa fa-minus"></button>
-                                <input type="number" class="field number_input" value="1">
-                                <button class="btn more fa fa-plus"></button>
-                            </div>
-                        </div>
-                        <div class="table_cell price_cell">
-                            <div class="price">1200<span class="rouble_sans">С</span></div>
-                            <div class="discount_txt">
-                                <b class="nowrap">Скидка 5%</b>
-                                (240 С)
-                            </div>
-                        </div>
-                        <div class="table_cell delete_cell">
-                            <button class="btn delete_prod_item fa fa-trash-o js-del-pend-item-btn pp_no_bg pp_no_close" data-toggle="modal" data-href="ajax/delete_prod_cart_pp.php"></button>
-                        </div>
-                    </div>
-                    <div class="table_row js-del-pend-item">
-                        <div class="table_cell img_cell">
-                            <div class="img img_bord">
-                                <a href="">
-                                    <img src="dist/img/temp/cart_prod_item_img1.jpg" alt="">
-                                </a>
-                            </div>
-                        </div>
-                        <div class="table_cell cnt_cell">
-                            <div class="name">
-                                <a href="">Кусачки для мозаики «Golden Eagle»</a>
-                            </div>
-                            <div class="price_inf">
-                                Цена: <span class="nowrap">978<span class="rouble_sans">С</span></span>
-                            </div>
-                        </div>
-                        <div class="table_cell amount_cell">
-                            <div class="amount_goods">
-                                <button class="btn less fa fa-minus"></button>
-                                <input type="number" class="field number_input" value="1">
-                                <button class="btn more fa fa-plus"></button>
-                            </div>
-                        </div>
-                        <div class="table_cell price_cell">
-                            <div class="price">978<span class="rouble_sans">С</span></div>
-                        </div>
-                        <div class="table_cell delete_cell">
-                            <button class="btn delete_prod_item fa fa-trash-o js-del-pend-item-btn pp_no_bg pp_no_close" data-toggle="modal" data-href="ajax/delete_prod_cart_pp.php"></button>
-                        </div>
-                    </div>
-                    <div class="table_row js-del-pend-item">
-                        <div class="table_cell img_cell">
-                            <div class="img img_bord">
-                                <a href="">
-                                    <img src="dist/img/temp/cart_prod_item_img2.jpg" alt="">
-                                </a>
-                            </div>
-                        </div>
-                        <div class="table_cell cnt_cell">
-                            <div class="name">
-                                <a href="">Термобумага "Bullseye", в рулоне, толщина 0,1 мм, ширина 1040 мм.</a>
-                            </div>
-                            <div class="price_inf">
-                                <span class="nowrap">880<span class="rouble_sans">С</span></span>
-                            </div>
-                        </div>
-                        <div class="table_cell amount_cell">
-                            <div class="amount_goods">
-                                <button class="btn less fa fa-minus"></button>
-                                <input type="number" class="field number_input" value="1">
-                                <button class="btn more fa fa-plus"></button>
-                            </div>
-                        </div>
-                        <div class="table_cell price_cell">
-                            <div class="price">880<span class="rouble_sans">С</span></div>
-                        </div>
-                        <div class="table_cell delete_cell">
-                            <button class="btn delete_prod_item fa fa-trash-o js-del-pend-item-btn pp_no_bg pp_no_close" data-toggle="modal" data-href="ajax/delete_prod_cart_pp.php"></button>
-                        </div>
-                    </div>
-                    <div class="table_row js-del-pend-item">
-                        <div class="table_cell img_cell">
-                            <div class="img img_bord no_img">
-                                <a href="" class="no_img_link fa fa-file-image-o">
-                                </a>
-                            </div>
-                        </div>
-                        <div class="table_cell cnt_cell">
-                            <div class="name">
-                                <a href="">Перчатки термостойкие Tuff Coat II Gloves - Medium</a>
-                            </div>
-                            <div class="price_inf">
-                                <span class="nowrap">3 700<span class="rouble_sans">С</span></span>
-                            </div>
-                        </div>
-                        <div class="table_cell amount_cell">
-                            <div class="amount_goods">
-                                <button class="btn less fa fa-minus"></button>
-                                <input type="number" class="field number_input" value="1">
-                                <button class="btn more fa fa-plus"></button>
-                            </div>
-                        </div>
-                        <div class="table_cell price_cell">
-                            <div class="price">3 700<span class="rouble_sans">С</span></div>
-                        </div>
-                        <div class="table_cell delete_cell">
-                            <button class="btn delete_prod_item fa fa-trash-o js-del-pend-item-btn pp_no_bg pp_no_close" data-toggle="modal" data-href="ajax/delete_prod_cart_pp.php"></button>
-                        </div>
-                    </div>
-                    <div class="table_row js-del-pend-item">
-                        <div class="table_cell img_cell">
-                            <div class="img img_bord ">
-                                <a href="" class="no_img_link fa fa-file-image-o">
-                                </a>
-                            </div>
-                        </div>
-                        <div class="table_cell cnt_cell">
-                            <div class="name">
-                                <a href="">Стеклорез радиальный Pro Circle Cutter</a>
-                            </div>
-                            <div class="price_inf">
-                                <span class="nowrap">4 900<span class="rouble_sans">С</span></span>
-                            </div>
-                        </div>
-                        <div class="table_cell amount_cell">
-                            <div class="amount_goods">
-                                <button class="btn less fa fa-minus"></button>
-                                <input type="number" class="field number_input" value="1">
-                                <button class="btn more fa fa-plus"></button>
-                            </div>
-                        </div>
-                        <div class="table_cell price_cell">
-                            <div class="price">4 900<span class="rouble_sans">С</span></div>
-                        </div>
-                        <div class="table_cell delete_cell">
-                            <button class="btn delete_prod_item fa fa-trash-o js-del-pend-item-btn pp_no_bg pp_no_close" data-toggle="modal" data-href="ajax/delete_prod_cart_pp.php"></button>
-                        </div>
-                    </div>
-                </div>
-                <div class="cart_total text_right">
-                    <div class="cart_total_sum_bl">
-                        <div class="cart_total_sum">
-                            <span class="tit_sum">ИТОГО: </span><span class="price">34 780<span class="rouble_sans">С</span></span>
-                        </div>
-                        <div class="cart_discount_code js-show_block_wrap">
-                            <div class="cart_discount_code_tit">
-                                <button class="btn dashed discount_code_btn js-show_block_btn">Ввести купон на скидку</button>
-                            </div>
-                            <div class="cart_discount_code_wrap js-show_block clear_fix">
-                                <div class="cart_discount_code_wrap2 fl_right">
-                                    <form class="discount_code_form">
-                                        <input type="submit" class="btn btn_default arrow_btn fl_right" value="">
-                                        <div class="row_input row_vld">
-                                            <input type="text" class="field " value="" placeholder="Купон на скидку" data-validate="required">
-                                        </div>
-                                    </form>
+                            <div class="table_cell input_cell">
+                                <div class="row_vld">
+                                    <select class="styler" data-validate="required-select">
+                                        <option value="0">Город</option>
+                                        <option value="1">Саратов0</option>
+                                        <option value="2">Саратов1</option>
+                                        <option value="3">Саратов2</option>
+                                        <option value="4">Саратов3</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="cart_total_btns">
-                        <a href="" class="btn white_btn">Вернуться к покупкам</a>
-                        <a href="" class="btn btn_red h_40">Оформить заказ</a>
+                    <!--end cart_order_data-->
+
+                    <!--method_pay-->
+                    <div class="method method_pay">
+                        <h3 class="method_title small_caption">
+                            Выберите способ оплаты
+                        </h3>
+                        <div class="method_block_wrap clear_fix">
+                            <div class="method_row">
+                                <div class="method_col">
+                                    <label class="method_item radio_item">
+                                        <input type="radio" name="pay_method" class="hide">
+                                        <span class="radio_ico"></span>
+                                        <span class="radio_border"></span>
+                                        <div class="cnt">
+                                            <h4 class="small_caption">Наличными</h4>
+                                            <div class="method_txt">Возможна только при самовывозе или доставке товара курьером</div>
+                                        </div>
+                                    </label>
+                                </div>
+                                <div class="method_col">
+                                    <label class="method_item radio_item">
+                                        <input type="radio" name="pay_method" class="hide">
+                                        <span class="radio_ico"></span>
+                                        <span class="radio_border"></span>
+                                        <div class="cnt">
+                                            <h4 class="small_caption">безналичный расчет</h4>
+                                            <div class="method_txt">Доступен для юридических и физических лиц, для перечисления на наш расчетный счет на основе выставленного счета. Сопровождается составлением Договора о поставке.</div>
+                                        </div>
+                                    </label>
+                                </div>
+                                <div class="method_col">
+                                    <label class="method_item radio_item">
+                                        <input type="radio" checked name="pay_method" class="hide">
+                                        <span class="radio_ico"></span>
+                                        <span class="radio_border"></span>
+                                        <div class="cnt">
+                                            <h4 class="small_caption">Банковской картой</h4>
+                                            <div class="method_txt">Оплата с помощью Visa/MasterCard. Вы можете оплатить заказ в терминале, банке, или с введя нужные реквизиты в онлайн-банкинге</div>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="cart_total_post_info">
-                        <div class="txt">У вас есть отложенные заказы</div>
-                        <button class="btn dashed">Просмотреть</button>
+                    <!--end method_pay-->
+
+                    <!--method_delivery-->
+                    <div class="method method_delivery">
+                        <h3 class="method_title small_caption">
+                            Выберите способ доставки
+                        </h3>
+                        <div class="method_block_wrap clear_fix">
+                            <div class="method_row">
+                                <div class="method_col">
+                                    <label class="method_item radio_item">
+                                        <input type="radio" name="pay_method" class="hide">
+                                        <span class="radio_ico"></span>
+                                        <span class="radio_border"></span>
+                                        <div class="cnt">
+                                            <h4 class="small_caption">Самовывоз</h4>
+                                            <div class="method_txt">
+                                                <p>Вы можете самостоятельно забрать заказ из нашего офиса по адресу: г.Химки<br>
+                                                    Коммунальный проезд, д.12</p>
+                                                <div>ПН — ПТ: с 9:00 до 18:00</div>
+                                                <div>СБ: с 10:00 до 15:00</div>
+                                                <div>Бесплатно</div>
+                                            </div>
+                                        </div>
+                                    </label>
+                                </div>
+                                <div class="method_col">
+                                    <label class="method_item radio_item">
+                                        <input type="radio" disabled name="pay_method" class="hide">
+                                        <span class="radio_ico"></span>
+                                        <span class="radio_border"></span>
+                                        <div class="cnt">
+                                            <h4 class="small_caption">адресная доставка курьером</h4>
+                                            <div class="method_txt t_upper">Этот способ доставки недоступен <br>
+                                                в вашем регионе</div>
+                                        </div>
+                                    </label>
+                                </div>
+                                <div class="method_col">
+                                    <label class="method_item radio_item">
+                                        <input type="radio" checked name="pay_method" class="hide">
+                                        <span class="radio_ico"></span>
+                                        <span class="radio_border"></span>
+                                        <div class="cnt">
+                                            <h4 class="small_caption">транспортной компанией</h4>
+                                            <div class="method_txt">
+                                                <select class="styler inline_select">
+                                                    <option value="1">Байкал-сервис</option>
+                                                    <option value="2">Байкал-сервис 2</option>
+                                                    <option value="3">Байкал-сервис 3</option>
+                                                    <option value="4">Байкал-сервис 4</option>
+                                                </select>
+                                                <div class="method_row_inf">
+                                                    Общий объем посылки: 0,225 м3
+                                                </div>
+                                                <div class="method_row_inf">
+                                                    Габариты: 125 см. х 72 см. х 45 см.
+                                                </div>
+                                                <div class="method_row_inf mrg_btn10">
+                                                    Общий вес: 12,5 кг.
+                                                </div>
+                                                <div class="method_row_inf">
+                                                    Цена: 850 <span class="rouble_sans">С</span>
+                                                </div>
+                                                <div class="method_row_inf">
+                                                    Примерная дата доставки: 15.01.2016 г.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </label>
+                                </div>
+                                <div class="method_col">
+                                    <label class="method_item radio_item">
+                                        <input type="radio" disabled name="pay_method" class="hide">
+                                        <span class="radio_ico"></span>
+                                        <span class="radio_border"></span>
+                                        <div class="cnt">
+                                            <h4 class="small_caption">Почтоматы pick Point</h4>
+                                            <div class="method_txt t_upper">
+                                                Этот способ доставки доступен только для товаров с габаритами менее 35см. х 35 см.
+                                            </div>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="address_delivery">
+                                <h3 class="small_caption tit">Адрес доставки: улица, дом, квартира</h3>
+                                <div class="textarea_row">
+                                    <textarea class="field"></textarea>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                    <!--end method_delivery-->
+
+                    <!--cart_order_comment-->
+                    <div class="cart_order_comment">
+                        <label class="small_caption">
+                            Комментарий к заказу:
+                        </label>
+                        <div class="textarea_row">
+                            <textarea class="field"></textarea>
+                        </div>
+                    </div>
+                    <!--end cart_order_comment-->
+
+                    <!--cart_order_buttons-->
+                    <div class="cart_order_buttons text_center">
+                        <a href="" class="btn white_btn h_50 long_btn">Вернуться в корзину</a>
+                        <button class="btn btn_red long_btn">Отправить заказ</button>
+                    </div>
+                    <!--end cart_order_buttons-->
+
+                </form>
+
 
             </div>
-            <!--end cart_cnt-->
+            <!--end cart_order-->
 
         </section>
         <!--end cart-->
@@ -857,7 +721,7 @@
 
 
 <div id="modal" class="modal fade" style="display:none;">
-    <div class="modal_block" style="transform:scale">
+    <div class="modal_block" >
         <div class="modal_content">
         </div>
         <a class="close_modal fa fa-close" data-dismiss="modal" href="javascript:void(0);"></a>

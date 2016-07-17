@@ -44,11 +44,13 @@ $(document).ready(function() {
             //set and calculate height
             maxHeight = Math.max(drpd_lvl1Height, drpd_lvl2Height);
             catalogDropdown.height(maxHeight);
+            $(event.target).parents('li').find('>.list_lvl2').css('min-height', maxHeight + 'px');
             catalogDropdown.removeClass('drpd_lvl3_line');
             catalogDropdown.addClass('drpd_lvl2_line');
         }
 
         function resetSizeDrpd3(event) {
+            var maxHeight;
             catalogDropdown.outerWidth(containerWidth);
             drpd_lvl3.outerWidth(containerWidth - (catalogListWidth * 2) - 2); //2 - this is border-width pixels
 
@@ -56,7 +58,9 @@ $(document).ready(function() {
             drpd_lvl2Height = $(event.target).parents('li').find('>.list_lvl2').height();
             drpd_lvl3Height = $(event.target).parents('li').find('>.drpd_bl_lvl3').height();
             //set and calculate height
-            catalogDropdown.height(Math.max(drpd_lvl1Height, drpd_lvl2Height, drpd_lvl3Height));
+            maxHeight = Math.max(drpd_lvl1Height, drpd_lvl2Height, drpd_lvl3Height);
+            catalogDropdown.height(maxHeight);
+            $(event.target).parents('li').find('>.drpd_bl_lvl3').css('min-height', maxHeight + 'px');
             catalogDropdown.addClass('drpd_lvl3_line');
         }
 
@@ -598,11 +602,14 @@ $(document).ready(function() {
                 if($this.hasClass('pp_no_bg')){
                     $modal.modal({
                         backdrop: false,
-                        hasScroll: true
+                        hasScroll: true,
+                        keyboard: true
                     });
                     console.log('попап без бекграунда!')
                 } else{
-                    $modal.modal();
+                    $modal.modal({
+                        keyboard: true
+                    });
                 }
             }
             return false;
@@ -658,7 +665,35 @@ $(document).ready(function() {
             });
 
         })();
+
+        $('body').on('keydown', function(e){
+
+            if(e.keyCode  == 27){
+                $('#modal').modal('hide');
+            }
+        });
     })();
+
+    //formValidation
+    $('.discount_code_form').formValidation({
+        successEvent: function() {
+            var $formBlock = $('.cart_discount_code');
+            $formBlock.find('.cart_discount_code_tit').text('с учетом скидки');
+            $formBlock.find('.btn').hide();
+            $formBlock.find('.discount_code_form').addClass('success_code');
+            //отправить форму аяксом, в ответ можно присылать нужный html
+        }
+    }).on('submit', function() {
+        return false;
+    });
+    //formValidation
+    $('.cart_order_form').formValidation({
+        successEvent: function() {
+            //отправить форму аяксом, в ответ можно присылать нужный html
+        }
+    }).on('submit', function() {
+        return false;
+    });
 
 
     //anchor
@@ -900,6 +935,24 @@ $(document).ready(function() {
     $('.js-mask_tel').inputmask('+7 (999) 999 99 99', {'placeholder': '+7 (___) ___ __ __'});
 
 
+    //open blocl
+    (function(){
+        $('body').on(clickHandler, '.js-show_block_btn', function(e){
+            e.preventDefault();
+            e.stopPropagation();
+            var $blockWrap = $(this).closest('.js-show_block_wrap'),
+                $block = $blockWrap.find('.js-show_block');
+
+
+            if($blockWrap.hasClass('opened')){
+                $blockWrap.removeClass('opened');
+                $block.slideUp(200);
+            } else{
+                $blockWrap.addClass('opened');
+                $block.slideDown(200);
+            }
+        });
+    })();
 
 
 
@@ -1130,24 +1183,6 @@ $(document).ready(function() {
 
 
 
-    //pay_bonus
-    (function(){
-        $('body').on(clickHandler, '.pay_bonus', function(e){
-            e.preventDefault();
-            e.stopPropagation();
-            var _this = $(this),
-                bonusForm = $('.bonus_form_bl');
-
-
-            if(_this.hasClass('opened')){
-                _this.removeClass('opened');
-                bonusForm.slideUp(200);
-            } else{
-                _this.addClass('opened');
-                bonusForm.slideDown(200);
-            }
-        });
-    })();
 
 
 
@@ -1246,14 +1281,6 @@ $(document).ready(function() {
 
 
 
-    //formValidation
-    $('.sing_in_form').formValidation({
-        successEvent: function() {
-            //отправить форму аяксом, в ответ можно присылать нужный html
-        }
-    }).on('submit', function() {
-        return false;
-    });
 
     //formValidation
     $('.new_client').formValidation({

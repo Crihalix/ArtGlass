@@ -1226,6 +1226,12 @@
     .hint_txt{
         margin:0 0 3px;
     }
+    &+.btn_block{
+        margin-top: -6px;
+    }
+    &+.prod_pack_list.table{
+        padding-top: 9px;
+    }
 }
 .box_lists{
     width:100%;
@@ -2271,11 +2277,13 @@
         padding:13px 20px;
     }
 }
-//pending_table
-.pending_table{
+//pending_table, cart_table
+.pending_table,
+.cart_table{
     
     .table_cell{
         padding:0 18px 24px 0;
+        min-height: 71px;
     }
     .delete_cell{
         padding:0 6px 0 0;
@@ -2296,24 +2304,51 @@
         }
     }
 
-
     .img{
         width:75px;
+        max-height:75px;
         margin-top:6px;
         text-align:center;
+        overflow: hidden;
+        background-color: #fff;
         
         img{
             max-width:100%;
         }
+
+        &.img_bord{
+            border:1px solid @grayBtn;
+        }
+        &.no_img{
+            height: 100%;
+        }
+    }
+    .no_img_link{
+        height: 100%;
+        display: block;
+        min-height: 35px;
+
+        &:before{
+            position: absolute;
+            left: 0;
+            right: 0;
+            text-align: center;
+            top:50%;
+            height: 30px;
+            font-size:24px;
+            line-height: 30px;
+            margin-top: -15px;
+            color:@gray;
+        }
     }
     .name{
-        margin:0 0 10px;
+        margin:0 0 9px;
     }
     .price{
-        margin-top:6px;
+        margin-top:9px;
         font-size:16px;
         white-space:nowrap;
-        line-height:30px;
+        line-height: 20px;
     }
     .rouble_sans{
         font-size:15px;
@@ -2323,6 +2358,7 @@
     }
     .amount_goods{
         margin-top:6px;
+        min-height: 55px;
     }
     .discount_txt{
         color:@green;
@@ -2567,12 +2603,13 @@
 
 //cart
 .cart{
+    margin:0 0 59px;
 
     //cart_cnt
     &_cnt{
         max-width:683px;
         margin-right:390px;
-        border-bottom:1px solid @grayBorder;
+        border-top:1px solid @grayBorder;
     }
 
     //cart_aside
@@ -2580,6 +2617,317 @@
         width:360px;
         padding:20px 35px 15px 45px;
         background-color:@blocksBg;
+
+        .pdp_check_headline{
+            padding-top: 6px;
+            margin-bottom: 18px;
+        }
+        .descript{
+            margin:0 0 10px;
+            color:@textColor;
+        }
+        .hint_txt{
+            margin:0 0 7px;
+        }
+
+        .pack_info{
+            margin:0 0 7px;
+        }
+        .btn_block{
+            margin:0 0 20px;
+        }
+        .number_cell{
+            color:@textColor;
+            padding-right:0;
+        }
+    }
+    //cart_table
+    &_table{
+        margin: 0 0 5px;
+
+        .table_cell{
+            padding:13px 18px 1px 0;
+        }
+        .delete_cell{
+            text-align: right;
+            padding-right: 0;
+            padding-left: 14px;
+        }
+        .price{
+            margin-top: 8px;
+            font-size:18px;
+
+            .rouble_sans{
+                font-size: 18px;
+            }
+        }
+    }
+    //cart_total
+    &_total{
+        padding: 13px 0 0;
+        border-top:2px solid @linkColor;
+
+        &_sum_bl{
+            margin: 0 0 30px;
+        }
+        &_sum{
+            margin-bottom: 3px;
+            font-size:24px;
+            line-height: 30px;
+
+            .tit_sum{
+                margin:0 8px 0 0;
+            }
+        }
+        &_btns{
+            margin: 0 0 24px;
+
+            .btn{
+                padding-left: 33px;
+                padding-right: 33px;
+                margin-left: 14px;
+            }
+        }
+        &_post_info{
+            color:@textColor;
+        }
+    }
+    &_discount_code{
+
+        &_wrap{
+            display: none;
+        }
+        &_wrap2{
+            max-width: 185px;
+            padding-top: 12px;
+        }
+
+        .row_input{
+            margin: 0 35px 0 0;
+        }
+        .field{
+            height: 30px;
+            line-height: 28px;
+            padding: 0 9px 2px;
+            color:@textColor;
+            text-transform: uppercase;
+
+            &::-webkit-input-placeholder{
+                text-transform:none;
+            }
+            &::-moz-placeholder{
+                text-transform:none;
+            }
+            &:-ms-input-placeholder{
+                text-transform:none;
+            }
+        }
+
+        &_tit{
+            color:@green;
+        }
+    }
+    &_cart_total_sum{
+        margin: 0 0 24px;
+    }
+    //cart_order
+    &_order{
+        padding: 25px 0 0;
+    }
+    //cart_order_comment
+    &_order_comment{
+        margin: 0 0 38px;
+
+        .small_caption{
+            display: block;
+        }
+        textarea{
+            height: 96px;
+            margin: 0;
+        }
+    }
+    //cart_order_buttons
+    &_order_buttons{
+        padding: 21px 20px 1px;
+        background:@blocksBg;
+
+        .btn{
+            margin: 0 15px 20px;
+        }
+    }
+    //cart_order_errors
+    &_order_errors{
+        margin:-8px 0 7px;
+        color:@redDarken;
+    }
+}
+//form_table
+.form_table{
+    max-width: 566px;
+    margin: 0 0 40px;
+
+    .table_cell{
+        padding-bottom:11px;
+    }
+    .name_cell{
+        width:137px;
+        padding-top:5px;
+        font-size:16px;
+        font-weight:500;
+    }
+    .checkbox_item{
+        margin-top:0;
+        margin-bottom: 9px;
+    }
+    .field{
+        margin-bottom: 15px;
+    }
+    .name_town_cell{
+        padding-right: 28px;
+    }
+}
+//end form_table
+//method
+.method{
+
+    &_title{
+        margin: 0 0 11px;
+    }
+    &_block_wrap{
+        padding: 25px 30px 8px;
+        margin: 0 0 30px;
+        background-color: @footerCaption;
+        font-size: 0;
+        line-height: 0;
+        letter-spacing: 0;
+    }
+    &_row{
+        margin: 0 -8px;
+    }
+    &_col{
+        width: 33.333%;
+        padding: 0 8px;
+        //float: left;
+        display: inline-block;
+        vertical-align: top;
+    }
+    //method_item
+    &_item{
+        height: 170px;
+        margin: 0 0 17px;
+        padding: 17px 14px 10px;
+        display: block;
+        background: @white;
+        font-size:15px;
+        line-height: 20px;
+        letter-spacing: 0.01em;
+
+        .radio_ico{
+            top:17px;
+            left:14px;
+        }
+        input+span+.radio_border{
+            position: absolute;
+            left: 0;
+            top:0;
+            right: 0;
+            bottom: 0;
+            border:1px solid @blueIcons;
+        }
+        input:checked+span+.radio_border{
+            margin: -1px;
+            border:2px solid @linkColor;
+        }
+        .small_caption{
+            margin: 0 0 13px 30px;
+            text-transform: uppercase;
+        }
+        .cnt{
+            position: relative;
+            z-index: 2;
+        }
+        input:disabled+.radio_ico{
+            border:1px solid @grayBorder;
+        }
+        input:disabled+span+.radio_border{
+            border:none;
+        }
+        input:disabled+span+.radio_border+.cnt{
+            color:@gray;
+            .method_txt{
+
+                padding-top: 22px;
+            }
+        }
+    }
+    //method_txt
+    &_txt{
+        p{
+            margin-bottom: 10px;
+        }
+    }
+
+    //method_delivery
+    &_delivery{
+
+        .method_item{
+            height: 195px;
+        }
+    }
+    .inline_select{
+        margin-bottom: 5px;
+    }
+    .jq-selectbox__select{
+        color:@linkColor;
+    }
+}
+.address_delivery{
+    max-width: 538px;
+    margin:-4px 0 19px;
+
+    .tit{
+        margin: 0 0 11px;
+    }
+    textarea{
+        height: 68px;
+        margin-bottom: 0;
+    }
+}
+//end method
+.success_code{
+    position: relative;
+
+    &:before{
+        content: '';
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        right: 0;
+        top: 0;
+        .background(-35px, -340px);
+
+    }
+}
+
+.delete_prod_item{
+    color:@blueIcons;
+    font-size:18px;
+    line-height: 25px;
+    margin-top: 6px;
+}
+.prod_pack_list{
+    .table_cell{
+        padding:0 5px 10px 0;
+    }
+}
+.total_pack{
+    padding:15px 0 5px;
+    border-top:1px solid @blueIcons;
+
+    .price{
+        text-align:right;
+        font-size:18px;
+        font-weight:500;
     }
 }
 //end cart
