@@ -8045,6 +8045,17 @@ $(document).ready(function() {
 
     (function () {
 
+        $('body').on(clickHandler,'.datepicker_btn', function(){
+
+            if($(this).parent().hasClass('opened_dp')){
+                $(this).parent().removeClass('opened_dp');
+            } else {
+                $(this).parent().addClass('opened_dp');
+            }
+        });
+    })();
+
+    (function () {
 
     })();
 
@@ -8520,7 +8531,8 @@ $(document).ready(function() {
     $.datepicker.setDefaults($.datepicker.regional['ru']);
 
     $('.datepicker').datepicker({
-        minDate: "+0d"
+        minDate: "+0d",
+        showOn: "button"
     });
 
 

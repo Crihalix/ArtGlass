@@ -224,6 +224,11 @@
         height:25px;
         background-color:@grayBorder; 
     }
+    &.red{
+        &:before{
+            background-color: @redDarken;
+        }
+    }
 
     &.caption{
         padding-left:20px;
@@ -2931,3 +2936,117 @@
     }
 }
 //end cart
+
+//art
+.art{
+
+    //art_columns
+    &_columns{
+
+    }
+    //art_left
+    &_left{
+        float: left;
+        max-width: 750px;
+        margin-right: 340px;
+    }
+    //end
+
+    //art_right
+    &_right{
+        width: 320px;
+        float: right;
+        margin-left:-100%;
+        position: relative;
+        right: 0;
+    }
+}
+.article{
+    padding: 0 0 12px;
+    margin: 0 0 35px;
+    border-bottom:1px solid @grayBorder;
+}
+//end art
+
+//seminar
+.seminar{
+
+    //seminar_item
+    &_item{
+        height: 350px;
+        margin:0 0 35px;
+        position: relative;
+        overflow: hidden;
+        background: @blocksBg;
+    }
+    &_img{
+        width: 265px;
+        float: left;
+        overflow: hidden;
+
+        img{
+            min-height: 100%;
+        }
+    }
+    &_wrap{
+        padding: 28px 30px 10px 20px;
+        margin:0 0 0 340px;
+    }
+    .big_caption{
+        margin: 0 0 5px;
+    }
+    .descript{
+        margin: 0 0 15px;
+        color:@textColor;
+    }
+    .price{
+        margin: 0 0 10px;
+        color:@linkColor;
+        font-size:24px;
+        line-height: 30px;
+
+        .rouble_sans{
+            font-size: 23px;
+        }
+    }
+    .btn_row{
+        margin: 0 0 20px;
+    }
+}
+.join_seminar{
+    width: 100%;
+    max-width: 290px;
+}
+//datepicker
+.calendar_block{
+    position: relative;
+    margin: 0 0 12px;
+
+    .datepicker{
+        position: absolute;
+        top:100%;
+        display: none!important;
+    }
+    &.opened_dp{
+        .datepicker{
+            display: block!important;
+        }
+    }
+}
+.datepicker_btn{
+    font-size:18px;
+    line-height: 25px;
+    .btn_txt{
+        border-bottom:1px dashed @grayDark;
+    }
+    &:hover{
+        .btn_txt{
+            border-bottom-color: transparent;
+        }
+    }
+    .fa{
+        font-size: 20px;
+        margin-left: 2px;
+    }
+}
+//end seminar
