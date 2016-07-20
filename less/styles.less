@@ -1765,9 +1765,6 @@
 }
 
 .ui-slider {
-    position: relative;
-}
-.ui-widget-content {
     position:relative;
     height: 20px;
 
@@ -1780,27 +1777,28 @@
         top:6px;
         background-color:@blueIcons;
     }
-}
-.ui-slider .ui-slider-handle {
-    width:10px;
-    height:15px;
-    margin-left: -5px;
-    position:absolute;
-    top:0;
-    background: @redLinks;
-    cursor: pointer;
-    z-index: 2;
-
-    &:after{
-        content:'';
+    .ui-slider-handle {
+        width:10px;
+        height:15px;
+        margin-left: -5px;
         position:absolute;
-        left:0;
-        top:100%;
-        border-top:5px solid @redLinks;
-        border-left:5px solid transparent;
-        border-right:5px solid transparent;
+        top:0;
+        background: @redLinks;
+        cursor: pointer;
+        z-index: 2;
+
+        &:after{
+            content:'';
+            position:absolute;
+            left:0;
+            top:100%;
+            border-top:5px solid @redLinks;
+            border-left:5px solid transparent;
+            border-right:5px solid transparent;
+        }
     }
 }
+
 //filter_sl_color
 .filter_sl_color{
     padding:8px 0 12px;
@@ -2701,10 +2699,12 @@
 
         &_wrap{
             display: none;
+            text-align: right;
         }
         &_wrap2{
             max-width: 185px;
             padding-top: 12px;
+            display: inline-block;
         }
 
         .row_input{
@@ -2962,8 +2962,8 @@
     }
 }
 .article{
-    padding: 0 0 12px;
-    margin: 0 0 35px;
+    padding: 0 0 15px;
+    margin: 0 0 30px;
     border-bottom:1px solid @grayBorder;
 }
 //end art
@@ -2973,12 +2973,12 @@
 
     //seminar_item
     &_item{
-        height: 350px;
         margin:0 0 35px;
         position: relative;
-        overflow: hidden;
+        //overflow: hidden;
         background: @blocksBg;
     }
+    //seminar_img
     &_img{
         width: 265px;
         float: left;
@@ -2988,19 +2988,23 @@
             min-height: 100%;
         }
     }
+    //seminar_wrap
     &_wrap{
-        padding: 28px 30px 10px 20px;
-        margin:0 0 0 340px;
+        height: 350px; 
+        position: relative;
+        padding: 26px 30px 10px 20px;
+        //margin:0 0 0 340px;
+        margin:0 0 0 45.3%;
     }
     .big_caption{
-        margin: 0 0 5px;
+        margin: 0 0 8px;
     }
     .descript{
         margin: 0 0 15px;
         color:@textColor;
     }
     .price{
-        margin: 0 0 10px;
+        margin: 0 0 19px;
         color:@linkColor;
         font-size:24px;
         line-height: 30px;
@@ -3012,24 +3016,74 @@
     .btn_row{
         margin: 0 0 20px;
     }
+    .subtitle{
+        margin: 0 0 20px;
+    }
+    .title_mark{
+        padding-left: 20px;
+    }
+    //seminar_join_pp
+    &_join_pp{
+        padding: 20px;
+        border:1px solid @blueIcons;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 100%;
+        top:0;
+        background-color: @white;
+        z-index: 3;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 300ms ease, left 300ms ease, visibility 300ms ease;
+
+        &_btn_bl{
+            background: @blueIcons;
+            padding: 16px 10px 5px 95px;
+        }
+    }
+    &_wrap.opened_seminar_pp{
+        .seminar_join_pp{
+            left: 0;
+            opacity: 1;
+            visibility: visible;
+            transition: opacity 300ms ease, left 300ms ease, visibility 0ms;
+        }
+    }
 }
-.join_seminar{
-    width: 100%;
-    max-width: 290px;
+//seminar_item_right
+.seminar_item_right{
+    .seminar_img{
+        float: right;
+    }
+    .seminar_wrap{
+        padding: 26px 20px 10px 49px;
+        margin:0 265px 0 0;
+    }
 }
+
 //datepicker
 .calendar_block{
     position: relative;
-    margin: 0 0 12px;
+    margin: 0 0 8px;
 
-    .datepicker{
+    .datepicker_pp{
         position: absolute;
         top:100%;
-        display: none!important;
+        left: 50%;
+        //display: none!important;
+        z-index: 2;
+        opacity: 0;
+        visibility: hidden;
+        margin-top: -150px;
+        transition: opacity 300ms ease, left 300ms ease;
     }
     &.opened_dp{
-        .datepicker{
-            display: block!important;
+        .datepicker_pp{
+            //display: block!important;
+            visibility: visible;
+            left: 80%;
+            opacity: 1;
         }
     }
 }

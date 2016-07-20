@@ -959,14 +959,27 @@ $(document).ready(function() {
 
     (function () {
 
-        $('body').on(clickHandler,'.datepicker_btn', function(){
+        $('body').on(clickHandler,'.js-toggle-datepicker-pp', function(){
 
-            if($(this).parent().hasClass('opened_dp')){
-                $(this).parent().removeClass('opened_dp');
+            if($(this).closest('.js-wrap-datepicker-pp').hasClass('opened_dp')){
+                $(this).closest('.js-wrap-datepicker-pp').removeClass('opened_dp');
             } else {
-                $(this).parent().addClass('opened_dp');
+                $(this).closest('.js-wrap-datepicker-pp').addClass('opened_dp');
             }
         });
+    })();
+
+    (function () {
+
+        $('body').on(clickHandler,'.js-join_seminar', function(){
+
+            if($(this).closest('.js-wrap-seminar_pp').hasClass('opened_seminar_pp')){
+                $(this).closest('.js-wrap-seminar_pp').removeClass('opened_seminar_pp');
+            } else {
+                $(this).closest('.js-wrap-seminar_pp').addClass('opened_seminar_pp');
+            }
+        });
+
     })();
 
     (function () {
@@ -1444,7 +1457,7 @@ $(document).ready(function() {
     };
     $.datepicker.setDefaults($.datepicker.regional['ru']);
 
-    $('.datepicker').datepicker({
+    $('.js-datepicker-pp').datepicker({
         minDate: "+0d",
         showOn: "button"
     });
