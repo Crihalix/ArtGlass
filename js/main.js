@@ -314,17 +314,19 @@ $(document).ready(function() {
 
     //amount_goods
     (function(){
-        $('body').on(clickHandler, '.less', function(){
+        $('body').on(clickHandler, '.less', function(e){
+            e.preventDefault();
             var $counter = $(this).parents('.amount_goods').find('input');
-            if($counter.val() >= 1 ) {
+            if($counter.val() >= 2 ) {
                 $counter.val(Number($counter.val()) * 1 - 1);
             }
-            if($counter.val() == 0){
+            if($counter.val() == 1){
                 $(this).parents('.pdp_choose_item').removeClass('active');
             }
         });
 
-        $('body').on(clickHandler, '.more', function(){
+        $('body').on(clickHandler, '.more', function(e){
+            e.preventDefault();
             var $counter = $(this).parents('.amount_goods').find('input');
             $counter.val(Number($counter.val()) * 1 + 1);
             $(this).parents('.pdp_choose_item').addClass('active');
@@ -434,6 +436,29 @@ $(document).ready(function() {
 
 
 //modal и ваидация
+
+    // upload image by youtube link
+    function eachYoutubeLink() {
+        $('.video_youtube').each(function(e){
+            if ($(this).html().length < 0) {
+                return true;
+            }
+            var id = getYoutubeID( $(this).data('href'));
+            var thumb_url = "http://i.ytimg.com/vi/"+id+"/hqdefault.jpg";
+            $(this).addClass('has-image');
+            $('<img src="'+thumb_url+'" />').appendTo($(this));
+        });
+    }
+
+    //get youtube id by link
+    function getYoutubeID(url) {
+        var id = url.match("[\\?&]v=([^&#]*)");
+        id = id[1];
+        return id;
+    }
+
+    eachYoutubeLink();
+
     (function() {
         var lastHref = '';
         $('body').on('click', '[data-toggle="modal"]', function(e) {
@@ -462,10 +487,24 @@ $(document).ready(function() {
             $modal.on('show.bs.modal', centeredPopUp);
             $(window).on('resize', centeredPopUp);
 
+
+
             function showModal(){
-                if(lastHref === $this.data('href') && !$this.hasClass('pp_no_bg')){
+                if(lastHref === $this.data('href') && !$this.hasClass('pp_no_bg') && !$this.hasClass('video_youtube')){
                     paramsModal();
-                    console.log('ravnu!')
+                } else if ($this.hasClass('video_youtube')) {
+
+                    $modal.find('.modal_content').html('');
+                    var idYout = getYoutubeID($this.data('href')),
+                        src = '//www.youtube.com/embed/'+idYout+'?rel=0&autoplay=1',
+                        iframe = '<iframe id="youtube" width="700" height="400" style="max-width:100%"' +
+                            ' frameborder="0" src="'+src+'" allowfullscreen></iframe>';
+
+                    $modal.find('.modal_content').append(iframe).append('<a href="" class="close_btn' +
+                        ' close_btn_youtube_pp fa' +
+                        ' fa-close" data-dismiss="modal">');
+                    paramsModal();
+
                 } else {
                     $modal.find('.modal_content').load($this.data('href'), paramsModal);
                 }
@@ -495,7 +534,7 @@ $(document).ready(function() {
                         verticalDragMaxHeight: 17
                     });
                 }
-                $modal.find('.mask_tel').inputmask('+38 (999) 999 99 99', {'placeholder': '+38 (___) ___ __ __'});
+                $modal.find('.js-mask_tel').inputmask('+38 (999) 999 99 99', {'placeholder': '+38 (___) ___ __ __'});
 
 
                 //$modal.find('.question_ico').popover({trigger: 'manual'}).on(clickHandler, function(e) {
@@ -631,7 +670,17 @@ $(document).ready(function() {
 
         $('body').on('hidden.bs.modal', '#modal', function () {
             $(this).removeData('bs.modal');
+
+            if($(this).find('.close_btn_youtube_pp').length){
+                $(this).find('.modal_content').html('');
+            }
         });
+        //$('body').on(clickHandler, '.close_btn_youtube_pp', function (e) {
+        //    e.preventDefault();
+        //    var $modal = $('#modal');
+        //    $modal.modal('hide');
+        //    $modal.find('.modal_content').html('');
+        //});
 
 
         //валидация форм
@@ -956,11 +1005,11 @@ $(document).ready(function() {
 
 
 
-
+    //toggle datepicker
     (function () {
 
-        $('body').on(clickHandler,'.js-toggle-datepicker-pp', function(){
-
+        $('body').on(clickHandler,'.js-toggle-datepicker-pp', function(e){
+            e.preventDefault();
             if($(this).closest('.js-wrap-datepicker-pp').hasClass('opened_dp')){
                 $(this).closest('.js-wrap-datepicker-pp').removeClass('opened_dp');
             } else {
@@ -969,16 +1018,89 @@ $(document).ready(function() {
         });
     })();
 
+
+    //join seminar
     (function () {
 
-        $('body').on(clickHandler,'.js-join_seminar', function(){
+        $('body').on(clickHandler,'.js-join_seminar, .js-close-seminar-pp', function(e){
+            e.preventDefault();
 
-            if($(this).closest('.js-wrap-seminar_pp').hasClass('opened_seminar_pp')){
-                $(this).closest('.js-wrap-seminar_pp').removeClass('opened_seminar_pp');
+            var $seminarItem = $(this).closest('.js-wrap-seminar_pp');
+
+            $seminarItem.find('.js-wrap-datepicker-pp').removeClass('opened_dp');
+
+            if($(this).hasClass('seminar_order_btn')){
+                $('body').stop().stop().animate({
+                    scrollTop: $seminarItem.offset().top - 15
+                }, {
+                    duration: 500,
+                    complete: function () {
+                        console.log('5')
+                        if(!$seminarItem.hasClass('opened_seminar_pp')){
+                            showOrderform();
+                        }
+                    }
+                });
             } else {
-                $(this).closest('.js-wrap-seminar_pp').addClass('opened_seminar_pp');
+                showOrderform();
+            }
+
+            function showOrderform(){
+                if($seminarItem.hasClass('opened_seminar_pp')){
+                    $seminarItem.addClass('over_hidden').removeClass('opened_seminar_pp');
+                } else {
+                    if($seminarItem.find('.js-seminar_join_pp').children().length){
+                        $seminarItem.addClass('opened_seminar_pp over_hidden');
+                    } else {
+                        $seminarItem.find('.js-seminar_join_pp').load('ajax/seminar_join_pp.php', function(){
+
+                            //после загрузки попапа
+                            $seminarItem.addClass('opened_seminar_pp over_hidden');
+                            $(this).find('.js-datepicker-pp').datepicker({
+                                minDate: "+0d",
+                                showOn: "button"
+                            });
+
+                            $(this).find('.seminar_join_pp_form').formValidation({
+                                successEvent: function() {
+                                    //отправить форму аяксом, в ответ можно присылать нужный html
+                                }
+                            }).on('submit', function() {
+                                return false;
+                            });
+                            $(this).find('.js-mask_tel').inputmask('+38 (999) 999 99 99', {'placeholder': '+38 (___) ___ __ __'});
+
+                        });
+                    }
+                }
+                setTimeout(function(){
+                    $('.js-wrap-seminar_pp').removeClass('over_hidden');
+                }, 1000);
+            }
+
+        });
+
+    })();
+
+
+
+    (function () {
+
+        $('body').on(clickHandler,'.js-open-sem-prog', function(e) {
+            e.preventDefault();
+            var $seminarItem = $(this).closest('.js-wrap-seminar_pp'),
+                $seminarItemCnt = $seminarItem.find('.js-seminar_descript')
+
+            if($seminarItemCnt.is(':visible')){
+                $seminarItemCnt.stop().slideUp(400);
+            } else {
+                $seminarItemCnt.stop().slideDown(400);
             }
         });
+
+    })();
+
+    (function () {
 
     })();
 

@@ -1984,8 +1984,16 @@
     padding:11px 41px 12px;
 
     &:before{
+        height: 20px;
+        width: 20px;
+        line-height: 20px;
         font-size:18px;
         margin-right:6px;
+        transform-origin: 50% 50%;
+    }
+
+    &.loading:before{
+        animation:rotate 1s linear infinite;
     }
 }
 
@@ -2939,6 +2947,7 @@
 
 //art
 .art{
+    margin:-7px 0 59px;
 
     //art_columns
     &_columns{
@@ -2957,14 +2966,122 @@
         width: 320px;
         float: right;
         margin-left:-100%;
+        padding-top: 10px;
         position: relative;
         right: 0;
+    }
+    //art_info_item
+    &_info_item{
+        margin: 0 0 25px;
+        .caption{
+
+        }
+        p{
+            margin-bottom: 10px;
+        }
+    }
+    //art_navigate
+    &_navigate{
+        ul{
+            margin: 0;
+        }
+        li{
+            font-size: 18px;
+            line-height: 25px;
+
+            &:first-child{
+                
+                span{
+                    border-top:1px solid @blueIcons;
+                }
+            }
+
+            &.active{
+                position: relative;
+                &:before{
+                    content:'';
+                    height: 100%;
+                    width: 60%;
+                    border-radius: 0 50% 50% 0;
+                    position: absolute;
+                    z-index: 1;
+                    box-shadow: 0 0 4px rgba(0,0,0, 0.3);
+                }
+                a{
+                    color:@redLinks;
+                    border:1px solid @linkColor;
+                    border-right:0;
+                    border-left:5px solid @redLinks;
+                    background-color: @white;
+                    padding-left: 15px;
+                    z-index: 2;
+                    text-decoration: none;
+                }
+                span{
+                    border:none;
+                }
+            }
+        }
+        a{
+            position: relative;
+            padding: 0 0 0 20px;
+            display: block;
+            color:@textColor;
+            text-decoration: none;
+
+            &:hover{
+                color:@linkColor;
+                text-decoration: underline;
+            }
+        }
+        span{
+            padding: 8px 0 7px;
+            display: block;
+            border-bottom:1px solid @blueIcons;
+        }
+    }
+}
+//map_block
+.map_block{
+    width: 320px;
+    height: 320px;
+    margin: 0 0 16px;
+}
+.go_seminar_aside{
+    margin: 0 0 25px;
+
+    p{
+        margin: 0 0 10px;
+    }
+    .prompt_text{
+        margin-bottom: 20px;
+    }
+    .row_btn{
+        margin-bottom: 38px;
+    }
+}
+.list_events{
+    margin-bottom: 25px;
+
+    li{
+        color:@textColor;
+        margin: 0 0 10px;
+    }
+    p{
+        margin: 0;
     }
 }
 .article{
     padding: 0 0 15px;
     margin: 0 0 30px;
     border-bottom:1px solid @grayBorder;
+
+    .title{
+        margin-bottom: 10px;
+    }
+    p{
+        margin: 0 0 10px;
+    }
 }
 //end art
 
@@ -2975,8 +3092,20 @@
     &_item{
         margin:0 0 35px;
         position: relative;
-        //overflow: hidden;
-        background: @blocksBg;
+
+        &.opened_seminar_pp {
+
+            .seminar_join_pp {
+                left: 0;
+                //opacity: 1;
+                visibility: visible;
+                transition: opacity 300ms ease, left 300ms ease, right 300ms ease, visibility 0ms;
+            }
+        }
+        //seminar_item_wrap
+        &_wrap{
+            background: @blocksBg;
+        }
     }
     //seminar_img
     &_img{
@@ -2988,13 +3117,13 @@
             min-height: 100%;
         }
     }
-    //seminar_wrap
-    &_wrap{
+    //seminar__cnt_wrap
+    &_cnt_wrap{
         height: 350px; 
         position: relative;
-        padding: 26px 30px 10px 20px;
+        padding: 22px 30px 10px 12.6%;
         //margin:0 0 0 340px;
-        margin:0 0 0 45.3%;
+        margin:0 0 0 265px;
     }
     .big_caption{
         margin: 0 0 8px;
@@ -3004,7 +3133,7 @@
         color:@textColor;
     }
     .price{
-        margin: 0 0 19px;
+        margin: 0 0 15px;
         color:@linkColor;
         font-size:24px;
         line-height: 30px;
@@ -3014,7 +3143,7 @@
         }
     }
     .btn_row{
-        margin: 0 0 20px;
+        margin: 0 0 10px;
     }
     .subtitle{
         margin: 0 0 20px;
@@ -3024,7 +3153,7 @@
     }
     //seminar_join_pp
     &_join_pp{
-        padding: 20px;
+        padding: 31px 20px 20px;
         border:1px solid @blueIcons;
         width: 100%;
         height: 100%;
@@ -3033,22 +3162,89 @@
         top:0;
         background-color: @white;
         z-index: 3;
-        opacity: 0;
+        //opacity: 0;
         visibility: hidden;
-        transition: opacity 300ms ease, left 300ms ease, visibility 300ms ease;
+        transition: opacity 300ms ease, left 300ms ease, right 300ms ease, visibility 300ms ease;
 
         &_btn_bl{
-            background: @blueIcons;
             padding: 16px 10px 5px 95px;
+            background: @blueIcons;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+        &_wrap{
+            max-width: 380px;
+            margin: 0 auto;
+        }
+
+        .field{
+            padding-left: 9px;
+            padding-right: 5px;
+
+            &_group{
+                margin-bottom: 9px;
+            }
+            //field_telephone
+            &_telephone{
+                float: left;
+                max-width: 155px;
+            }
+            //field_email
+            &_email,
+            &_counts_guest{
+                margin-left: 170px;
+                display: block;
+                width: auto;
+            }
+            //field_calendar
+            &_calendar {
+                float: left;
+                max-width: 155px;
+                .field{
+                    max-width: 125px;
+                    vertical-align: top;
+                }
+
+                .calendar_block{
+                    float: right;
+                    text-align: right;
+                }
+            }
+            &_counts_guest{
+                .amount_goods{
+                    margin: 0 auto;
+
+                    .field{
+                        padding: 0 7px 2px;
+                    }
+                }
+            }
+        }
+        .tit_label{
+            margin-bottom: 1px;
+        }
+        .checkbox_item{
+            margin: 7px 0 7px;
+            padding-top: 4px;
+            line-height: 25px;
+        }
+
+        >.close_btn{
+            font-size: 16px;
+            top:11px;
+            right: 14px;
         }
     }
-    &_wrap.opened_seminar_pp{
-        .seminar_join_pp{
-            left: 0;
-            opacity: 1;
-            visibility: visible;
-            transition: opacity 300ms ease, left 300ms ease, visibility 0ms;
-        }
+    //seminar_descript
+    &_descript{
+        display: none;
+        padding: 42px 25px 24px 30px;
+        border:1px solid @blocksBg;
+    }
+    .seminar_order_btn{
+        margin-top: 30px;
     }
 }
 //seminar_item_right
@@ -3056,16 +3252,66 @@
     .seminar_img{
         float: right;
     }
-    .seminar_wrap{
-        padding: 26px 20px 10px 49px;
+    .seminar_cnt_wrap{
+        padding: 22px 20px 10px 49px;
         margin:0 265px 0 0;
+
+        .seminar_join_pp {
+            right: 100%;
+            left: auto;
+        }
+    }
+
+    &.opened_seminar_pp {
+
+        .seminar_cnt_wrap .seminar_join_pp {
+            right: 0;
+        }
     }
 }
+//photo_cnt
+.photo_cnt{
+    margin: 10px 0 15px 10px;
+    float: right;
+}
+.photo_list{
+    width: 370px;
+    margin: 0 -2.5px 5px;
+    float: right;
+
+    li{
+        float: left;
+        padding: 0 2.5px 5px;
+        margin: 0;
+        
+        &.w_33{
+            width: 33.333%;
+        }
+        &.w_50{
+            width: 50%;
+        }
+        &:before{
+            display: none;
+        }
+    }
+    .img_wrp{
+        height: 180px;
+        overflow: hidden;
+    }
+    img{
+        margin: 0;
+        min-width: 100%;
+        min-height: 100%;
+
+    }
+}
+
 
 //datepicker
 .calendar_block{
     position: relative;
     margin: 0 0 8px;
+    display: inline-block;
 
     .datepicker_pp{
         position: absolute;
@@ -3092,6 +3338,7 @@
     line-height: 25px;
     .btn_txt{
         border-bottom:1px dashed @grayDark;
+        letter-spacing: 0.025em;
     }
     &:hover{
         .btn_txt{
@@ -3103,4 +3350,322 @@
         margin-left: 2px;
     }
 }
+.datepicker_inline{
+    margin: 0 0 30px;
+}
 //end seminar
+
+
+//art_det
+.art_det{
+
+    .big_caption{
+
+        .fa{
+            color:@redLinks;
+            font-size:30px;
+            line-height: 30px;
+            display: inline-block;
+            height: 30px;
+            vertical-align: top;
+        }
+    }
+}
+//end art_det
+//seminars
+.seminars{
+    margin: 0 0 40px;
+    color:@blueIcons;
+
+    //seminars_cnt
+    &_cnt{
+        width: 51%;
+        min-height: 550px;
+        padding: 22px 25px 10px 25px;
+        background-color: @linkColor;
+    }
+    .subtitle{ 
+        color:@white;
+    }
+    p{
+        margin: 0 0 10px;
+        color:@blueIcons;
+    }
+    a{
+        color:@footerCaption;
+    }
+    //seminars_list
+    &_list{
+        padding: 10px 0;
+        margin: 0 0 20px;
+    }
+    .btn{
+        padding-left: 33px;
+        padding-right: 33px;
+        margin: 0 0 10px;
+    }
+    //seminars_img
+    &_img{
+        width: 49%;
+        margin-left: 51%;
+
+        //seminars_img_list
+        &_list{
+            margin: 0 -1.5px;
+            float: left;
+        }
+        
+        img{
+            min-width: 100%;
+            min-height: 100%;
+        }
+        li{
+            padding: 0 1.5px 3px;
+            margin: 0;
+            float: left;
+
+            div{
+                max-height: 100%;
+                overflow: hidden;
+            }
+        }
+        .h_p100{
+            width: 44%;
+            height: 553px;
+        }
+        .h_50{
+            width: 56%;
+            height: 185px;
+        }
+        .h_30{
+            width: 28%;
+            height: 183px;
+        }
+    }
+}
+//end seminars
+
+//training_info
+.training_info{
+    margin: 0 0 38px;
+
+    .row_wrap{
+        margin:0 -15px;
+    }
+    p{
+        margin: 0 0 10px;
+    }
+    .big_caption{
+        margin: 0 0 8px;
+    }
+
+    &_item{
+        width: 50%;
+        padding: 0 15px;
+        float: left;
+
+        &_wrap{
+            min-height: 330px;
+            background-color: @blocksBg;
+            border-left:5px solid @blueIcons;
+            padding: 17px 20px 15px;
+        }
+    }
+
+    .training_link {
+        width: 200px;
+        padding:6px 10px 6px 61px;
+        margin-right: 10px;
+        position: relative;
+        text-align: left;
+        font-size:16px;
+        line-height: 18px;
+        color:@white;
+
+        &:before{
+            width: 50px;
+            height: 48px;
+            position: absolute;
+            top:0;
+            left: 0;
+            text-align: center;
+            font-size:21px;
+            line-height: 48px;
+        }
+    }
+    .table{
+        padding: 6px 0;
+    }
+    .table_cell{
+        vertical-align: middle;
+
+
+    }
+    .training_img{
+        max-width: 280px;
+        float: right;
+
+        &.w_50{
+            width: 50%;
+            max-width: 140px;
+            padding:0 0 5px 5px;
+        }
+        img{
+            max-width: 100%;
+        }
+    }
+    .more_archive{
+        width: 230px;
+    }
+}
+//end training_info
+
+//training_docs
+.training_docs{
+    margin: 0 0 40px;
+
+    .big_caption{
+        padding: 0 0 10px 24px;
+        margin: 0 0 14px;
+        border-bottom:1px solid @blueIcons;
+    }
+
+    &_list{
+        columns:3;
+        padding: 0 25px;
+        margin: 0 0 20px;
+
+        li{
+            width: 100%;
+            display: inline-block;
+            vertical-align: top;
+            margin: 0 0 10px;
+        }
+    }
+    .cart_order_buttons{
+        .btn{
+            padding-left: 32px;
+            padding-right: 32px;
+        }
+    }
+}
+//end training_docs
+
+//video_a_archive
+.video_a_archive{
+
+    .training_info_item_wrap{
+        padding: 16px 20px 15px;
+        border:1px dashed @blueIcons;
+        background:none;
+    }
+    .big_caption{
+        .fa:before{
+            font-size:36px;
+            line-height: 36px;
+        }
+    }
+
+    .archive_table{
+        padding-top: 20px;
+        margin: 0 0 13px;
+
+        .table_cell{
+            padding: 0 0 10px;
+            vertical-align: top;
+            color:@textColorDark;
+
+            &:first-child{
+                max-width: 140px;
+                padding-right: 14px;
+                white-space: nowrap;
+            }
+        }
+    }
+}
+.video_list{
+    padding: 15px 0 0;
+    margin: 0 -5px;
+
+    li{
+        width: 33.333%;
+        float: left;
+        padding: 0 5px 10px;
+    }
+    a{
+        height: 110px;
+        overflow: hidden;
+        display: block;
+        text-align: right;
+
+        &:before{
+            opacity: 0.8;
+            position: absolute;
+            left: 50%;
+            top:50%;
+            margin: -20px 0 0 -20px;
+            font-size:30px;
+            line-height: 40px;
+            width: 40px;
+            height: 40px;
+            text-align: center;
+            color:@white;
+            transition: opacity 200ms ease;
+        }
+
+        &:hover:before{
+            opacity: 1;
+        }
+    }
+    img{
+        width: 100%;
+        min-height: 100%;
+    }
+    .go_all_video{
+        border:2px solid @blueIcons;
+
+        .table_cell{
+            padding: 10px;
+            text-align: center;
+            vertical-align: middle;
+        }
+        
+        &:hover{
+            .video_link_txt{
+                text-decoration: underline; 
+            }
+        }
+    }
+    .video_link_txt{
+        display: inline-block;
+        position: relative;
+        padding: 0 25px 0 8px;
+        text-align: left;
+
+        &:after{
+            content:'';
+            height: 30px;
+            width: 20px;
+            position: absolute;
+            right: 0;
+            top:50%;
+            margin: -15px 0 0;
+            .background(0, -370px);
+        }
+    }
+}
+.archive_link{
+    padding-left:25px;
+    display: inline-block;
+    position: relative;
+
+    &:before{
+        position: absolute;
+        left: 0;
+        top:2px;
+        font-size:18px;
+        line-height: 20px;
+        color:@redLinks;
+    }
+}
+//end video_a_archive

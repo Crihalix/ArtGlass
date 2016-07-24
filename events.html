@@ -9,7 +9,7 @@
     <link href="dist/img/favicon.png" rel="shortcut icon">
     <link href="dist/css/all.css" rel="stylesheet">
 
-    <link href='https://fonts.googleapis.com/css?family=Roboto:400,100italic,100,300,300italic,400italic,500,500italic,700,700italic,900,900italic&subset=cyrillic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,100italic,100,300,300italic,400italic,500,500italic,700,700italic,900,900italic&subset=cyrillic' rel='stylesheet' >
     <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,700italic,700,400italic,300italic&subset=cyrillic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Roboto+Mono:400,700italic,500italic,700,500,400italic,300italic,300,100,100italic&subset=cyrillic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:700,100,300,400&subset=cyrillic' rel='stylesheet' type='text/css'>
@@ -430,80 +430,546 @@
                     <!--seminar-->
                     <section class="seminar">
                         <h2 class="subtitle title_mark red">Семинары по «Тиффани»</h2>
-                        <div class="seminar_item">
-                            <div class="seminar_img">
-                                <img src="dist/img/temp/seminar_img1.jpg" alt="">
-                            </div>
-                            <div class="seminar_wrap js-wrap-seminar_pp">
-                                <h3 class="big_caption">Техника Тиффани<br>
-                                    базовый уровень</h3>
-                                <p class="descript">теоретические и практические занятия</p>
-                                <div class="calendar_block js-wrap-datepicker-pp">
-                                    <button class="btn datepicker_btn js-toggle-datepicker-pp">
-                                        <span class="btn_txt">с 28 по 30 сентября</span> <span class=" fa fa-calendar"></span>
-                                    </button>
-                                    <div class="datepicker_pp js-datepicker-pp">
-                                        <button class="js-toggle-datepicker-pp btn close_btn fa fa-close"></button>
+
+                        <!--seminar_item-->
+                        <div class="seminar_item js-wrap-seminar js-wrap-seminar_pp">
+                            <div class="seminar_item_wrap ">
+                                <div class="seminar_img">
+                                    <img src="dist/img/temp/seminar_img1.jpg" alt="">
+                                </div>
+                                <div class="seminar_cnt_wrap">
+                                    <h3 class="big_caption">Техника Тиффани<br>
+                                        базовый уровень</h3>
+                                    <p class="descript">теоретические и практические занятия</p>
+                                    <div class="calendar_block js-wrap-datepicker-pp">
+                                        <button class="btn datepicker_btn js-toggle-datepicker-pp">
+                                            <span class="btn_txt">с 28 по 30 сентября</span> <span class=" fa fa-calendar"></span>
+                                        </button>
+                                        <div class="datepicker_pp js-datepicker-pp">
+                                            <button class="js-toggle-datepicker-pp btn close_btn fa fa-close"></button>
+                                        </div>
+                                    </div>
+                                    <p class="address">Химки, Коммунальный проезд 30</p>
+                                    <div class="price">5 500 <span class="rouble_sans">С</span></div>
+                                    <div class="btn_row">
+                                        <button class="btn btn_default h_50 w_290 js-join_seminar">Записаться</button>
+                                    </div>
+                                    <div class="program_btn">
+                                        <a href="#" class="btn dashed btn_inline js-open-sem-prog">Программа обучения и
+                                            расписание
+                                            занятий</a>
+                                    </div>
+                                    <div class="seminar_join_pp js-seminar_join_pp">
+
                                     </div>
                                 </div>
-                                <p class="address">Химки, Коммунальный проезд 30</p>
-                                <div class="price">5 500 <span class="rouble_sans">С</span></div>
-                                <div class="btn_row">
-                                    <button class="btn btn_default h_50 w_290 js-join_seminar">Записаться</button>
+                            </div>
+                            <!--seminar_descript-->
+                            <div class="seminar_descript js-seminar_descript text_block clear_fix">
+                                <h3>Продолжительность семинара 2 дня по 8 часов. Начало 10:00 — завершение 18:00</h3>
+                                <p>Данная техника позволяет создавать паяные витражи из фрагментов цветного стекла. Техника Тиффани предоставляет широкие возможности для создания плоских и объемных предметов интерьера, отличающихся легкостью и прочностью.</p>
+                                <p>Методика обучения на семинаре адаптирована для любителей и начинающих и позволяет людям без подготовки, опыта и специального образования в короткий срок и «с нуля» освоить основные художественные и технические приемы изготовления витражей в технике Тиффани, приобрести наиболее важные технические навыки и минимальный практический опыт создания готовых изделий.</p>
+                                <div class="photo_cnt">
+                                    <ul class="photo_list">
+                                        <li class="w_33">
+                                            <div class="img_wrp">
+                                                <img src="dist/img/temp/seminar_photos_img1.jpg" alt="">
+                                            </div>
+                                        </li>
+                                        <li class="w_33">
+                                            <div class="img_wrp">
+                                                <img src="dist/img/temp/seminar_photos_img2.jpg" alt="">
+                                            </div>
+                                        </li>
+                                        <li class="w_33">
+                                            <div class="img_wrp">
+                                                <img src="dist/img/temp/seminar_photos_img3.jpg" alt="">
+                                            </div>
+                                        </li>
+                                        <li class="w_50">
+                                            <div class="img_wrp">
+                                                <img src="dist/img/temp/seminar_photos_img4.jpg" alt="">
+                                            </div>
+                                        </li>
+                                        <li class="w_50">
+                                            <div class="img_wrp">
+                                                <img src="dist/img/temp/seminar_photos_img5.jpg" alt="">
+                                            </div>
+                                        </li>
+                                    </ul>
                                 </div>
-                                <div class="program_btn">
-                                    <a href="#" class="btn dashed btn_inline">Программа обучения и расписание занятий</a>
-                                </div>
-                                <div class="seminar_join_pp">
-                                    <form class="seminar_join_pp_form">
-                                        <div class="field_group row_vld">
-                                            <label for="seminar_join_name" class="tit_label">Фамилия, имя</label>
-                                            <input type="text" class="field" id="seminar_join_name" value="" placeholder="">
-                                        </div>
-                                        <div class="seminar_join_pp_btn_bl">
-                                            <button class="btn btn_red w_290">Оставить заявку</button>
-                                        </div>
-                                    </form>
+                                <h4 class="list_tit">В процесс обучения входит:</h4>
+                                <ul>
+                                    <li>резка стекла</li>
+                                    <li>обточка</li>
+                                    <li>обмотка</li>
+                                    <li>обработка</li>
+                                    <li>пайка</li>
+                                    <li>патинирование</li>
+                                    <li>финишная обработка</li>
+                                </ul>
+                                <h4 class="list_tit">В стоимость включено:</h4>
+                                <ul>
+                                    <li>0,5 метра стекла</li>
+                                    <li>несколько метров фольги</li>
+                                    <li>эксплуатация оборудования (паяльник, стеклорез, шлифовальная машина)</li>
+                                    <li>в стоимость включены
+                                        кофе-паузы</li>
+                                </ul>
+                                <br>
+                                <h3>Программа и расписание занятий</h3>
+                                <h4>Первый день:</h4>
+                                <p>10-30 Вступление: Знакомство, Кратко об истории создания витражей. Витражное стекло,</p>
+                                его отличие от других стекол. Изготовление витражей,техники изготовления витражей.
+                                <p>Особенности изготовления эскизов для витражей. Выбор картонов для образцов, их</p>
+                                особенности. Особенности подбора стекол для витражей, основы колористики, подбор стекла для образцов
+                                <p>12-30 Кратко о необходимом оборудовании для изготовления витражей. Техника</p>
+                                безопасности.
+                                <p>12-30 - 17-45 Самостоятельное изготовление витражных образцов.</p>
+                                <p>17-45 Обсуждение итогов 1-го дня, вопросы</p>
+                                <h4>Второй день:</h4>
+                                <p>10-30 Повторение этапов изготовления витражей, исправление ошибок при подборе стекол</p>
+                                для образцов.
+                                <p>11-30 - 17-00 Самостоятельное изготовление витражных образцов.</p>
+                                <div class="text_center">
+                                    <button class="btn btn_default h_50 w_290 seminar_order_btn js-join_seminar">Записаться</button>
                                 </div>
                             </div>
+                            <!--end seminar_descript-->
                         </div>
-                        <div class="seminar_item seminar_item_right">
-                            <div class="seminar_img">
-                                <img src="dist/img/temp/seminar_img2.jpg" alt="">
-                            </div>
-                            <div class="seminar_wrap js-wrap-seminar_pp">
-                                <h3 class="big_caption">Техника Тиффани<br>
-                                    базовый уровень</h3>
-                                <p class="descript">теоретические и практические занятия</p>
-                                <div class="calendar_block js-wrap-datepicker-pp">
-                                    <button class="btn datepicker_btn js-toggle-datepicker-pp">
-                                        <span class="btn_txt">с 28 по 30 сентября</span> <span class=" fa fa-calendar"></span>
-                                    </button>
-                                    <div class="datepicker_pp js-datepicker-pp">
-                                        <button class="js-toggle-datepicker-pp btn close_btn fa fa-close"></button>
+                        <!--end seminar_item-->
+
+                        <!--seminar_item-->
+                        <div class="seminar_item seminar_item_right js-wrap-seminar js-wrap-seminar_pp">
+                            <div class="seminar_item_wrap ">
+                                <div class="seminar_img">
+                                    <img src="dist/img/temp/seminar_img2.jpg" alt="">
+                                </div>
+                                <div class="seminar_cnt_wrap">
+                                    <h3 class="big_caption">Тиффани, светильники<br>
+                                        и 3D тиффани</h3>
+                                    <p class="descript">теоретические и практические занятия</p>
+                                    <div class="calendar_block js-wrap-datepicker-pp">
+                                        <button class="btn datepicker_btn js-toggle-datepicker-pp">
+                                            <span class="btn_txt">с 28 по 30 сентября</span> <span class=" fa fa-calendar"></span>
+                                        </button>
+                                        <div class="datepicker_pp js-datepicker-pp">
+                                            <button class="js-toggle-datepicker-pp btn close_btn fa fa-close"></button>
+                                        </div>
+                                    </div>
+                                    <p class="address">Химки, Коммунальный проезд 30</p>
+                                    <div class="price">5 500 <span class="rouble_sans">С</span></div>
+                                    <div class="btn_row">
+                                        <button class="btn btn_default h_50 w_290 js-join_seminar">Записаться</button>
+                                    </div>
+                                    <div class="program_btn">
+                                        <a href="#" class="btn dashed btn_inline js-open-sem-prog">Программа обучения и расписание
+                                            занятий</a>
+                                    </div>
+                                    <div class="seminar_join_pp js-seminar_join_pp">
+
                                     </div>
                                 </div>
-                                <p class="address">Химки, Коммунальный проезд 30</p>
-                                <div class="price">5 500 <span class="rouble_sans">С</span></div>
-                                <div class="btn_row">
-                                    <button class="btn btn_default h_50 w_290 js-join_seminar">Записаться</button>
+                            </div>
+                            <!--seminar_descript-->
+                            <div class="seminar_descript js-seminar_descript text_block clear_fix">
+                                <h3>Продолжительность семинара 2 дня по 8 часов. Начало 10:00 — завершение 18:00</h3>
+                                <p>Данная техника позволяет создавать паяные витражи из фрагментов цветного стекла. Техника Тиффани предоставляет широкие возможности для создания плоских и объемных предметов интерьера, отличающихся легкостью и прочностью.</p>
+                                <p>Методика обучения на семинаре адаптирована для любителей и начинающих и позволяет людям без подготовки, опыта и специального образования в короткий срок и «с нуля» освоить основные художественные и технические приемы изготовления витражей в технике Тиффани, приобрести наиболее важные технические навыки и минимальный практический опыт создания готовых изделий.</p>
+                                <div class="photo_cnt">
+                                    <ul class="photo_list">
+                                        <li class="w_33">
+                                            <div class="img_wrp">
+                                                <img src="dist/img/temp/seminar_photos_img1.jpg" alt="">
+                                            </div>
+                                        </li>
+                                        <li class="w_33">
+                                            <div class="img_wrp">
+                                                <img src="dist/img/temp/seminar_photos_img2.jpg" alt="">
+                                            </div>
+                                        </li>
+                                        <li class="w_33">
+                                            <div class="img_wrp">
+                                                <img src="dist/img/temp/seminar_photos_img3.jpg" alt="">
+                                            </div>
+                                        </li>
+                                        <li class="w_50">
+                                            <div class="img_wrp">
+                                                <img src="dist/img/temp/seminar_photos_img4.jpg" alt="">
+                                            </div>
+                                        </li>
+                                        <li class="w_50">
+                                            <div class="img_wrp">
+                                                <img src="dist/img/temp/seminar_photos_img5.jpg" alt="">
+                                            </div>
+                                        </li>
+                                    </ul>
                                 </div>
-                                <div class="program_btn">
-                                    <a href="#" class="btn dashed btn_inline">Программа обучения и расписание занятий</a>
-                                </div>
-                                <div class="seminar_join_pp">
-                                    <form class="seminar_join_pp_form">
-                                        <div class="field_group row_vld">
-                                            <label for="seminar_join_name" class="tit_label">Фамилия, имя</label>
-                                            <input type="text" class="field" id="seminar_join_name" value="" placeholder="">
-                                        </div>
-                                        <div class="seminar_join_pp_btn_bl">
-                                            <button class="btn btn_red w_290">Оставить заявку</button>
-                                        </div>
-                                    </form>
+                                <h4 class="list_tit">В процесс обучения входит:</h4>
+                                <ul>
+                                    <li>резка стекла</li>
+                                    <li>обточка</li>
+                                    <li>обмотка</li>
+                                    <li>обработка</li>
+                                    <li>пайка</li>
+                                    <li>патинирование</li>
+                                    <li>финишная обработка</li>
+                                </ul>
+                                <h4 class="list_tit">В стоимость включено:</h4>
+                                <ul>
+                                    <li>0,5 метра стекла</li>
+                                    <li>несколько метров фольги</li>
+                                    <li>эксплуатация оборудования (паяльник, стеклорез, шлифовальная машина)</li>
+                                    <li>в стоимость включены
+                                        кофе-паузы</li>
+                                </ul>
+                                <br>
+                                <h3>Программа и расписание занятий</h3>
+                                <h4>Первый день:</h4>
+                                <p>10-30 Вступление: Знакомство, Кратко об истории создания витражей. Витражное стекло,</p>
+                                его отличие от других стекол. Изготовление витражей,техники изготовления витражей.
+                                <p>Особенности изготовления эскизов для витражей. Выбор картонов для образцов, их</p>
+                                особенности. Особенности подбора стекол для витражей, основы колористики, подбор стекла для образцов
+                                <p>12-30 Кратко о необходимом оборудовании для изготовления витражей. Техника</p>
+                                безопасности.
+                                <p>12-30 - 17-45 Самостоятельное изготовление витражных образцов.</p>
+                                <p>17-45 Обсуждение итогов 1-го дня, вопросы</p>
+                                <h4>Второй день:</h4>
+                                <p>10-30 Повторение этапов изготовления витражей, исправление ошибок при подборе стекол</p>
+                                для образцов.
+                                <p>11-30 - 17-00 Самостоятельное изготовление витражных образцов.</p>
+                                <div class="text_center">
+                                    <button class="btn btn_default h_50 w_290 seminar_order_btn js-join_seminar">Записаться</button>
                                 </div>
                             </div>
+                            <!--end seminar_descript-->
                         </div>
+                        <!--end seminar_item-->
+
+
+                        <h2 class="subtitle title_mark red">Семинары по Лэмпворкингу</h2>
+                        <!--seminar_item-->
+                        <div class="seminar_item js-wrap-seminar js-wrap-seminar_pp">
+                            <div class="seminar_item_wrap ">
+                                <div class="seminar_img">
+                                    <img src="dist/img/temp/seminar_img3.jpg" alt="">
+                                </div>
+                                <div class="seminar_cnt_wrap">
+                                    <h3 class="big_caption">Семинары по Лэмпворкингу<br>
+                                        базовый уровень</h3>
+                                    <p class="descript">теоретические и практические занятия</p>
+                                    <div class="calendar_block js-wrap-datepicker-pp">
+                                        <button class="btn datepicker_btn js-toggle-datepicker-pp">
+                                            <span class="btn_txt">с 28 по 30 сентября</span> <span class=" fa fa-calendar"></span>
+                                        </button>
+                                        <div class="datepicker_pp js-datepicker-pp">
+                                            <button class="js-toggle-datepicker-pp btn close_btn fa fa-close"></button>
+                                        </div>
+                                    </div>
+                                    <p class="address">Химки, Коммунальный проезд 30</p>
+                                    <div class="price">5 500 <span class="rouble_sans">С</span></div>
+                                    <div class="btn_row">
+                                        <button class="btn btn_default h_50 w_290 js-join_seminar">Записаться</button>
+                                    </div>
+                                    <div class="program_btn">
+                                        <a href="#" class="btn dashed btn_inline js-open-sem-prog">Программа обучения и
+                                            расписание
+                                            занятий</a>
+                                    </div>
+                                    <div class="seminar_join_pp js-seminar_join_pp">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <!--seminar_descript-->
+                            <div class="seminar_descript js-seminar_descript text_block clear_fix">
+                                <h3>Продолжительность семинара 2 дня по 8 часов. Начало 10:00 — завершение 18:00</h3>
+                                <p>Данная техника позволяет создавать паяные витражи из фрагментов цветного стекла. Техника Тиффани предоставляет широкие возможности для создания плоских и объемных предметов интерьера, отличающихся легкостью и прочностью.</p>
+                                <p>Методика обучения на семинаре адаптирована для любителей и начинающих и позволяет людям без подготовки, опыта и специального образования в короткий срок и «с нуля» освоить основные художественные и технические приемы изготовления витражей в технике Тиффани, приобрести наиболее важные технические навыки и минимальный практический опыт создания готовых изделий.</p>
+                                <div class="photo_cnt">
+                                    <ul class="photo_list">
+                                        <li class="w_33">
+                                            <div class="img_wrp">
+                                                <img src="dist/img/temp/seminar_photos_img1.jpg" alt="">
+                                            </div>
+                                        </li>
+                                        <li class="w_33">
+                                            <div class="img_wrp">
+                                                <img src="dist/img/temp/seminar_photos_img2.jpg" alt="">
+                                            </div>
+                                        </li>
+                                        <li class="w_33">
+                                            <div class="img_wrp">
+                                                <img src="dist/img/temp/seminar_photos_img3.jpg" alt="">
+                                            </div>
+                                        </li>
+                                        <li class="w_50">
+                                            <div class="img_wrp">
+                                                <img src="dist/img/temp/seminar_photos_img4.jpg" alt="">
+                                            </div>
+                                        </li>
+                                        <li class="w_50">
+                                            <div class="img_wrp">
+                                                <img src="dist/img/temp/seminar_photos_img5.jpg" alt="">
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <h4 class="list_tit">В процесс обучения входит:</h4>
+                                <ul>
+                                    <li>резка стекла</li>
+                                    <li>обточка</li>
+                                    <li>обмотка</li>
+                                    <li>обработка</li>
+                                    <li>пайка</li>
+                                    <li>патинирование</li>
+                                    <li>финишная обработка</li>
+                                </ul>
+                                <h4 class="list_tit">В стоимость включено:</h4>
+                                <ul>
+                                    <li>0,5 метра стекла</li>
+                                    <li>несколько метров фольги</li>
+                                    <li>эксплуатация оборудования (паяльник, стеклорез, шлифовальная машина)</li>
+                                    <li>в стоимость включены
+                                        кофе-паузы</li>
+                                </ul>
+                                <br>
+                                <h3>Программа и расписание занятий</h3>
+                                <h4>Первый день:</h4>
+                                <p>10-30 Вступление: Знакомство, Кратко об истории создания витражей. Витражное стекло,</p>
+                                его отличие от других стекол. Изготовление витражей,техники изготовления витражей.
+                                <p>Особенности изготовления эскизов для витражей. Выбор картонов для образцов, их</p>
+                                особенности. Особенности подбора стекол для витражей, основы колористики, подбор стекла для образцов
+                                <p>12-30 Кратко о необходимом оборудовании для изготовления витражей. Техника</p>
+                                безопасности.
+                                <p>12-30 - 17-45 Самостоятельное изготовление витражных образцов.</p>
+                                <p>17-45 Обсуждение итогов 1-го дня, вопросы</p>
+                                <h4>Второй день:</h4>
+                                <p>10-30 Повторение этапов изготовления витражей, исправление ошибок при подборе стекол</p>
+                                для образцов.
+                                <p>11-30 - 17-00 Самостоятельное изготовление витражных образцов.</p>
+                                <div class="text_center">
+                                    <button class="btn btn_default h_50 w_290 seminar_order_btn js-join_seminar">Записаться</button>
+                                </div>
+                            </div>
+                            <!--end seminar_descript-->
+                        </div>
+                        <!--end seminar_item-->
+
+                        <h2 class="subtitle title_mark red">Семинары по Фьюзингу</h2>
+                        <!--seminar_item-->
+                        <div class="seminar_item seminar_item_right js-wrap-seminar js-wrap-seminar_pp">
+                            <div class="seminar_item_wrap ">
+                                <div class="seminar_img">
+                                    <img src="dist/img/temp/seminar_img4.jpg" alt="">
+                                </div>
+                                <div class="seminar_cnt_wrap">
+                                    <h3 class="big_caption">Фьюзинг,
+                                        базовый  уровень</h3>
+                                    <p class="descript">теоретические и практические занятия</p>
+                                    <div class="calendar_block js-wrap-datepicker-pp">
+                                        <button class="btn datepicker_btn js-toggle-datepicker-pp">
+                                            <span class="btn_txt">с 28 по 30 сентября</span> <span class=" fa fa-calendar"></span>
+                                        </button>
+                                        <div class="datepicker_pp js-datepicker-pp">
+                                            <button class="js-toggle-datepicker-pp btn close_btn fa fa-close"></button>
+                                        </div>
+                                    </div>
+                                    <p class="address">Химки, Коммунальный проезд 30</p>
+                                    <div class="price">5 500 <span class="rouble_sans">С</span></div>
+                                    <div class="btn_row">
+                                        <button class="btn btn_default h_50 w_290 js-join_seminar">Записаться</button>
+                                    </div>
+                                    <div class="program_btn">
+                                        <a href="#" class="btn dashed btn_inline js-open-sem-prog">Программа обучения и
+                                            расписание
+                                            занятий</a>
+                                    </div>
+                                    <div class="seminar_join_pp js-seminar_join_pp">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <!--seminar_descript-->
+                            <div class="seminar_descript js-seminar_descript text_block clear_fix">
+                                <h3>Продолжительность семинара 2 дня по 8 часов. Начало 10:00 — завершение 18:00</h3>
+                                <p>Данная техника позволяет создавать паяные витражи из фрагментов цветного стекла. Техника Тиффани предоставляет широкие возможности для создания плоских и объемных предметов интерьера, отличающихся легкостью и прочностью.</p>
+                                <p>Методика обучения на семинаре адаптирована для любителей и начинающих и позволяет людям без подготовки, опыта и специального образования в короткий срок и «с нуля» освоить основные художественные и технические приемы изготовления витражей в технике Тиффани, приобрести наиболее важные технические навыки и минимальный практический опыт создания готовых изделий.</p>
+                                <div class="photo_cnt">
+                                    <ul class="photo_list">
+                                        <li class="w_33">
+                                            <div class="img_wrp">
+                                                <img src="dist/img/temp/seminar_photos_img1.jpg" alt="">
+                                            </div>
+                                        </li>
+                                        <li class="w_33">
+                                            <div class="img_wrp">
+                                                <img src="dist/img/temp/seminar_photos_img2.jpg" alt="">
+                                            </div>
+                                        </li>
+                                        <li class="w_33">
+                                            <div class="img_wrp">
+                                                <img src="dist/img/temp/seminar_photos_img3.jpg" alt="">
+                                            </div>
+                                        </li>
+                                        <li class="w_50">
+                                            <div class="img_wrp">
+                                                <img src="dist/img/temp/seminar_photos_img4.jpg" alt="">
+                                            </div>
+                                        </li>
+                                        <li class="w_50">
+                                            <div class="img_wrp">
+                                                <img src="dist/img/temp/seminar_photos_img5.jpg" alt="">
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <h4 class="list_tit">В процесс обучения входит:</h4>
+                                <ul>
+                                    <li>резка стекла</li>
+                                    <li>обточка</li>
+                                    <li>обмотка</li>
+                                    <li>обработка</li>
+                                    <li>пайка</li>
+                                    <li>патинирование</li>
+                                    <li>финишная обработка</li>
+                                </ul>
+                                <h4 class="list_tit">В стоимость включено:</h4>
+                                <ul>
+                                    <li>0,5 метра стекла</li>
+                                    <li>несколько метров фольги</li>
+                                    <li>эксплуатация оборудования (паяльник, стеклорез, шлифовальная машина)</li>
+                                    <li>в стоимость включены
+                                        кофе-паузы</li>
+                                </ul>
+                                <br>
+                                <h3>Программа и расписание занятий</h3>
+                                <h4>Первый день:</h4>
+                                <p>10-30 Вступление: Знакомство, Кратко об истории создания витражей. Витражное стекло,</p>
+                                его отличие от других стекол. Изготовление витражей,техники изготовления витражей.
+                                <p>Особенности изготовления эскизов для витражей. Выбор картонов для образцов, их</p>
+                                особенности. Особенности подбора стекол для витражей, основы колористики, подбор стекла для образцов
+                                <p>12-30 Кратко о необходимом оборудовании для изготовления витражей. Техника</p>
+                                безопасности.
+                                <p>12-30 - 17-45 Самостоятельное изготовление витражных образцов.</p>
+                                <p>17-45 Обсуждение итогов 1-го дня, вопросы</p>
+                                <h4>Второй день:</h4>
+                                <p>10-30 Повторение этапов изготовления витражей, исправление ошибок при подборе стекол</p>
+                                для образцов.
+                                <p>11-30 - 17-00 Самостоятельное изготовление витражных образцов.</p>
+                                <div class="text_center">
+                                    <button class="btn btn_default h_50 w_290 seminar_order_btn js-join_seminar">Записаться</button>
+                                </div>
+                            </div>
+                            <!--end seminar_descript-->
+                        </div>
+                        <!--end seminar_item-->
+                        <!--seminar_item-->
+                        <div class="seminar_item js-wrap-seminar js-wrap-seminar_pp">
+                            <div class="seminar_item_wrap ">
+                                <div class="seminar_img">
+                                    <img src="dist/img/temp/seminar_img5.jpg" alt="">
+                                </div>
+                                <div class="seminar_cnt_wrap">
+                                    <h3 class="big_caption">Фьюзинг, 3D фьюзинг, моллирование, формообразование</h3>
+                                    <p class="descript">теоретические и практические занятия</p>
+                                    <div class="calendar_block js-wrap-datepicker-pp">
+                                        <button class="btn datepicker_btn js-toggle-datepicker-pp">
+                                            <span class="btn_txt">с 28 по 30 сентября</span> <span class=" fa fa-calendar"></span>
+                                        </button>
+                                        <div class="datepicker_pp js-datepicker-pp">
+                                            <button class="js-toggle-datepicker-pp btn close_btn fa fa-close"></button>
+                                        </div>
+                                    </div>
+                                    <p class="address">Химки, Коммунальный проезд 30</p>
+                                    <div class="price">5 500 <span class="rouble_sans">С</span></div>
+                                    <div class="btn_row">
+                                        <button class="btn btn_default h_50 w_290 js-join_seminar">Записаться</button>
+                                    </div>
+                                    <div class="program_btn">
+                                        <a href="#" class="btn dashed btn_inline js-open-sem-prog">Программа обучения и
+                                            расписание
+                                            занятий</a>
+                                    </div>
+                                    <div class="seminar_join_pp js-seminar_join_pp">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <!--seminar_descript-->
+                            <div class="seminar_descript js-seminar_descript text_block clear_fix">
+                                <h3>Продолжительность семинара 2 дня по 8 часов. Начало 10:00 — завершение 18:00</h3>
+                                <p>Данная техника позволяет создавать паяные витражи из фрагментов цветного стекла. Техника Тиффани предоставляет широкие возможности для создания плоских и объемных предметов интерьера, отличающихся легкостью и прочностью.</p>
+                                <p>Методика обучения на семинаре адаптирована для любителей и начинающих и позволяет людям без подготовки, опыта и специального образования в короткий срок и «с нуля» освоить основные художественные и технические приемы изготовления витражей в технике Тиффани, приобрести наиболее важные технические навыки и минимальный практический опыт создания готовых изделий.</p>
+                                <div class="photo_cnt">
+                                    <ul class="photo_list">
+                                        <li class="w_33">
+                                            <div class="img_wrp">
+                                                <img src="dist/img/temp/seminar_photos_img1.jpg" alt="">
+                                            </div>
+                                        </li>
+                                        <li class="w_33">
+                                            <div class="img_wrp">
+                                                <img src="dist/img/temp/seminar_photos_img2.jpg" alt="">
+                                            </div>
+                                        </li>
+                                        <li class="w_33">
+                                            <div class="img_wrp">
+                                                <img src="dist/img/temp/seminar_photos_img3.jpg" alt="">
+                                            </div>
+                                        </li>
+                                        <li class="w_50">
+                                            <div class="img_wrp">
+                                                <img src="dist/img/temp/seminar_photos_img4.jpg" alt="">
+                                            </div>
+                                        </li>
+                                        <li class="w_50">
+                                            <div class="img_wrp">
+                                                <img src="dist/img/temp/seminar_photos_img5.jpg" alt="">
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <h4 class="list_tit">В процесс обучения входит:</h4>
+                                <ul>
+                                    <li>резка стекла</li>
+                                    <li>обточка</li>
+                                    <li>обмотка</li>
+                                    <li>обработка</li>
+                                    <li>пайка</li>
+                                    <li>патинирование</li>
+                                    <li>финишная обработка</li>
+                                </ul>
+                                <h4 class="list_tit">В стоимость включено:</h4>
+                                <ul>
+                                    <li>0,5 метра стекла</li>
+                                    <li>несколько метров фольги</li>
+                                    <li>эксплуатация оборудования (паяльник, стеклорез, шлифовальная машина)</li>
+                                    <li>в стоимость включены
+                                        кофе-паузы</li>
+                                </ul>
+                                <br>
+                                <h3>Программа и расписание занятий</h3>
+                                <h4>Первый день:</h4>
+                                <p>10-30 Вступление: Знакомство, Кратко об истории создания витражей. Витражное стекло,</p>
+                                его отличие от других стекол. Изготовление витражей,техники изготовления витражей.
+                                <p>Особенности изготовления эскизов для витражей. Выбор картонов для образцов, их</p>
+                                особенности. Особенности подбора стекол для витражей, основы колористики, подбор стекла для образцов
+                                <p>12-30 Кратко о необходимом оборудовании для изготовления витражей. Техника</p>
+                                безопасности.
+                                <p>12-30 - 17-45 Самостоятельное изготовление витражных образцов.</p>
+                                <p>17-45 Обсуждение итогов 1-го дня, вопросы</p>
+                                <h4>Второй день:</h4>
+                                <p>10-30 Повторение этапов изготовления витражей, исправление ошибок при подборе стекол</p>
+                                для образцов.
+                                <p>11-30 - 17-00 Самостоятельное изготовление витражных образцов.</p>
+                                <div class="text_center">
+                                    <button class="btn btn_default h_50 w_290 seminar_order_btn js-join_seminar">Записаться</button>
+                                </div>
+                            </div>
+                            <!--end seminar_descript-->
+                        </div>
+                        <!--end seminar_item-->
                     </section>
                     <!--end seminar-->
 
@@ -512,7 +978,89 @@
 
                 <!--art_right-->
                 <div class="art_right">
-                    <h4 class="caption">Ближайший семинар:</h4>
+                    <h4 class="caption title_with_line">Ближайший семинар:</h4>
+                    <select class="select_box styler">
+                        <option value="0">Фьюзинг, 3D фьюзинг, моллирование, формообразование</option>
+                        <option value="1">Техника тиффани. Базовый уровень</option>
+                        <option value="2">Тиффани, светильники и 3D тиффани</option>
+                        <option value="3">Техника тиффани. Лампы</option>
+                    </select>
+                    <div class="datepicker_inline js-datepicker-pp"></div>
+                    <div class="list_events">
+                        <h3 class="caption">Список семинаров:</h3>
+                        <ul>
+                            <li>
+                                <a href="">Техника Тиффани, базовый уровень</a>
+                                <p>Теоретические и практические занятия.<br>
+                                3 дня.</p>
+                            </li>
+                            <li>
+                                <a href="">Техника Тиффани, простые светильники
+                                    и 3D тиффани</a>
+                                <p>Практические занятия. 3 дня.</p>
+                            </li>
+                            <li>
+                                <a href="">Техника Тиффани, лампы</a>
+                                <p>Практические занятия. 4 дня.</p>
+                            </li>
+                            <li>
+                                <a href="">Фьюзинг, базовый уровень</a>
+                                <p>Основы технологии, теоретические и практические занятия. 3 дня.</p>
+                            </li>
+                            <li>
+                                <a href="">Фьюзинг, 3D фьюзинг, моллирование,
+                                    формообразование</a>
+                                <p>Теоретические и практические занятия.<br>
+                                3 дня.</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <article class="art_info_item">
+                        <header>
+                            <h2 class="caption">Кто проводит семинары:</h2>
+                        </header>
+                        <p>Группа астрономов из Европейской южной обсерватории обнаружила в центре планетарной туманности две звезды, которые по приблизительным меркам должны столкнуться друг с другом через 700 миллионов лет, озарив космическое пространство светом сверхновой.</p>
+                    </article>
+                    <article class="art_info_item">
+                        <header>
+                            <h2 class="caption">Как проходят семинары:</h2>
+                        </header>
+                        <p>Агентство оборонных исследований и разработок Канады (Defence Research and Development Canada, DRDC) показало прототип штурмового автомата, который сочетает в себе огневую мощь и умную электронику с подключением к сети управления.</p>
+                    </article>
+                    <article class="art_info_item">
+                        <header>
+                            <h2 class="caption">Что входит в стимость:</h2>
+                        </header>
+                        <p>Инженеры Европейского космического агентства собираются отправится туда, где не захочет побывать ни один из людей на Земле. Они собираются установить внутри беспилотного космического аппарата, наполненного всевозможным мусором, видеокамеру и посмотреть, что произойдет в момент его обратного входа в атмосферу планеты.</p>
+                    </article>
+                    <article class="art_info_item">
+                        <header>
+                            <h2 class="caption">Место проведения семинаров</h2>
+                        </header>
+                        <p>Группа астрономов из Европейской южной обсерватории обнаружила в центре планетарной туманности две звезды.</p>
+                        <div class="map_block" id="map_seminar">
+
+                        </div>
+                        <p><a href="">Открыть в Яндекс-картах</a></p>
+                    </article>
+                    <div class="go_seminar_aside">
+                        <h4 class="caption title_with_line">Записаться на семинар:</h4>
+                        <select class="select_box styler">
+                            <option value="0">Фьюзинг, 3D фьюзинг, моллирование, формообразование</option>
+                            <option value="1">Техника тиффани. Базовый уровень</option>
+                            <option value="2">Тиффани, светильники и 3D тиффани</option>
+                            <option value="3">Техника тиффани. Лампы</option>
+                        </select>
+                        <div class="row_btn">
+                            <a href="" class="btn btn_default h_50 full_w">Записаться</a>
+                        </div>
+                        <p class="prompt_text">Проводятся начиная с осени 2010 года с участием зарубежных специалистов. Запись на
+                            участие — по индивидуальным приглашениям от нашей фирмы.</p>
+                        <p>Если Вы хотите провести семинар с использованием наших учебных классов и технологической базой — то вы можете арендовать их у нас на время Вашего семинара. Условия индивидуальны в зависимости от ваших потребностей.</p>
+                        <p>Свяжитесь с нами для получения более подробной информации о возможности проведения
+                            корпоративных семинаров по электронной почте <a href="mailto:seminar@witrag.ru">seminar@witrag.ru</a> или по телефону <a
+                                    href="tel:+79035355920" class="tel_txt"><b>+7 (903) 535-59-20</b></a></p>
+                    </div>
                 </div>
                 <!--end art_right-->
             </div>
@@ -597,6 +1145,41 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script>
 <!--<script src="dist/js/production.min.js"></script>&ndash;&gt;-->
 <script src="dist/js/production.js"></script>
+
+<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+<script type="text/javascript">
+
+    var seminarMap;
+
+    // Дождёмся загрузки API и готовности DOM.
+    ymaps.ready(init);
+
+    function init () {
+
+        seminarMap = new ymaps.Map('map_seminar', {
+            // При инициализации карты обязательно нужно указать
+            // её центр и коэффициент масштабирования.
+            center: [55.911671, 37.416897], // Москва
+            zoom: 14,
+            controls: [] //иконочки-шмиконочки всякие
+        }),
+                myGeoObject = new ymaps.GeoObject({});
+
+//        myMap.controls.remove('trafficControl');
+//        myMap.controls.remove('searchControl');
+//        myMap.controls.remove('geolocationControl');
+
+
+        seminarMap.geoObjects
+            .add(myGeoObject)
+            .add(new ymaps.Placemark([55.914643, 37.420634], {
+                balloonContent: 'Rоммунальный проезд, 30'
+            }, {
+                preset: 'islands#dotIcon',
+                iconColor: '#e42748'
+            }));
+    }
+</script>
 
 </body>
 </html>
