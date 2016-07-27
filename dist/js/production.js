@@ -8051,19 +8051,29 @@ $(document).ready(function() {
 
     //repeated password
     (function() {
+
+        $('body').on('submit keyup', 'input[type="password"]', function () {
+            if($(this).val().length < 6){
+                $(this).closest('.row_vld').removeClass('correct').addClass('error');
+            }
+        });
         $('body').on('submit keyup', '.form_cab_data', function () {
             var $repeatedPass = $(this).find('.repeated_password'),
                 valueX = $(this).find('.password_input').val(),
                 valueY = $repeatedPass.val();
 
-            if(!(valueY === '')){
-                if (valueX !== valueY) {
-                    $repeatedPass.parent().removeClass('correct').addClass('error');
-                    return false;
-                } else {
-                    $repeatedPass.parent().removeClass('error').addClass('correct');
+            if(valueX.length >= 6){
+
+                if(valueY >= 6){
+                    if (valueX !== valueY) {
+                        $repeatedPass.parent().removeClass('correct').addClass('error');
+                        return false;
+                    } else {
+                        $repeatedPass.parent().removeClass('error').addClass('correct');
+                    }
                 }
             }
+
         });
     })();
 

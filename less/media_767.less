@@ -1,0 +1,427 @@
+
+@media (max-width: 767px) {
+    .mbl_show{
+        display:block;
+    }
+    .mbl_hide{
+        display:none;
+    }
+    .container{
+        width:480px;
+        padding:0 15px;
+    }
+    body{
+        min-width:480px;
+    }
+
+
+
+    .header{
+        max-width:480px;
+        margin-bottom:40px;
+    }
+    .top_header{
+        padding:16px 0 20px;
+    }
+    .bottom_header{
+        padding-bottom:16px;
+    }
+    .logo{
+        width:80px;
+    }
+    .h_info_bl{
+        margin:0 85px 0 104px;
+        padding-top:9px;
+
+        a{
+            letter-spacing:0;
+        }
+    }
+    //h_search
+    .h_search{
+        width:60px;
+        height:60px;
+
+        .field{
+            width:100%;
+        }
+        .search_btn{
+            color:@redDarken;
+        }
+    }
+
+    .h_search_mbl_pp{
+        height:195px;
+        position:fixed;
+        left:0;
+        top:-200px;
+        z-index:107;
+        width:100%;
+        visibility:hidden;
+        opacity:0;
+        transform:translate3d(0,0,0);
+        background-color:@white;
+        transition:transform 500ms ease, visibility 500ms ease, opacity 0ms 500ms ease;
+        box-shadow:0 3px 5px rgba(0, 0, 0, 0.2);
+
+        &.show_search{
+            opacity:1;
+            visibility:visible;
+            transform:translate3d(0,200px,0);
+            transition:transform 500ms ease;
+        }
+        .container{
+            position:relative;
+            padding:70px 15px 16px;
+        }
+    }
+    .title_search{
+        font-size:33px;
+        line-height:40px;
+        margin:0 0 10px;
+    }
+    .open_search_pp{
+        width:60px;
+        height:60px;
+        border: 2px solid #43738a;
+        padding:0;
+        margin:0;
+
+        &:before{
+            display: block;
+            color: #c12b44;
+            font-size: 30px;
+            line-height: 58px;
+            text-align: center;
+        }
+    }
+    //end h_search
+
+    .viewed_a_pending{
+        margin:0 60px 0 0;
+    }
+
+    .catalog_menu{
+
+    }
+    .mbl_catalog_btn{
+        //width:60px;
+    }
+    .site_menu_wrap{
+        //margin-left:75px;
+    }
+    .site_menu_list,
+    .drpd_menu_list{
+
+        li{
+            padding-left:15px;
+        }
+    }
+    .close_pp_btn{
+        position:absolute;
+        right:10px;
+        top:6px;
+        width:36px;
+        height:40px;
+        color:@blueIcons;
+        font-size:24px;
+        line-height:40px;
+        text-align:center;
+    }
+
+
+    .bx-wrapper .bx-controls-direction{
+        display:block;
+    }
+    .main_slier_section{
+        padding:0;
+        overflow:hidden;
+    }
+    .main_slider_wrap{
+
+        .bx-pager{
+            display:none;
+        }
+    }
+    .main_slider{
+        height:300px;
+
+        .slide_img{
+            max-height:100%;
+        }
+
+        .table{
+            height:300px;
+        }
+        .table_cell{
+            padding:5px 10px 15px;
+        }
+        .title_slab{
+            margin-bottom:18px;
+        }
+        .slide{
+            max-height:300px;
+        }
+    }
+    .prod_sl_params{
+        display:none;
+    }
+    .sl_price_a_links{
+        .price{
+            float:none;
+        }
+        .links{
+            padding-top:2px;
+            text-align:left;
+        }
+        a{
+            font-size:18px;
+            line-height:21px;
+        }
+    }
+
+    .advantages{
+        padding-top:7px;
+        margin-bottom:0;
+
+        .item{
+            text-align:center;
+            padding:0 0 32px;
+        }
+        .img{
+            float:none;
+            width:auto;
+            margin:0 0 5px;
+        }
+    }
+
+    .delimiter_hor{
+        margin:0 0 20px;
+    }
+    .headline_block{
+        margin-bottom:10px;
+        border-bottom:none;
+    }
+    .products_group{
+        position:relative;
+        padding-bottom:15px;
+        margin-bottom:40px;
+
+        .link_bl{
+            position:absolute;
+            left:0;
+            bottom:0;
+        }
+    }
+    .go_to_all{
+        padding:0 0 0 28px;
+
+        &:after{
+            position:absolute;
+            left:0;
+            top:0;
+            margin-top:0;
+            right:auto;
+            content:"\f06e";
+        }
+    }
+    .products{
+        margin:0 -15px;
+    }
+    .prod_item{
+        width:50%;
+        padding:0 15px;
+    }
+
+    .blog_aside{
+        padding-left:0;
+        margin-bottom:16px;
+        overflow:visible;
+
+        &:before{
+            display:none;
+        }
+    }
+    .container .headline_mbl_red{
+        margin:0 -15px 21px;
+        padding:10px 20px;
+        font-size:26px;
+        line-height:30px;
+        color:@white;
+        background-color:@redDarken;
+
+        &:before,
+        &:after{
+            display:none;
+        }
+        span{
+            color:@white;
+        }
+    }
+
+    .blog_item{
+        padding:0 0 26px 41px;
+        margin:0;
+
+        &:last-child{
+            padding-bottom:0;
+            margin-bottom:20px;
+        }
+
+        &:after{
+            display:none;
+        }
+        &:before{
+            position: absolute;
+            width:0;
+            height:auto;
+            left:10px;
+            top:4px;
+            bottom: 0;
+            border-radius:0;
+            border:none;
+            border-left: 1px solid #e6e6e2;
+        }
+
+        .time{
+            position:relative;
+
+            &:before,
+            &:after{
+                content:'';
+                position:absolute;
+                left:-43px;
+                top:-2px;
+                width:24px;
+                height:24px;
+                border:5px solid @white;
+                border-radius:50%;
+                background-color:@blueIcons;
+                box-sizing:border-box;
+            }
+            &:after{
+                border-width:4px;
+                width:12px;
+                height:12px;
+                top:4px;
+                left:-37px;
+            }
+        }
+    }
+    .education_section{
+        padding:0;
+    }
+    .education{
+        padding:30px 15px 22px;
+        margin-bottom:27px;
+
+        .image_bl{
+            width:100%;
+            padding:0;
+            margin:0 0 15px;
+
+            img{
+                max-width:210px;
+                float:left;
+            }
+        }
+        .btn_row{
+            margin-left:250px;
+        }
+        .txt_bl{
+            margin-bottom:27px;
+        }
+
+    }
+    .education_list{
+        columns:auto;
+    }
+    .education_list_bl .caption{
+        margin-bottom:14px;
+    }
+
+    .footer{
+        font-size:20px;
+        line-height:30px;
+
+        .f_menu{
+
+            .caption{
+                font-size:24px;
+                line-height:30px;
+                padding-bottom:11px;
+                margin-bottom:10px;
+
+                &:after{
+                    height:3px;
+                    width:65px;
+                }
+            }
+        }
+
+        .f_social{
+            width:50px;
+            padding:0;
+            margin:0;
+            position:absolute;
+            top:45px;
+            right:23px;
+
+            li{
+                float:none;
+                margin:0;
+                text-align:left;
+            }
+            a{
+                width:auto;
+                height:auto;
+                font-size:30px;
+                line-height:35px;
+                background:none;
+
+                &:hover{
+                    background:none;
+                }
+            }
+        }
+        .copyright{
+            padding:18px 0 20px;
+            font-size:21px;
+            line-height:30px;
+        }
+    }
+    .f_menu{
+        display:block;
+
+        .buyer_cell,
+        .training_cell,
+        .contact_cell{
+            width:69%;
+            padding:0 0 20px;
+            display:inline-block;
+            vertical-align:top;
+            text-align:left;
+
+            .f_list_wrap{
+                padding-left:0;
+                width:auto;
+                max-width:none;
+            }
+        }
+
+        .training_cell{
+            width:29%;
+        }
+        .contact_cell{
+            width:100%;
+            position:relative;
+            padding-right:65px;
+            padding-bottom:0;
+
+            .caption{
+                font-size:21px;
+            }
+        }
+    }
+
+}
