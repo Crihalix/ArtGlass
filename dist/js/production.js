@@ -7296,7 +7296,7 @@ $(document).ready(function() {
             openMenu();
         });
         $('.mbl_catalog_btn ').on(clickHandler, openCatalogMenu);
-        //$('.category_mob_btn').on(clickHandler, categoryArticles);
+        $('.btn_mobile_filter ').on(clickHandler, openFilterMenu);
 
 
         $body.on(clickHandler,'.backdrop', function(e){
@@ -7305,6 +7305,12 @@ $(document).ready(function() {
             closeMenu();
         });
 
+        $('body').on(clickHandler, '.back_mobile_btn', function(event) {
+            //if (!$(event.target).closest(".main_menu,.filter_col,.category_articles").length && triggerClose) {
+            closeMenu();
+            //}
+            //event.stopPropagation();
+        });
         //$body.on(clickHandler,'.main_menu .sing_in', function(e){
         //    e.stopPropagation();
         //    setTimeout(function(){
@@ -7312,21 +7318,14 @@ $(document).ready(function() {
         //    },500);
         //});
 
-        $('body').on(clickHandler, '.back_mobile_btn', function(event) {
-            //if (!$(event.target).closest(".main_menu,.filter_col,.category_articles").length && triggerClose) {
-            closeMenu();
-            //}
-            //event.stopPropagation();
-        });
-
         function openCatalogMenu() {
-            $('.catalog_menu_dropdown').addClass('open_menu');
             openMenu();
+            $('.catalog_menu_dropdown').addClass('open_menu');
         }
-        //function categoryArticles() {
-        //    $('.category_articles').addClass('open_menu');
-        //    openMenu();
-        //}
+        function openFilterMenu() {
+            openMenu();
+            $('.filter').addClass('open_menu');
+        }
 
         function openMenu(){
             //
@@ -7345,6 +7344,7 @@ $(document).ready(function() {
         function closeMenu() {
             $('.site_menu').removeClass('open_menu');
             $('.catalog_menu_dropdown').removeClass('open_menu');
+            $('.filter').removeClass('open_menu');
             $('.h_search_mbl_pp').removeClass('show_search');
             $('.backdrop').remove();
             $body.removeClass('backdrop_in');

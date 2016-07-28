@@ -13,7 +13,9 @@
         padding:0 24px;
         max-width:768px;
     }
-    .caption{
+    .caption,
+    .filter_head,
+    .filter_head_tg{
         font-size:26px;
         line-height:30px;
     }
@@ -400,7 +402,7 @@
         }
         .open_cat_drpd_btn{
             height:40px;
-            width:35px;
+            width:45px;
             &:before{
                 right:5px;
                 top:13px;
@@ -924,4 +926,129 @@
             }
         }
     }
+
+
+    //filter
+    .ui-slider{
+        &:before{
+            height: 4px;
+        }
+
+        .ui-slider-handle{
+            width: 16px;
+            height: 22px;
+            border-radius: 2px 2px 0 0;
+            margin-left: -8px;
+
+            &:after{
+                border-bottom-width: 9px;
+                border-left-width: 8px;
+                border-right-width: 8px;
+            }
+        }
+    }
+    .filter{
+        width: 400px!important;
+        margin:0 0 0 -410px;
+        border-right: 5px solid @linkColor;
+
+        &.open_menu {
+            transform:translate3d(410px, 0, 0);
+        }
+        
+        &_catalog{
+            border:none;
+
+            a{
+                padding-left: 20px;
+                display: block;
+            }
+        }
+        &_head_tg{
+
+        }
+        &_catalog_list{
+            margin: 0 16px;
+            padding: 10px 0 12px;
+            border-top:1px dashed @grayBtn;
+        }
+        &_item{
+            padding-top: 19px;
+            margin: 0 20px 15px;
+
+            &.filt_thickness{
+                border-top: 1px solid @grayBorder;
+
+                .filter_list{
+                    .checkbox_txt{
+                        width: 45px;
+                        height: 45px;
+                        line-height: 41px;
+                    }
+                    li{
+                        margin-right: 20px;
+                    }
+                }
+            }
+        }
+        &_list{
+            li{
+                margin-bottom: 4px;
+            }
+        }
+        &_checkbox .checkbox_txt{
+            line-height: 23px;
+        }
+        &_sl_color{
+
+            .ui-widget-content:before{
+                left: -100px;
+                height: 4px;
+            }
+            .ui-slider-handle{
+                width: 0;
+                height: 23px;
+                margin: 0;
+                top:-5px;
+
+                &:before{
+                    width: 16px;
+                    height: 23px;
+                    margin-left: -8px;
+                    border-radius:0 0 2px 2px;
+                }
+                &:after{
+                    border-bottom-width: 8px;
+                    border-left-width: 8px;
+                    border-right-width: 8px;
+                    margin-left: -8px;
+                }
+            }
+        }
+        &_price{
+            margin-bottom: 30px;
+
+            .caption{
+                width: 75px;
+                line-height: 40px;
+            }
+            .field{
+                width: 100px;
+                height: 40px;
+                margin-right: 28px;
+                border-radius:3px;
+                color:@textColorDark;
+                font-size:20px;
+                line-height: 38px;
+            }
+        }
+        &_head{
+            margin-bottom: 7px;
+        }
+    }
+    .jq_colorRange .table_cell{
+        height: 40px;
+
+    }
+
 }
