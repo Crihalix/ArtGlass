@@ -168,10 +168,10 @@ $(document).ready(function() {
             if(_this.closest('.cut_txt_wrap').hasClass('opened')){
                 wrapArtTxt.removeClass('opened');
                 _this.removeClass('fa-angle-up');
-                _this.addClass('fa-angle-down');
+                //_this.addClass('fa-angle-down');
                 replaceTxt();
             } else{
-                _this.removeClass('fa-angle-down');
+                //_this.removeClass('fa-angle-down');
                 _this.addClass('fa-angle-up');
                 wrapArtTxt.addClass('opened');
                 replaceTxt();
@@ -320,12 +320,28 @@ $(document).ready(function() {
             if($counter.val() >= 2 ) {
                 $counter.val(Number($counter.val()) * 1 - 1);
             }
-            if($counter.val() == 1){
+        });
+
+        $('body').on(clickHandler, '.more', function(e){
+            e.preventDefault();
+            var $counter = $(this).parents('.amount_goods').find('input');
+            $counter.val(Number($counter.val()) * 1 + 1);
+        });
+
+        //amount_goods pdp
+
+        $('body').on(clickHandler, '.pdp_less', function(e){
+            e.preventDefault();
+            var $counter = $(this).parents('.amount_goods').find('input');
+            if($counter.val() >= 1 ) {
+                $counter.val(Number($counter.val()) * 1 - 1);
+            }
+            if($counter.val() == 0){
                 $(this).parents('.pdp_choose_item').removeClass('active');
             }
         });
 
-        $('body').on(clickHandler, '.more', function(e){
+        $('body').on(clickHandler, '.pdp_more', function(e){
             e.preventDefault();
             var $counter = $(this).parents('.amount_goods').find('input');
             $counter.val(Number($counter.val()) * 1 + 1);
@@ -336,10 +352,13 @@ $(document).ready(function() {
 
 
 
+
     //pdp slider
     (function(){
         $('.pdp_slider').bxSlider({
             pagerCustom: '.pdp_small_img'
+            //infiniteLoop: false,
+            //hideControlOnEnd: true
         });
     })();
 
@@ -531,7 +550,8 @@ $(document).ready(function() {
                     $modal.find('.scroll-pane').jScrollPane({
                         autoReinitialise: true,
                         verticalDragMinHeight: 17,
-                        verticalDragMaxHeight: 17
+                        verticalDragMaxHeight: 17,
+                        verticalGutter: 30
                     });
                 }
                 $modal.find('.js-mask_tel').inputmask('+38 (999) 999 99 99', {'placeholder': '+38 (___) ___ __ __'});
@@ -1110,8 +1130,14 @@ $(document).ready(function() {
 
     })();
 
+    //показать все хлебные крошки
     (function () {
 
+        $('body').on(clickHandler,'.js-show_all_breads', function(e) {
+            e.preventDefault();
+            $(this).closest('.bread_crumbs').find('li').show(0);
+            $(this).closest('li').hide(0);
+        });
     })();
 
     (function () {

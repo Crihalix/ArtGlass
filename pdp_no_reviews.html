@@ -408,9 +408,10 @@
     <div class="container">
         <div class="bread_crumbs">
             <ul class="clear_fix">
-                <li class="fa fa-angle-right"><a href="">Стекла</a></li>
-                <li class="fa fa-angle-right"><a href="">Цветные</a></li>
-                <li class="fa fa-angle-right"><a href="">Wissmach Glass</a></li>
+                <li class="fa fa-angle-right mbl_hide"><a href="">Стекла</a></li>
+                <li class="fa fa-angle-right mbl_hide"><a href="">Цветные</a></li>
+                <li class="fa fa-angle-right mbl_hide"><a href="">Wissmach Glass</a></li>
+                <li class="fa fa-angle-right mbl_show"><a href="" class="js-show_all_breads">...</a></li>
                 <li class="fa fa-angle-right"><a href=""> Wissmach D глухие</a></li>
                 <li>Wissmach W1D</li>
             </ul>
@@ -423,6 +424,9 @@
             <div class="pdp_card clear_fix">
                 <!--pdp_images-->
                 <div class="pdp_images fl_left">
+                    <h1 class="subtitle mbl_show">
+                        Wissmach W1D или длинное название продукта
+                    </h1>
                     <div class="pdp_big_img">
                         <ul class="pdp_slider">
                             <li>
@@ -448,7 +452,7 @@
                         </a>
                     </div>
                     <!--share_social-->
-                    <div class="share_social">
+                    <div class="share_social mbl_hide">
                         <script type="text/javascript" src="//yastatic.net/es5-shims/0.0.2/es5-shims.min.js" charset="utf-8"></script>
                         <script type="text/javascript" src="//yastatic.net/share2/share.js" charset="utf-8"></script>
                         <div class="ya-share2" data-services="vkontakte,facebook,twitter,odnoklassniki,gplus"></div>
@@ -459,7 +463,7 @@
 
                 <!--pdp_inf-->
                 <div class="pdp_inf fl_left">
-                    <h1 class="subtitle">
+                    <h1 class="subtitle mbl_hide">
                         Wissmach W1D или длинное название продукта
                     </h1>
                     <div class="pdp_anchors">
@@ -478,7 +482,6 @@
                                 data-placement="top"
                                 title="Скопировать артикул в буфер обмена">
                             </button>
-
                         </div>
                         <div class="pdp_row_info">
                             Производство Wissmach Glass, США
@@ -498,14 +501,14 @@
                             <span class="row_mrg">Толщина: 2 мм.</span> <div class=" inline">Пригодно для фьюзинга <button class="btn fa fa-fire"></button></div>
                         </div>
                     </div>
-                    <div class="pdp_price teble">
+                    <div class="pdp_price table">
                         <div class="table_cell">
                             <span class="nowrap">Цена: 3 200<span class="rouble_sans">С</span><span class="name_size">/м<sup>2</sup></span></span>
                         </div>
                         <div class="table_cell">
                             <span class="price_for_list nowrap">2 400<span class="rouble_sans">С</span><span class="name_size">/лист</span></span>
                         </div>
-                        <div class="table_cell text_right">
+                        <div class="table_cell text_right hid_tbl">
 
                         </div>
                     </div>
@@ -514,23 +517,23 @@
                             <div class="table_cell name">1 лист (61см. х 122 см.)</div>
                             <div class="table_cell counts">
                                 <div class="amount_goods">
-                                    <button class="btn less fa fa-minus"></button>
+                                    <button class="btn pdp_less fa fa-minus"></button>
                                     <input type="number" class="field number_input" value="0">
-                                    <button class="btn more fa fa-plus"></button>
+                                    <button class="btn pdp_more fa fa-plus"></button>
                                 </div>
                             </div>
-                            <div class="table_cell price"></div>
+                            <div class="table_cell price hid_tbl"></div>
                         </div>
                         <div class="pdp_choose_item table_row">
                             <div class="table_cell name">0,5 листа (61см. х 61 см.)</div>
                             <div class="table_cell counts">
                                 <div class="amount_goods">
-                                    <button class="btn less fa fa-minus"></button>
+                                    <button class="btn pdp_less fa fa-minus"></button>
                                     <input type="number" class="field number_input" value="0">
-                                    <button class="btn more fa fa-plus"></button>
+                                    <button class="btn pdp_more fa fa-plus"></button>
                                 </div>
                             </div>
-                            <div class="table_cell price">
+                            <div class="table_cell price hid_tbl">
                                 1200<span class="rouble_sans">С</span>
                             </div>
                         </div>
@@ -538,16 +541,35 @@
                             <div class="table_cell name">0,25 листа (61см. х 30 см.)</div>
                             <div class="table_cell counts">
                                 <div class="amount_goods">
-                                    <button class="btn less fa fa-minus"></button>
+                                    <button class="btn pdp_less fa fa-minus"></button>
                                     <input type="number" class="field number_input" value="0">
-                                    <button class="btn more fa fa-plus"></button>
+                                    <button class="btn pdp_more fa fa-plus"></button>
                                 </div>
                             </div>
-                            <div class="table_cell price">
+                            <div class="table_cell price hid_tbl">
                                 1200<span class="rouble_sans">С</span>
                             </div>
                         </div>
                     </div>
+                    <div class="pdp_price_total hid_tbl">
+                        <span class="price_mrg">Итого: 0,72 <span class="name_size">м</span><sup>2</sup></span>
+                        2400<span class="rouble_sans">С</span>
+                        <div class="discount_txt">Ваша скидка 5% Экономия 720<span class="rouble_sans">С</span></div>
+                    </div>
+                    <div class="pdp_buttons table hid_tbl">
+                        <div class="table_cell">
+                            <button class="btn btn_red buy_btn_big pp_no_bg fa fa-shopping-cart" data-toggle="modal" data-href="ajax/add_to_curt.php"> В корзину</button>
+                        </div>
+                        <div class="table_cell">
+                            <button class="btn white_btn fa fa-crosshairs"> Найти аналоги</button>
+                        </div>
+                        <div class="table_cell">
+                            <button class="btn like_link pp_no_bg" data-toggle="modal" data-href="ajax/wish_popup.php"> Отложить</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pdp_price_a_buttons hid_dsk">
                     <div class="pdp_price_total">
                         <span class="price_mrg">Итого: 0,72 <span class="name_size">м</span><sup>2</sup></span>
                         2400<span class="rouble_sans">С</span>
@@ -560,10 +582,16 @@
                         <div class="table_cell">
                             <button class="btn white_btn fa fa-crosshairs"> Найти аналоги</button>
                         </div>
-                        <div class="table_cell">
+                        <div class="table_cell last_btn_cell">
                             <button class="btn like_link pp_no_bg" data-toggle="modal" data-href="ajax/wish_popup.php"> Отложить</button>
                         </div>
                     </div>
+                </div>
+                <!--share_social-->
+                <div class="share_social mbl_show">
+                    <script type="text/javascript" src="//yastatic.net/es5-shims/0.0.2/es5-shims.min.js" charset="utf-8"></script>
+                    <script type="text/javascript" src="//yastatic.net/share2/share.js" charset="utf-8"></script>
+                    <div class="ya-share2" data-services="vkontakte,facebook,twitter,odnoklassniki,gplus"></div>
                 </div>
                 <!--end pdp_inf
 
@@ -658,11 +686,14 @@
                         </div>
                     </div>
 
-                    <article class="pdp_seo text_block" id="description">
+                    <article class="pdp_seo text_block cut_txt_wrap" id="description">
                         <h2 class="caption">Витражное стекло Wissmach W1D</h2>
                         <p>В течение года после выхода Windows 10 будет бесплатной для пользователей предыдущих версий. Коснется это и обладателей пиратских версий, которые смогут бесплатно обновиться до Windows 10. С целью привлечь максимальное количество пользователей к выходящей летом новой платформе Windows 10 корпорация Microsoft пойдёт на беспрецедентные меры.</p>
-                        <p>Бесплатные версии новой операционной системы будут предоставляться всем владельцам ПК на базе Windows 7 или 8.1, включая тех, кто использует пиратские версии. “Мы модернизируем все отвечающие системным требованиям ПК до Windows 10, невзирая на наличие лицензии”, — сказал Терри Майерсон (Terry Myerson), вице-президент Microsoft, отвечающий за операционные системы.</p>
-                        <p>“План — воссоединиться с сотнями миллионов пользователей Windows в Китае”. Сразу после конференции официальный представитель Microsoft подтвердил, что бесплатно обновить систему вне зависимости от наличия лицензии смогут пользователи по всему миру – по крайней мере, в первый год после релиза. В январе Microsoft объявила о планах предоставить бесплатную возможность перехода на новую операционную систему Windows 10 владельцам ПК с лицензионными версиями Windows 7 и 8.1. Новый план компании куда более радикален: он предполагает предоставлять лицензию на Windows 10 в том числе пользователям “пиратских” версий операционных систем в мировом масштабе, чего раньше в Microsoft не делали фактически никогда. Маркетолог Microsoft Крис Капоселла (Chris Caposella) на конференции Microsoft Convergence </p>
+                        <div class="cut_txt_bl">
+                            <p>Бесплатные версии новой операционной системы будут предоставляться всем владельцам ПК на базе Windows 7 или 8.1, включая тех, кто использует пиратские версии. “Мы модернизируем все отвечающие системным требованиям ПК до Windows 10, невзирая на наличие лицензии”, — сказал Терри Майерсон (Terry Myerson), вице-президент Microsoft, отвечающий за операционные системы.</p>
+                            <p>“План — воссоединиться с сотнями миллионов пользователей Windows в Китае”. Сразу после конференции официальный представитель Microsoft подтвердил, что бесплатно обновить систему вне зависимости от наличия лицензии смогут пользователи по всему миру – по крайней мере, в первый год после релиза. В январе Microsoft объявила о планах предоставить бесплатную возможность перехода на новую операционную систему Windows 10 владельцам ПК с лицензионными версиями Windows 7 и 8.1. Новый план компании куда более радикален: он предполагает предоставлять лицензию на Windows 10 в том числе пользователям “пиратских” версий операционных систем в мировом масштабе, чего раньше в Microsoft не делали фактически никогда. Маркетолог Microsoft Крис Капоселла (Chris Caposella) на конференции Microsoft Convergence </p>
+                        </div>
+                        <button class="btn read_all_txt fa fa-eye hid_dsk" data-toggle-text="Свурнуть">Читать дальше</button>
                     </article>
                 </div>
                 <!--end pdp_properties-->
@@ -758,7 +789,7 @@
                             </div>
                         </div>
                     </li>
-                    <li class="prod_item">
+                    <li class="prod_item mbl_hide">
                         <div class="wrap">
                             <div class="img">
                                 <a href="">
@@ -781,7 +812,7 @@
                             </div>
                         </div>
                     </li>
-                    <li class="prod_item">
+                    <li class="prod_item mbl_hide">
                         <div class="wrap">
                             <div class="img">
                                 <a href="">
@@ -805,7 +836,7 @@
                             </div>
                         </div>
                     </li>
-                    <li class="prod_item">
+                    <li class="prod_item mbl_hide">
                         <div class="wrap">
                             <div class="img">
                                 <a href="">
@@ -829,7 +860,7 @@
                             </div>
                         </div>
                     </li>
-                    <li class="prod_item">
+                    <li class="prod_item mbl_hide">
                         <div class="wrap">
                             <div class="img">
                                 <a href="">

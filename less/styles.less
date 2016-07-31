@@ -389,6 +389,7 @@
         span{
             width:100%;
             padding:0 26px 0 6px;
+            white-space: nowrap;
             position:absolute;
             left:0;
             top:0;
@@ -443,6 +444,13 @@
     }
     .price_a_size{
         margin-bottom:5px;
+    }
+    .buy_on_order{
+
+        .sizes,
+        .price{
+            color:@gray;
+        }
     }
     .sizes,
     .price{
@@ -1104,6 +1112,9 @@
             padding-left:18px;
             padding-right:18px;
         }
+        .btn{
+          white-space: nowrap;
+        }
     }
 
 
@@ -1183,13 +1194,14 @@
     &_seo{
 
     }
-    &_not_avalible{
+    &.pdp_not_avalible{
 
-        .pdp_price{
-            margin-bottom:32px;
-        }
+      .pdp_price{
+        margin-bottom:32px;
+      }
     }
 }
+
 .not_avalible{
     font-size:15px;
 
@@ -1245,7 +1257,7 @@
     background-color:@blueIcons;
 }
 .box_list_range{
-    height:10px;
+    height:100%;
     background-color:@linkColor;
 }
 //end pdp
@@ -1277,9 +1289,11 @@
             border-bottom-color:@footerBg;
         }
     }
+    .pdp_less,
     .less{
         left:0;
     }
+    .pdp_more,
     .more{
         right:0;
     }
@@ -1364,7 +1378,7 @@
     position:relative;
     border-top:1px solid @grayBorder;
     padding:22px 0 15px;
-    margin-bottom:-5px;
+    margin-bottom:0;
 
     .head{
         margin:0 0 8px;
@@ -1424,9 +1438,15 @@
         padding-left:96px;
 
         .photo{
+            width:40px;
             position:absolute;
             left:40px;
             top:41px;
+            text-align: center;
+
+            img{
+              max-width: 100%;
+            }
         }
     }
 }

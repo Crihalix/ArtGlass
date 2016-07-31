@@ -408,21 +408,25 @@
     <div class="container">
         <div class="bread_crumbs">
             <ul class="clear_fix">
-                <li class="fa fa-angle-right"><a href="">Стекла</a></li>
-                <li class="fa fa-angle-right"><a href="">Цветные</a></li>
-                <li class="fa fa-angle-right"><a href="">Wissmach Glass</a></li>
+                <li class="fa fa-angle-right mbl_hide"><a href="">Стекла</a></li>
+                <li class="fa fa-angle-right mbl_hide"><a href="">Цветные</a></li>
+                <li class="fa fa-angle-right mbl_hide"><a href="">Wissmach Glass</a></li>
+                <li class="fa fa-angle-right mbl_show"><a href="" class="js-show_all_breads">...</a></li>
                 <li class="fa fa-angle-right"><a href=""> Wissmach D глухие</a></li>
                 <li>Wissmach W1D</li>
             </ul>
         </div>
 
         <!--pdp-->
-        <section class="pdp ">
+        <section class="pdp pdp_not_avalible">
 
             <!--pdp_card-->
             <div class="pdp_card clear_fix">
                 <!--pdp_images-->
                 <div class="pdp_images fl_left">
+                    <h1 class="subtitle mbl_show">
+                        Wissmach W1D или длинное название продукта
+                    </h1>
                     <div class="pdp_big_img">
                         <ul class="pdp_slider">
                             <li>
@@ -448,7 +452,7 @@
                         </a>
                     </div>
                     <!--share_social-->
-                    <div class="share_social">
+                    <div class="share_social mbl_hide">
                         <script type="text/javascript" src="//yastatic.net/es5-shims/0.0.2/es5-shims.min.js" charset="utf-8"></script>
                         <script type="text/javascript" src="//yastatic.net/share2/share.js" charset="utf-8"></script>
                         <div class="ya-share2" data-services="vkontakte,facebook,twitter,odnoklassniki,gplus"></div>
@@ -458,7 +462,7 @@
                 <!--end pdp_images-->
 
                 <!--pdp_inf-->
-                <div class="pdp_inf fl_left pdp_not_avalible">
+                <div class="pdp_inf fl_left">
                     <h1 class="subtitle">
                         Wissmach W1D или длинное название продукта
                     </h1>
@@ -498,7 +502,7 @@
                             <span class="row_mrg">Толщина: 2 мм.</span> <div class=" inline">Пригодно для фьюзинга <button class="btn fa fa-fire"></button></div>
                         </div>
                     </div>
-                    <div class="pdp_price teble">
+                    <div class="pdp_price table">
                         <div class="table_cell">
                             <span class="nowrap">Цена: 3 200<span class="rouble_sans">С</span><span class="name_size">/м<sup>2</sup></span></span>
                         </div>
@@ -509,7 +513,7 @@
                             <span class="not_avalible fa fa-exclamation-circle nowrap">нет в наличии</span>
                         </div>
                     </div>
-                    <div class="pdp_buttons table">
+                    <div class="pdp_buttons table hid_tbl">
                         <div class="table_cell">
                             <button class="btn btn_default buy_btn_big ">Найти под заказ</button>
                         </div>
@@ -520,6 +524,25 @@
                             <button class="btn like_link pp_no_bg" data-toggle="modal" data-href="ajax/wish_popup.php"> Отложить</button>
                         </div>
                     </div>
+                </div>
+                <div class="pdp_price_a_buttons hid_dsk">
+                    <div class="pdp_buttons table">
+                        <div class="table_cell">
+                            <button class="btn btn_default buy_btn_big ">Найти под заказ</button>
+                        </div>
+                        <div class="table_cell">
+                            <button class="btn white_btn fa fa-crosshairs"> Найти аналоги</button>
+                        </div>
+                        <div class="table_cell last_btn_cell">
+                            <button class="btn like_link pp_no_bg" data-toggle="modal" data-href="ajax/wish_popup.php"> Отложить</button>
+                        </div>
+                    </div>
+                </div>
+                <!--share_social-->
+                <div class="share_social mbl_show">
+                    <script type="text/javascript" src="//yastatic.net/es5-shims/0.0.2/es5-shims.min.js" charset="utf-8"></script>
+                    <script type="text/javascript" src="//yastatic.net/share2/share.js" charset="utf-8"></script>
+                    <div class="ya-share2" data-services="vkontakte,facebook,twitter,odnoklassniki,gplus"></div>
                 </div>
                 <!--end pdp_inf
 
@@ -761,7 +784,7 @@
                             </div>
                         </div>
                     </li>
-                    <li class="prod_item">
+                    <li class="prod_item mbl_hide">
                         <div class="wrap">
                             <div class="img">
                                 <a href="">
@@ -784,7 +807,7 @@
                             </div>
                         </div>
                     </li>
-                    <li class="prod_item">
+                    <li class="prod_item mbl_hide">
                         <div class="wrap">
                             <div class="img">
                                 <a href="">
@@ -808,7 +831,7 @@
                             </div>
                         </div>
                     </li>
-                    <li class="prod_item">
+                    <li class="prod_item mbl_hide">
                         <div class="wrap">
                             <div class="img">
                                 <a href="">
@@ -832,7 +855,7 @@
                             </div>
                         </div>
                     </li>
-                    <li class="prod_item">
+                    <li class="prod_item mbl_hide">
                         <div class="wrap">
                             <div class="img">
                                 <a href="">
