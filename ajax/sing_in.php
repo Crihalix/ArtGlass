@@ -4,17 +4,22 @@
         Еще нет аккаунта?<br>
         <a href="" data-toggle="modal" data-href="ajax/registration.php">Зарегистрировать аккаунт бесплатно</a>
     </div>
-    <form class="validation_form">
+    <form class="validation_sing_in">
         <div class="field_group">
             <label class="tit_label" for="login_email">E-mail</label>
-            <label class="field_wrap fa fa-envelope">
-                <input type="email" id="login_email" class="field big_field" value="" placeholder="">
+            <label class="field_wrap fa fa-envelope row_vld" >
+                <input type="email" id="login_email" class="field big_field" data-validate="required-email" value=""
+                       placeholder="">
+                <div class="error_msg">
+                    ошибка
+                </div>
             </label>
         </div>
         <div class="field_group">
             <label class="tit_label" for="login_pass">Пароль</label>
-            <label class="field_wrap fa fa-lock">
-                <input type="password" id="login_pass" class="field big_field" value="" placeholder="">
+            <label class="field_wrap fa fa-lock row_vld">
+                <input type="password" id="login_pass" class="field big_field" data-validate="required" value=""
+                       placeholder="">
             </label>
         </div>
         <div class="forgot_pass_bl">

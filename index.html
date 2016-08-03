@@ -60,23 +60,16 @@
                     </div>
                     <div class="h_feedback_block">
                         <a href="" class="h_feedback_link red_link fa fa-angle-right dropdown_toggle" data-toggle="dropdown"><span class="hid_tbl">заказать</span> обратный звонок</a>
-                        <div class="dropdown fb_call_pp text_center">
+                        <div class="dropdown fb_call_pp row_vld text_center">
                             <button class="btn close_btn white dropdown_toggle fa fa-close"></button>
-                            <form class="">
+                            <form class="feedback_call_form">
                                 <div class="tel_inputs_row clear_fix">
                                     <div class="headline_pp">
                                         <h3 class="caption">Заказать обратный звонок</h3>
                                     </div>
-                                    <div class="tel_code_txt fl_left">
-                                        +7
+                                    <div class="form_item tel_one_row">
+                                        <input type="tel" class="field js-mask_tel" value="" placeholder="+7 (___) ___ __ __" data-validate="required-number">
                                     </div>
-                                    <div class="form_item tel_code_row fl_left">
-                                        <input type="text" class="field number_input" value="" placeholder="" data-validate="required">
-                                    </div>
-                                    <div class="form_item tel_num_row">
-                                        <input type="text" class="field number_input" value="" placeholder="" data-validate="required">
-                                    </div>
-
                                 </div>
                                 <div class="btn_row ">
                                     <input type="submit" class="btn btn_default full_w" value="Жду звонка">
@@ -917,7 +910,7 @@
 <div id="modal" class="modal fade">
     <div class="modal_block">
         <div class="modal_content"></div>
-        <a class="close_modal" data-dismiss="modal" href="javascript:void(0);"></a>
+        <a class="close_modal fa fa-close" data-dismiss="modal" href="javascript:void(0);"></a>
     </div>
 </div>
 

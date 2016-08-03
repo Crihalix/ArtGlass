@@ -7229,7 +7229,7 @@ $(document).ready(function() {
             pause: 5000,
             auto: trigerOneSlider,
             speed: 600,
-            controls: true,
+            controls: trigerOneSlider,
             pager: trigerOneSlider,
             adaptiveHeight: false
         };
@@ -7718,6 +7718,32 @@ $(document).ready(function() {
                 }).on('submit', function() {
                     return false;
                 });
+
+                //validations
+                $('.validation_sing_in').formValidation({
+                    successEvent: function() {
+                        //отправить форму аяксом, в ответ можно присылать нужный html
+                    }
+                }).on('submit', function() {
+                    //return false;
+                });
+
+                $('.validate_registr_form').formValidation({
+                    successEvent: function() {
+                        //отправить форму аяксом, в ответ можно присылать нужный html
+                    }
+                }).on('submit', function() {
+                    //return false;
+                });
+
+                $('.forget_pass_form').formValidation({
+                    successEvent: function() {
+                        //отправить форму аяксом, в ответ можно присылать нужный html
+                    }
+                }).on('submit', function() {
+                    //return false;
+                });
+
                 //
                 ////validations
                 //$('.order_call,.buy_one_click_form').formValidation({
@@ -8077,20 +8103,17 @@ $(document).ready(function() {
                 $(this).closest('.row_vld').removeClass('correct').addClass('error');
             }
         });
-        $('body').on('submit keyup', '.form_cab_data', function () {
+        $('body').on('submit keyup', '.form_cab_data, .validate_registr_form', function () {
             var $repeatedPass = $(this).find('.repeated_password'),
                 valueX = $(this).find('.password_input').val(),
                 valueY = $repeatedPass.val();
 
             if(valueX.length >= 6){
-
-                if(valueY >= 6){
-                    if (valueX !== valueY) {
-                        $repeatedPass.parent().removeClass('correct').addClass('error');
-                        return false;
-                    } else {
-                        $repeatedPass.parent().removeClass('error').addClass('correct');
-                    }
+                if (valueX !== valueY) {
+                    $repeatedPass.closest('.row_vld').removeClass('correct').addClass('error');
+                    return false;
+                } else {
+                    $repeatedPass.closest('.row_vld').removeClass('error').addClass('correct');
                 }
             }
 
@@ -8229,6 +8252,13 @@ $(document).ready(function() {
     (function () {
 
     })();
+
+    //валидация заказать обратный звонок
+    $('.feedback_call_form').formValidation({
+        successEvent: function() {
+            //отправить форму аяксом, в ответ можно присылать нужный html
+        }
+    });
 
 
 
@@ -8550,6 +8580,7 @@ $(document).ready(function() {
 
 
 
+/*
     //formValidation
     $('.new_client').formValidation({
         successEvent: function() {
@@ -8651,7 +8682,7 @@ $(document).ready(function() {
         return false;
     });
 
-
+*/
 
 
 
