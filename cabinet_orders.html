@@ -408,7 +408,8 @@
     <div class="container">
         <div class="bread_crumbs">
             <ul class="clear_fix">
-                <li class="fa fa-angle-right"><a href="">Стекла</a></li>
+                <li class="fa fa-angle-right mbl_hide"><a href="">Главная</a></li>
+                <li class="fa fa-angle-right mbl_show"><a href="" class="js-show_all_breads">...</a></li>
                 <li class="fa fa-angle-right"><a href="">Личный кабинет</a></li>
                 <li>Мои заказы</li>
             </ul>
@@ -481,16 +482,20 @@
                     <!--cab_ord_item-->
                     <div class="cab_ord_item">
                         <div class="cab_ord_head clear_fix">
-                            <div class="num_ord inline_block">Заказ: №12122014 от 01.12.2015</div>
                             <div class="cab_status_bl fl_right">
-                                <button class="btn dashed">Отменить</button>
+                                <button class="btn dashed delete_pending ">Отменить</button>
                                 <button class="btn btn_default h_30 track_btn pp_no_bg" data-toggle="modal" data-href="ajax/order_status.php">Отследить</button>
+                            </div>
+                            <div class="num_ord ">
+                                <div class="table_cell">
+                                    Заказ: №12122014 от 01.12.2015
+                                </div>
                             </div>
                         </div>
                         <div class="cab_ord_item_cnt">
                             <ul class="order_path table">
                                 <li class="done">Подтверждение</li>
-                                <li class="done">Комплектация</li>
+                                <li class="done active">Комплектация</li>
                                 <li>Доставка клиенту</li>
                                 <li>Посылка доставлена</li>
                             </ul>
@@ -504,25 +509,25 @@
                                     <div class="table_cell name_cell">
                                         <a href="">Wissmach W1D, либо длинное название продукта</a>
                                     </div>
-                                    <div class="table_cell count_cell">1000</div>
-                                    <div class="table_cell size_cell">61 см. х 121 см.</div>
-                                    <div class="table_cell price_cell">218 000 <span class="rouble_sans">С</span></div>
+                                    <div class="table_cell count_cell nowrap">1000 м<sup>2</sup></div>
+                                    <div class="table_cell size_cell nowrap">61 см. х 121 см.</div>
+                                    <div class="table_cell price_cell nowrap">218 000 <span class="rouble_sans">С</span></div>
                                 </div>
                                 <div class="table_row">
                                     <div class="table_cell name_cell">
                                         <a href="">Wissmach W1D, black, glossy</a>
                                     </div>
-                                    <div class="table_cell count_cell">2</div>
-                                    <div class="table_cell size_cell">61 см. х 61 см.</div>
-                                    <div class="table_cell price_cell">1 200 000 <span class="rouble_sans">С</span></div>
+                                    <div class="table_cell count_cell nowrap">2 м<sup>2</sup></div>
+                                    <div class="table_cell size_cell nowrap">61 см. х 61 см.</div>
+                                    <div class="table_cell price_cell nowrap">1 200 000 <span class="rouble_sans">С</span></div>
                                 </div>
                                 <div class="table_row">
                                     <div class="table_cell name_cell">
                                         <a href="">Wissmach W1D, Spesial Edition</a>
                                     </div>
-                                    <div class="table_cell count_cell">1</div>
-                                    <div class="table_cell size_cell">61 см. х 31 см.</div>
-                                    <div class="table_cell price_cell">759 000 <span class="rouble_sans">С</span></div>
+                                    <div class="table_cell count_cell nowrap">1 шт.</div>
+                                    <div class="table_cell size_cell nowrap">61 см. х 31 см.</div>
+                                    <div class="table_cell price_cell nowrap">759 000 <span class="rouble_sans">С</span></div>
                                 </div>
                             </div>
                             <div class="cab_total text_right">
@@ -536,9 +541,13 @@
                     <!--cab_ord_item-->
                     <div class="cab_ord_item">
                         <div class="cab_ord_head clear_fix">
-                            <div class="num_ord inline_block">Заказ: №12122014 от 01.12.2015</div>
                             <div class="cab_status_bl fl_right">
                                 <div class="status_txt success">Выполнен</div>
+                            </div>
+                            <div class="num_ord">
+                                <div class="table_cell">
+                                    Заказ: №12122014 от 01.12.2015
+                                </div>
                             </div>
                         </div>
                         <div class="cab_ord_item_cnt">
@@ -558,17 +567,17 @@
                                     <div class="table_cell name_cell">
                                         <a href="">Wissmach W1D, либо длинное название продукта</a>
                                     </div>
-                                    <div class="table_cell count_cell">1000</div>
-                                    <div class="table_cell size_cell">61 см. х 121 см.</div>
-                                    <div class="table_cell price_cell">218 000 <span class="rouble_sans">С</span></div>
+                                    <div class="table_cell count_cell nowrap">1000</div>
+                                    <div class="table_cell size_cell nowrap">61 см. х 121 см.</div>
+                                    <div class="table_cell price_cell nowrap">218 000 <span class="rouble_sans">С</span></div>
                                 </div>
                                 <div class="table_row">
                                     <div class="table_cell name_cell">
                                         <a href="">Wissmach W1D, Spesial Edition</a>
                                     </div>
-                                    <div class="table_cell count_cell">1</div>
-                                    <div class="table_cell size_cell">61 см. х 31 см.</div>
-                                    <div class="table_cell price_cell">759 000 <span class="rouble_sans">С</span></div>
+                                    <div class="table_cell count_cell nowrap">1</div>
+                                    <div class="table_cell size_cell nowrap">61 см. х 31 см.</div>
+                                    <div class="table_cell price_cell nowrap">759 000 <span class="rouble_sans">С</span></div>
                                 </div>
                             </div>
                             <div class="cab_total text_right">
@@ -581,9 +590,13 @@
                     <!--cab_ord_item-->
                     <div class="cab_ord_item">
                         <div class="cab_ord_head clear_fix">
-                            <div class="num_ord inline_block">Заказ: №12122014 от 01.12.2015</div>
                             <div class="cab_status_bl fl_right">
                                 <div class="status_txt discard">Отменен</div>
+                            </div>
+                            <div class="num_ord">
+                                <div class="table_cell">
+                                    Заказ: №12122014 от 01.12.2015
+                                </div>
                             </div>
                         </div>
                         <div class="cab_ord_item_cnt">
@@ -603,17 +616,17 @@
                                     <div class="table_cell name_cell">
                                         <a href="">Wissmach W1D, либо длинное название продукта</a>
                                     </div>
-                                    <div class="table_cell count_cell">1000</div>
-                                    <div class="table_cell size_cell">61 см. х 121 см.</div>
-                                    <div class="table_cell price_cell">218 000 <span class="rouble_sans">С</span></div>
+                                    <div class="table_cell count_cell nowrap">1000</div>
+                                    <div class="table_cell size_cell nowrap">61 см. х 121 см.</div>
+                                    <div class="table_cell price_cell nowrap">218 000 <span class="rouble_sans">С</span></div>
                                 </div>
                                 <div class="table_row">
                                     <div class="table_cell name_cell">
                                         <a href="">Wissmach W1D, Spesial Edition</a>
                                     </div>
-                                    <div class="table_cell count_cell">1</div>
-                                    <div class="table_cell size_cell">61 см. х 31 см.</div>
-                                    <div class="table_cell price_cell">759 000 <span class="rouble_sans">С</span></div>
+                                    <div class="table_cell count_cell nowrap">1</div>
+                                    <div class="table_cell size_cell nowrap">61 см. х 31 см.</div>
+                                    <div class="table_cell price_cell nowrap">759 000 <span class="rouble_sans">С</span></div>
                                 </div>
                             </div>
                             <div class="cab_total text_right">

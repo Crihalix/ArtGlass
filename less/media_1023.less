@@ -36,16 +36,12 @@
             line-height: 30px;
         }
     }
-    .small_caption{
+    .small_caption,
+    .cab_my_data .small_caption{
         font-size: 21px;
         line-height: 30px;
     }
 
-    .btn-default{
-        padding: 12px 16px 12px;
-        font-size:20px;
-        line-height:24px;
-    }
     .tit,
     .jq-selectbox,
     .not_avalible{
@@ -104,10 +100,27 @@
     .btn{
         font-size: 20px;
         line-height: 30px;
+
+        &.h_30{
+            font-size:18px;
+        }
+    }
+    .btn_default{
+        padding: 19px 50px 21px;
+        font-size:26px;
+        line-height:30px;
     }
     .hint_txt{
         font-size: 15px;
         line-height: 20px;
+    }
+
+    .field{
+        height: 60px;
+        padding: 0 13px 4px;
+        color: @textColorDark;
+        font-size: 20px;
+        line-height: 56px;
     }
 
 
@@ -1562,7 +1575,7 @@
             padding-left: 132px;
             
             .photo{
-                top:25px;
+                top: 25px;
                 width: 80px;
             }
         }
@@ -1578,4 +1591,417 @@
             width: 33.333%;
         }
     }
+
+    //cab
+    .cab{
+        margin: 0 -24px 60px;
+
+        &_aside{
+            display: none;
+        }
+        &_cnt{
+            margin-right: 0;
+        }
+        &_tabs{
+            width: 100%;
+            height: 61px;
+            display: table;
+            border:none;
+
+            li{
+                float: none;
+                display: table-cell;
+                border-bottom: 1px solid @linkColor;
+                vertical-align: middle;
+                font-size: 20px;
+
+                a{
+                    height: 60px;
+                    padding: 12px 5px;
+                    text-align: center;
+                }
+
+                &.active{
+                    border-bottom: 0;
+                    border-top: 1px solid @linkColor;
+                    
+                    a{
+                        border:none;
+                        padding-top: 11px;
+                    }
+                }
+                
+                &:first-child{
+                    a{
+                        padding-left: 12px;
+                    }
+                }
+            }
+        }
+        &_data{
+            padding: 8px 36px 59px 0;
+            max-width: none;
+
+            .name_cell,
+            .title_inputs{
+                width: 240px;
+                max-width: 240px;
+                text-align: right;
+                padding: 12px 50px 0 0;
+                font-size: 21px;
+                line-height: 30px;
+                font-weight: 400;
+            }
+
+            .filed{
+                margin-bottom: 18px;
+            }
+            .field_telephone{
+                max-width: 100%;
+            }
+            .checkbox_item{
+                padding-left: 60px;
+                font-size: 18px;
+                line-height: 25px;
+                color: @textColor;
+            }
+            .checkbox_ico{
+                width: 40px;
+                height: 40px;
+                top: 4px;
+                line-height: 38px;
+            }
+            
+            &_address{
+
+                &:after{
+                    content: '';
+                    clear: both;
+                    display: block;
+                }
+                .table{
+                    width: auto;
+                    margin-left: 240px;
+                    padding: 21px 38px 15px 42px;
+                    display: block;
+
+                    &_row{
+                        display: block;
+
+                        .clear_fix();
+                    }
+                    &_cell{
+                        display: block;
+                        text-align: left;
+                        padding: 0;
+                    }
+                }
+                .name_cell{
+                    width: auto;
+                    max-width: none;
+                    margin: 0 0 5px;
+                    padding: 0;
+                    color: @textColor;
+                    font-size: 18px;
+                    line-height: 25px;
+                    display: block;
+                    text-align: left;
+                }
+                .small_field_row,
+                .row_input_inrow{
+                    width: 50%;
+                    padding-right: 15px;
+                    display: block;
+                    float: left;
+
+                    .field{
+                        width: 100%;
+                    }
+                }
+                .row_input_inrow{
+                    padding: 0 0 0 15px;
+                    margin: -30px 0 0;
+                    
+                    .small_field_row{
+                        width: auto;
+                        padding: 0;
+                    }
+                }
+            }
+            .title_inputs{
+                float: left;
+            }
+            &_password{
+
+                .table_cell:last-child{
+                    padding-left: 30px;
+                }
+                .field{
+                    max-width: 100%;
+                }
+            }
+        }
+        &_my_data{
+            padding: 0 0 10px;
+
+            &_info{
+                max-width: none;
+                padding-right: 0;
+                margin: 0 0 33px;
+                float: none;
+            }
+
+            .user_links{
+                width: auto;
+                margin-left: 0;
+
+                &_item{
+                    padding: 27px 0 0;
+                    margin: 0 0 33px;
+                    border-top:1px solid @blueIcons;
+                }
+            }
+            .small_caption{
+                margin: 0 0 10px;
+                border:0;
+                padding: 0;
+            }
+        }
+        &_ord{
+
+            &_head{
+                padding: 12px 30px 13px;
+
+                .num_ord{
+                    height: 42px;
+                    font-size: 20px;
+                    margin-right: 215px;
+                }
+            }
+            &_item{
+                margin: 0 0 35px;
+            }
+        }
+        .track_btn{
+            margin-left: 16px;
+        }
+        .pagination_block{
+            padding-bottom: 33px;
+        }
+        &_order_prod{
+            padding: 0 0 18px;
+            margin: 0 0 15px;
+        }
+        &_total{
+            padding-bottom: 8px;
+            font-size: 21px;
+            font-weight: 500;
+
+            .tit,
+            .price{
+                min-width: auto;
+                font-size: 21px;
+                font-weight: 500;
+            }
+            .price .rouble_sans{
+                font-size: 20px;
+            }
+        }
+        .status_txt{
+            font-size: 21px;
+        }
+    }
+    .fast_cross{
+        width: auto;
+        padding: 0;
+        margin: 0 0 30px;
+        float: none;
+    }
+    //pending
+    .pending{
+        &_list{
+
+            .lists{
+                margin-left: 0;
+
+                .date{
+                    margin: 0 24px 0 0;
+                }
+                .link{
+                    margin-left: 115px;
+                }
+            }
+        }
+        &_items{
+            .cab_ord_item_cnt{
+                padding: 12px 30px;
+            }
+        }
+    }
+    .cart_table,
+    .pending_table{
+        display: block;
+
+        .table_row{
+            display: block;
+            position: relative;
+            .clear_fix();
+            padding: 12px 0 23px;
+            border-top:1px solid @grayBorder;
+
+            &:first-child{
+                border-top:0;
+            }
+        }
+        .table_cell{
+            display: block;
+            float: left;
+            min-height: auto;
+            padding: 0;
+        }
+        .delete_cell{
+            position: absolute;
+            left: 0;
+            top: 142px;
+        }
+        .img_cell{
+            width: 18%;
+            padding-right: 20px;
+            margin-bottom: 40px;
+        }
+        .cnt_cell{
+            width: 53%;
+            padding-right: 10px;
+        }
+        .amount_cell,
+        .price_cell,
+        .buy_cell{
+            margin-left: 71%;
+            width: auto;
+            float: none;
+            text-align: right;
+        }
+        .amount_goods{
+            display: inline-block;
+            margin-top: 9px;
+        }
+        .img{
+            margin-top: 9px;
+            max-height: 100%;
+            width: 100%;
+            border: 1px solid @grayBtn;
+        }
+        .price{
+            margin-top: 24px;
+            font-size:21px;
+            line-height: 30px;
+            font-weight: 500;
+        }
+        .rouble_sans{
+            font-size:20px;
+        }
+        .name{
+            margin: 0;
+        }
+    }
+    .pend_buy_btn{
+        padding-top: 3px;
+
+        &:before{
+            font-size:24px;
+            margin-right: 6px;
+        }
+    }
+    .delete_pending{
+        height: 40px;
+        width: 40px;
+        margin-top: 0;
+        font-size: 0;
+        border:1px solid @linkColor!important;
+
+        &:before{
+            margin-right: 0;
+            content: "\f1f8";
+            font-size: 20px;
+            vertical-align: top;
+            display: inline-block;
+            font-family: @fontAwesome;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            position: relative;
+        }
+        &:hover{
+            color: @redLinks;
+        }
+
+        span{
+            display: none;
+        }
+    }
+    .delete_pending_item{
+        font-size: 24px;
+        &:before{
+            content: "\f1f8";
+        }
+    }
+    .cab_order_filter{
+        .tit{
+            font-size:21px;
+            line-height: 25px;
+            float: none;
+            margin: 0 0 10px;
+        }
+    }
+    .filt_order_list{
+        margin: 0 0 40px;
+        float: none;
+        .clear_fix();
+
+        li{
+            font-size:18px;
+            line-height: 25px;
+        }
+        a{
+            padding-left: 12px;
+            padding-right: 12px;
+            color:@textColor;
+        }
+    }
+    .order_path{
+        max-width: 460px;
+        display: block;
+        columns: 180px 2;
+        counter-reset: orderPath;
+        .clear_fix();
+        margin: 0 0 7px;
+
+        li{
+            width: 222px;
+            padding: 0 0 0 35px;
+            margin: 0 0 10px;
+            display: inline-block;
+            line-height: 30px;
+            font-size: 17px;
+            font-weight: 500;
+
+            &:before{
+                counter-increment: orderPath;
+                content: counter(orderPath);
+                width: 30px;
+                height: 30px;
+                left: 0;
+                top:0;
+                border-radius: 50%;
+                text-align: center;
+                line-height: 30px;
+                font-size: 18px;
+                color: @white;
+                font-weight: 400;
+            }
+        }
+    }
+    .order_params{
+        margin-bottom: 14px;
+    }
+
 }

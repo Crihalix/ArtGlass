@@ -806,4 +806,285 @@
     .properties_table .table_cell:first-child{
         color: @textColor;
     }
+
+    //cab
+    .cab {
+        margin: 0 -15px 40px;
+        padding: 15px 15px 0;
+        background-color: @blocksBg;
+
+        &_tabs {
+            height: auto;
+            display: block;
+            margin: 0 0 22px;
+            border:1px solid @blueIcons;
+
+            li{
+                display: block;
+                border:none;
+                border-top:1px solid @footerCaption;
+                font-size: 21px;
+
+                &:first-child{
+                    border:none;
+
+                    a{
+                        padding-left: 50px;
+                    }
+                }
+
+                a{
+                    height: auto;
+                    padding: 8px 5px 10px 50px;
+                    position: relative;
+                    text-align: left;
+                }
+
+                &.active{
+                    border:none;
+
+                    a{
+                        padding-top: 8px;
+
+                        &:before{
+                            content: '\f00c';
+                            position: absolute;
+                            left: 20px;
+                            top: 7px;
+                            height: 30px;
+                            width: 20px;
+                            text-align: center;
+                            color: @green;
+                            font-size: 21px;
+                            line-height: 30px;
+                            font-family: @fontAwesome;
+                        }
+                    }
+                }
+            }
+        }
+        &_cnt_wrap{
+            padding: 0;
+        }
+
+        &_data{
+            padding: 0 0 40px;
+
+            .field{
+                margin-bottom: 12px;
+            }
+            .table_row{
+                display: block;
+            }
+            .table_cell{
+                display: block;
+                padding: 0;
+
+                &.hid_tbl{
+                    display: none;
+                }
+            }
+            .name_cell,
+            .title_inputs {
+                max-width: none;
+                width: auto;
+                padding: 0 0 6px;
+                margin: 0;
+                text-align: left;
+            }
+            .title_inputs{
+                float: none;
+            }
+            &_address{
+                margin: 0 0 11px;
+
+                .field{
+                    margin-bottom: 20px;
+                }
+                .table{
+                    margin: 0;
+                    padding: 0;
+                    border:none;
+                    background: none;
+                }
+            }
+            &_password{
+                margin: 0 0 48px;
+                .table_cell{
+                    &:last-child{
+
+                        &.input_cell{
+                            padding: 0 0 0 15px;
+                        }
+                    }
+
+                    &.input_cell{
+                        width: 50%;
+                        float: left;
+                        padding: 0 15px 0 0;
+                    }
+                }
+            }
+        }
+        .checkbox_row{
+            padding:5px 0 19px;
+        }
+        .btn_row{
+            .btn{
+                width: 100%;
+            }
+        }
+        &_my_data{
+            &_info{
+                margin: 0 0 49px;
+                p{
+                    margin: 0;
+                }
+            }
+            .links{
+                padding-top: 20px;
+            }
+            .user_links_item{
+                padding-top: 12px;
+            }
+        }
+        &_ord{
+
+            &_head{
+                padding: 12px 18px 13px;
+                
+                .num_ord{
+                    margin: -5px 195px -9px 0;
+                    height: 46px;
+                    font-size: 18px;
+                    line-height: 25px;
+                }
+            }
+            &_item_cnt{
+                padding:15px 20px 10px;
+            }
+        }
+        .track_btn{
+            &:before{
+                display: none;
+            }
+        }
+        &_order_prod{
+            display: block;
+            
+            .table_row{
+                padding: 5px 0;
+                display: block;
+                .clear_fix();
+            }
+            .table_cell{
+                width: 26%;
+                display: block;
+                float: left;
+                padding: 0 5px 0 0;
+                line-height: 30px;
+                text-align: left;
+                vertical-align: top;
+            }
+            .size_cell{
+                width: 37%;
+            }
+            .price_cell{
+                width: 37%;
+                text-align: right;
+            }
+            .name_cell{
+                width: 100%;
+                padding-right: 0;
+            }
+        }
+    }
+    .welcome_txt{
+        margin-bottom: 30px;
+    }
+    .pending{
+
+        &_list{
+             .small_caption{
+                 margin-bottom: 0;
+             }
+            .date{
+                font-size:18px;
+            }
+            .lists{
+
+                .link{
+                    margin-left: 115px;
+                }
+            }
+        }
+        &_items{
+            .cab_ord_item_cnt{
+                padding: 12px 20px;
+            }
+        }
+
+    }
+    .fast_cross{
+        margin: 0 0 20px;
+    }
+
+    .cart_table,
+    .pending_table{
+
+        .table_row{
+            padding: 20px 0 15px;
+            
+            &:first-child{
+                padding-top: 10px;
+            }
+        }
+        .table_cell{
+            width: auto;
+            margin: 0 0 0 100px;
+            float: none;
+            text-align: left;
+        }
+        .img_cell{
+            width: 100px;
+            padding: 0;
+            margin: 0;
+            float: left;
+        }
+        .amount_cell{
+            float: left;
+        }
+        .delete_cell{
+            margin: 0;
+            top:117px;
+        }
+        .price_cell,
+        .buy_cell{
+            margin-left: 295px;
+        }
+        .price{
+            margin-top: 0;
+        }
+        .img{
+            width: 80px;
+            max-height: 80px;
+        }
+    }
+    .pend_buy_btn{
+        padding-top: 0;
+    }
+    .filt_order_list a{
+        padding-left: 7px;
+        padding-right: 7px;
+    }
+    .order_path{
+
+        li{
+            width: 200px;
+            white-space: nowrap;
+        }
+    }
+    .order_params{
+        margin-bottom: 24px;
+    }
 }
