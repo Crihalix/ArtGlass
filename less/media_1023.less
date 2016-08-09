@@ -64,15 +64,17 @@
     }
 
     .checkbox_item{
-        font-size:20px; 
-        line-height: 30px;
+        padding-left: 60px;
+        font-size: 18px;
+        line-height: 25px;
+        color: @textColor;
 
         .checkbox_ico{
-            top: 2px;
-            width: 30px;
-            height: 30px;
+            width: 40px;
+            height: 40px;
+            top: 4px;
             font-size: 18px;
-            line-height: 28px;
+            line-height: 38px;
         }
     }
     .amount_goods{
@@ -121,6 +123,22 @@
         color: @textColorDark;
         font-size: 20px;
         line-height: 56px;
+    }
+    .field_telephone{
+        max-width: 100%;
+    }
+    .jq-selectbox{
+
+        &__select{
+            height: 60px;
+
+            &-text{
+                padding: 19px 22px 21px 14px;
+            }
+        }
+        &__trigger{
+            width: 34px;
+        }
     }
 
 
@@ -1653,23 +1671,8 @@
                 font-weight: 400;
             }
 
-            .filed{
+            .field{
                 margin-bottom: 18px;
-            }
-            .field_telephone{
-                max-width: 100%;
-            }
-            .checkbox_item{
-                padding-left: 60px;
-                font-size: 18px;
-                line-height: 25px;
-                color: @textColor;
-            }
-            .checkbox_ico{
-                width: 40px;
-                height: 40px;
-                top: 4px;
-                line-height: 38px;
             }
             
             &_address{
@@ -2004,4 +2007,128 @@
         margin-bottom: 14px;
     }
 
+    //method
+    .method{
+        margin: 0 -24px;
+        background-color: @footerCaption;
+
+        .method_title{
+            padding: 25px 24px 0;
+            margin: 0;
+            font-size: 26px;
+            line-height: 30px;
+            letter-spacing: 0.025em;
+        }
+
+        .radio_ico{
+            width: 40px;
+            height: 40px;
+            top:21px;
+            left:22px;
+
+        }
+        input:checked+.radio_ico:after{
+            width: 12px;
+            height: 12px;
+            margin: -6px 0 0 -6px;
+        }
+
+        &_block_wrap{
+            padding: 25px 24px 20px;
+        }
+        &_col{
+            width: 100%;
+        }
+        &_item{
+            padding: 27px 20px 23px;
+            margin: 0 0 11px;
+            min-height: auto;
+            font-size:20px;
+            line-height: 30px;
+
+            .small_caption{
+                margin: 0 0 20px 60px;
+                font-weight: 400;
+            }
+
+            input:disabled+span+.radio_border+.cnt{
+                .method_txt{
+                    padding-top: 4px;
+                }
+            }
+        }
+        //method_delivery
+        &_delivery{
+            .method_item{
+                min-height: auto;
+            }
+        }
+    }
+    .address_delivery{
+        max-width: none;
+        margin: 18px 0 10px;
+
+        .tit{
+            margin-bottom: 8px;
+            font-weight: 400;
+        }
+        textarea{
+            height: 90px;
+        }
+    }
+    .addresses_txt_list{
+        color: @textColor;
+    }
+
+    //cart
+    .cart{
+
+        &_order{
+
+            .checkbox_item{
+                br{
+                    display: none;
+                }
+            }
+            &_comment{
+                margin: 0 0 30px;
+
+                textarea{
+                    height: 120px;
+                }
+            }
+            &_buttons{
+                padding: 20px 0 80px;
+                width: 450px;
+                margin: 0 auto;
+                background: none;
+                position: relative;
+
+                .btn{
+                    width: 100%;
+                    max-width: 100%;
+                    margin:0;
+                    letter-spacing: 0.025em;
+                }
+                .btn_back_to_curt{
+                    position: absolute;
+                    left: 0;
+                    bottom: 0;
+                    font-size:21px;
+                }
+                .btn_order{
+                    padding: 18px 20px 20px 20px;
+                    font-size:26px;
+                }
+            }
+            &_errors{
+                margin: 0 0 20px;
+                color: @redLinks;
+                font-size:21px;
+                line-height: 25px;
+                letter-spacing: 0.025em;
+                text-align: center;
+            }
+        }
+    }
 }

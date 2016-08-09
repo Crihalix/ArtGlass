@@ -2860,6 +2860,9 @@
     }
     &_row{
         margin: 0 -8px;
+        font-size: 0;
+        line-height: 0;
+        letter-spacing: 0;
     }
     &_col{
         width: 33.333%;
@@ -2870,7 +2873,7 @@
     }
     //method_item
     &_item{
-        height: 170px;
+        min-height: 170px;
         margin: 0 0 17px;
         padding: 17px 14px 10px;
         display: block;
@@ -2901,7 +2904,7 @@
         }
         .cnt{
             position: relative;
-            z-index: 2;
+            //z-index: 2;
         }
         input:disabled+.radio_ico{
             border:1px solid @grayBorder;
@@ -2912,7 +2915,6 @@
         input:disabled+span+.radio_border+.cnt{
             color:@gray;
             .method_txt{
-
                 padding-top: 22px;
             }
         }
@@ -2928,7 +2930,7 @@
     &_delivery{
 
         .method_item{
-            height: 195px;
+            min-height: 195px;
         }
     }
     .inline_select{
@@ -2962,7 +2964,6 @@
         right: 0;
         top: 0;
         .background(-35px, -340px);
-
     }
 }
 
