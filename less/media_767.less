@@ -574,7 +574,7 @@
 
     .prod_item_table{
         padding: 25px 0 11px;
-        
+
         &:first-child{
             padding-top: 0;
         }
@@ -636,7 +636,7 @@
                 border-bottom: 1px dashed @linkColor;
             }
 
-            &:hover span{ 
+            &:hover span{
                 border-bottom-color:transparent;
             }
         }
@@ -665,6 +665,11 @@
         .prod_item{
             width: 50%;
             padding: 0 15px;
+        }
+    }
+    .headline_title{
+        &.fa-shopping-cart:before{
+            display: none;
         }
     }
     //pdp
@@ -952,7 +957,7 @@
 
             &_head{
                 padding: 12px 18px 13px;
-                
+
                 .num_ord{
                     margin: -5px 195px -9px 0;
                     height: 46px;
@@ -971,7 +976,7 @@
         }
         &_order_prod{
             display: block;
-            
+
             .table_row{
                 padding: 5px 0;
                 display: block;
@@ -1034,7 +1039,7 @@
 
         .table_row{
             padding: 20px 0 15px;
-            
+
             &:first-child{
                 padding-top: 10px;
             }
@@ -1042,6 +1047,7 @@
         .table_cell{
             width: auto;
             margin: 0 0 0 100px;
+            padding-right: 0;
             float: none;
             text-align: left;
         }
@@ -1070,6 +1076,10 @@
             max-height: 80px;
         }
     }
+    .cart_aside{
+        padding: 0 -15px 10px;
+        margin: 0 -15px 30px;
+    }
     .pend_buy_btn{
         padding-top: 0;
     }
@@ -1087,4 +1097,177 @@
     .order_params{
         margin-bottom: 24px;
     }
+
+    //cart
+    .cart{
+        border-top:0;
+
+        &_order{
+            padding-top: 10px;
+
+            &_comment{
+
+                .small_caption {
+                    font-weight: 400;
+                }
+            }
+            &_errors{
+                font-size: 18px;
+                text-align: left;
+                margin-bottom: 10px;
+            }
+            &_buttons{
+                padding-top: 10px;
+            }
+        }
+        &_total{
+
+            &_sum{
+                width: 100%;
+                margin: 0 0 15px;
+            }
+        }
+        &_discount{
+
+            &_code{
+                width: 100%;
+
+                &_wrap{
+                    text-align: right;
+                }
+            }
+        }
+
+    }
+
+    //form_table
+    .form_table{
+        max-width: 678px;
+        margin-bottom: 40px;
+
+        .table_cell{
+            width: auto;
+            display: block;
+            padding: 0;
+            text-align: left;
+
+        }
+        .name_cell{
+            padding: 0 0 8px;
+        }
+    }
+    //form_table
+    //end cart
+
+    .method{
+        margin: 0 -15px;
+        .small_caption{
+            font-weight: 400;
+        }
+        .method_title{
+            padding: 20px 15px 0;
+            font-size:21px;
+            line-height: 25px;
+        }
+        &_block_wrap{
+            padding: 15px 15px 10px;
+            margin-bottom: 40px;
+        }
+        &_item{
+            margin-bottom: 20px;
+        }
+    }
+    .method_delivery{
+        .method_block_wrap{
+            margin-bottom: 30px;
+        }
+    }
+    .address_delivery{
+
+        textarea{
+            margin-bottom: 15px;
+        }
+        &_txt{
+            color: @textColor;
+        }
+    }
+
+    //art
+    .art{
+
+        .article{
+            border-bottom: 0;
+        }
+    }
+    .article{
+        border-bottom: 0;
+        .title{
+            font-size: 33px;
+            line-height: 40px;
+        }
+    }
+    .tablet_info_cnt{
+        border-bottom: 1px solid @grayBorder;
+        padding: 0 0 25px;
+        margin: 0 0 25px;
+    }
+    .seminar{
+
+        &_item{
+            margin: 0 0 20px;
+        }
+        &_img{
+            display: none;
+        }
+        &_cnt{
+
+            &_wrap{
+                margin: 0;
+                min-height: auto;
+                padding: 16px 20px 95px;
+            }
+        }
+
+        //seminar_item_right
+        &_item_right{
+            .seminar_cnt_wrap{
+                margin: 0;
+                padding: 16px 20px 95px;
+            }
+        }
+        &_descript{
+            padding: 30px 18px 15px;
+        }
+        &_join_pp{
+            .field_calendar{
+                position: relative;
+
+                .calendar_block{
+                    position: static;
+                }
+                .datepicker_pp{
+                    left: 0;
+                }
+            }
+        }
+    }
+    .calendar_block{
+        position: relative;
+
+        &.opened_dp{
+            .datepicker_pp{
+                top:50%;
+                left:-20px;
+                margin: -225px 0 0;
+            }
+        }
+    }
+    .title_mark{
+
+        &:before{
+            bottom: 4px;
+            height: auto;
+        }
+    }
+
 }

@@ -800,7 +800,7 @@ textarea.field{
 .rouble_sans{
     font-family:@roubleSans;
     margin-left:3px;
-    vertical-align: top;
+    //vertical-align: top;
 }
 .fa-angle-right{
     position:relative;
@@ -1179,6 +1179,18 @@ sup { vertical-align: top; font-size: 0.6em; }
     text-overflow: ellipsis;
     display: block;
     overflow: hidden;
+}
+.show_all_wrap{
+
+    .prod_pack_list{
+        display: none;
+    }
+
+    &.opened{
+        .prod_pack_list{
+            display: block;
+        }
+    }
 }
 
 

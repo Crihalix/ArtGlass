@@ -1,5 +1,7 @@
 <form class="seminar_join_pp_form">
     <div class="seminar_join_pp_wrap">
+        <h2 class="title hid_dsk">Записаться<br>
+            на семинар</h2>
         <div class="field_group row_vld">
             <label for="seminar_join_name" class="tit_label">Фамилия, имя</label>
             <input type="text" class="field h_30" id="seminar_join_name" data-validate="required" value="" placeholder="">

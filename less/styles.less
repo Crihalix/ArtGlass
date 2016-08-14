@@ -2361,6 +2361,7 @@
         text-align:center;
         overflow: hidden;
         background-color: #fff;
+        position: relative;
         
         img{
             max-width:100%;
@@ -2369,14 +2370,12 @@
         &.img_bord{
             border:1px solid @grayBtn;
         }
-        &.no_img{
-            height: 100%;
-        }
     }
     .no_img_link{
         height: 100%;
         display: block;
         min-height: 35px;
+        position: static;
 
         &:before{
             position: absolute;
@@ -2662,6 +2661,7 @@
 
     //cart_cnt
     &_cnt{
+        float: left;
         max-width:683px;
         margin-right:390px;
         border-top:1px solid @grayBorder;
@@ -2672,6 +2672,10 @@
         width:360px;
         padding:20px 35px 15px 45px;
         background-color:@blocksBg;
+        float: right;
+        margin-left:-100%;
+        position: relative;
+        right: 0;
 
         .pdp_check_headline{
             padding-top: 6px;
@@ -2732,6 +2736,7 @@
 
             .tit_sum{
                 margin:0 8px 0 0;
+                vertical-align: top;
             }
         }
         &_btns{

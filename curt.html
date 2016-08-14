@@ -428,96 +428,6 @@
         <!--cart-->
         <section class="cart clear_fix">
 
-            <!--cart_aside-->
-            <aside class="cart_aside fl_right">
-                <div class="packing">
-                    <div class="pdp_check_headline">
-                        <span class="pdp_check_icon pack_ico"></span>
-                        <h3 class="caption">Упаковка вашего заказа:</h3>
-                    </div>
-                    <p class="descript">Стекла упаковываются в стандартные боксы по 15, 25 или 80 штук.<br>
-                        Обратите внимание, что стекла всегда упаковываются отдельно от инструментов, материалов или оборудования</p>
-                    <h4 class="small_caption">Упаковано:</h4>
-                    <div class="pack_info table">
-                        <div class="table_row">
-                            <div class="table_cell">
-                                Стандартный бокс<br>
-                                61 см. х 61 см.
-                            </div>
-                            <div class="table_cell">
-                                1 штука<br>
-                                800 <span class="rouble_sans">С</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="box_lists_bl">
-                        <p class="hint_txt">Бокс 61 см х 61 см. Добавлено 4 листа из 8</p>
-                        <div class="box_lists">
-                            <div class="box_list_range" style="width:50%;"></div>
-                        </div>
-                    </div>
-                    <div class="btn_block">
-                        <button class="btn dashed">Что будет внутри</button>
-                    </div>
-                    <div class="pack_info table">
-                        <div class="table_row">
-                            <div class="table_cell">
-                                Стандартный бокс<br>
-                                61 см. х 61 см.
-                            </div>
-                            <div class="table_cell">
-                                1 штука<br>
-                                650 <span class="rouble_sans">С</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="box_lists_bl">
-                        <p class="hint_txt">Бокс 31 см х 61 см. Добавлено: 1 лист из 8</p>
-                        <div class="box_lists">
-                            <div class="box_list_range" style="width:12.5%;"></div>
-                        </div>
-                    </div>
-                    <div class="prod_pack_list table">
-                        <div class="table_row">
-                            <div class="table_cell">
-                                Wissmach W1 D, либо длинное название продукта
-                            </div>
-                            <div class="table_cell number_cell">
-                                <span class="nowrap">1 шт.</span>
-                            </div>
-                        </div>
-                        <div class="table_row">
-                            <div class="table_cell">
-                                SmowGlass W3 FS
-                            </div>
-                            <div class="table_cell number_cell">
-                                <span class="nowrap">4 шт.</span>
-                            </div>
-                        </div>
-                        <div class="table_row">
-                            <div class="table_cell">
-                                Spectrum Cristal Opal W2 DA
-                            </div>
-                            <div class="table_cell number_cell">
-                                <span class="nowrap">1 шт.</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="btn_block">
-                        <button class="btn dashed">Свернуть</button>
-                    </div>
-                    <div class="total_pack table">
-                        <div class="table_cell small_caption">
-                            Итого за упаковку:
-                        </div>
-                        <div class="table_cell price">
-                            <span class="nowrap">1 450 <span class="rouble_sans">С</span></span>
-                        </div>
-                    </div>
-                </div>
-            </aside>
-            <!--end cart_aside-->
-
             <!--cart_cnt-->
             <div class="cart_cnt">
 
@@ -756,13 +666,16 @@
                         </div>
                     </div>
                 </div>
-                <div class="cart_total text_right">
+                <div class="cart_total text_right hid_tbl">
                     <div class="cart_total_sum_bl">
                         <div class="cart_total_sum">
-                            <span class="tit_sum">ИТОГО: </span><span class="price">34 780<span class="rouble_sans">С</span></span>
+                            <span class="tit_sum">ИТОГО: </span>
+                            <span class="price">34 780<span class="rouble_sans">С</span>
+                                <span class="cart_total_discount_txt hid_dsk"></span>
+                            </span>
                         </div>
                         <div class="cart_discount_code js-show_block_wrap">
-                            <div class="cart_discount_code_tit">
+                            <div class="cart_discount_code_tit hid_tbl">
                                 <button class="btn dashed discount_code_btn js-show_block_btn">Ввести купон на скидку</button>
                             </div>
                             <div class="cart_discount_code_wrap js-show_block ">
@@ -789,6 +702,169 @@
 
             </div>
             <!--end cart_cnt-->
+
+            <!--cart_aside-->
+            <aside class="cart_aside fl_right">
+                <div class="packing js-accord-block">
+                    <div class="pdp_check_headline ">
+                        <span class="pdp_check_icon pack_ico"></span>
+                        <h3 class="caption">Упаковка вашего заказа:</h3>
+                        <button class="btn hid_dsk accord_btn js-accord-btn"></button>
+                    </div>
+                    <p class="descript">Стекла упаковываются в стандартные боксы по 15, 25 или 80 штук.<br>
+                        Обратите внимание, что стекла всегда упаковываются отдельно от инструментов, материалов или оборудования</p>
+                    <h4 class="small_caption">Упаковано:</h4>
+                    <div class="packing_columns">
+                        <div class="packing_col">
+                            <div class="pack_info table">
+                                <div class="table_row">
+                                    <div class="table_cell">
+                                        Стандартный бокс<br>
+                                        61 см. х 61 см.
+                                    </div>
+                                    <div class="table_cell">
+                                        1 штука<br>
+                                        800 <span class="rouble_sans">С</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="box_lists_bl">
+                                <p class="hint_txt">Бокс 61 см х 61 см. Добавлено 4 листа из 8</p>
+                                <div class="box_lists">
+                                    <div class="box_list_range" style="width:50%;"></div>
+                                </div>
+                            </div>
+                            <div class="show_all_wrap ">
+                                <div class="prod_pack_list table">
+                                    <div class="table_row">
+                                        <div class="table_cell">
+                                            Wissmach W1 D, либо длинное название продукта
+                                        </div>
+                                        <div class="table_cell number_cell">
+                                            <span class="nowrap">1 шт.</span>
+                                        </div>
+                                    </div>
+                                    <div class="table_row">
+                                        <div class="table_cell">
+                                            SmowGlass W3 FS
+                                        </div>
+                                        <div class="table_cell number_cell">
+                                            <span class="nowrap">4 шт.</span>
+                                        </div>
+                                    </div>
+                                    <div class="table_row">
+                                        <div class="table_cell">
+                                            Spectrum Cristal Opal W2 DA
+                                        </div>
+                                        <div class="table_cell number_cell">
+                                            <span class="nowrap">1 шт.</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="btn_block">
+                                    <button class="btn dashed show_all " data-toggle-text="Свернуть">Что будет
+                                        внутри</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="packing_col">
+                            <div class="pack_info table">
+                                <div class="table_row">
+                                    <div class="table_cell">
+                                        Стандартный бокс<br>
+                                        61 см. х 61 см.
+                                    </div>
+                                    <div class="table_cell">
+                                        1 штука<br>
+                                        650 <span class="rouble_sans">С</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="box_lists_bl">
+                                <p class="hint_txt">Бокс 31 см х 61 см. Добавлено: 1 лист из 8</p>
+                                <div class="box_lists">
+                                    <div class="box_list_range" style="width:12.5%;"></div>
+                                </div>
+                            </div>
+                            <div class="show_all_wrap opened">
+                                <div class="prod_pack_list table">
+                                    <div class="table_row">
+                                        <div class="table_cell">
+                                            Wissmach W1 D, либо длинное название продукта
+                                        </div>
+                                        <div class="table_cell number_cell">
+                                            <span class="nowrap">1 шт.</span>
+                                        </div>
+                                    </div>
+                                    <div class="table_row">
+                                        <div class="table_cell">
+                                            SmowGlass W3 FS
+                                        </div>
+                                        <div class="table_cell number_cell">
+                                            <span class="nowrap">4 шт.</span>
+                                        </div>
+                                    </div>
+                                    <div class="table_row">
+                                        <div class="table_cell">
+                                            Spectrum Cristal Opal W2 DA
+                                        </div>
+                                        <div class="table_cell number_cell">
+                                            <span class="nowrap">1 шт.</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="btn_block">
+                                    <button class="btn dashed show_all opened" data-toggle-text="Что будет внутри">Свернуть
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="total_pack table">
+                        <div class="table_cell small_caption">
+                            Итого за упаковку:
+                        </div>
+                        <div class="table_cell price">
+                            <span class="nowrap">1 450 <span class="rouble_sans">С</span></span>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+            <!--end cart_aside-->
+
+            <div class="cart_total text_right hid_dsk">
+                <div class="cart_total_sum_bl">
+                    <div class="cart_total_sum">
+                        <span class="tit_sum">ИТОГО: </span>
+                        <span class="price">34 780<span class="rouble_sans">С</span>
+                            <span class="cart_total_discount_txt hid_dsk"></span>
+                        </span>
+                    </div>
+                    <div class="cart_discount_code js-show_block_wrap">
+                        <div class="cart_discount_code_tit">
+                            <button class="btn dashed discount_code_btn js-show_block_btn">Ввести купон на скидку</button>
+                        </div>
+                        <div class="cart_discount_code_wrap js-show_block ">
+                            <div class="cart_discount_code_wrap2">
+                                <form class="discount_code_form clear_fix">
+                                    <input type="submit" class="btn btn_default arrow_btn fl_right" value="">
+                                    <div class="row_input row_vld">
+                                        <input type="text" class="field " value="" placeholder="Купон на скидку" data-validate="required">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cart_total_btns">
+                    <a href="" class="btn white_btn h_50 back_to_shop">Вернуться к покупкам</a>
+                    <a href="" class="btn btn_red btn_order h_40">Оформить заказ</a>
+                </div>
+                <div class="cart_total_post_info">
+                    <div class="txt">У вас есть отложенные заказы</div>
+                    <button class="btn dashed">Просмотреть</button>
+                </div>
+            </div>
 
         </section>
         <!--end cart-->

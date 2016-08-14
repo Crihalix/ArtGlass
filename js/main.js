@@ -774,6 +774,7 @@ $(document).ready(function() {
         successEvent: function() {
             var $formBlock = $('.cart_discount_code');
             $formBlock.find('.cart_discount_code_tit').text('с учетом скидки');
+            $('.cart_total_discount_txt').text('с учетом скидки');
             $formBlock.find('.btn').hide();
             $formBlock.find('.discount_code_form').addClass('success_code');
             //отправить форму аяксом, в ответ можно присылать нужный html
@@ -1160,6 +1161,14 @@ $(document).ready(function() {
             e.preventDefault();
             $(this).closest('.bread_crumbs').find('li').show(0);
             $(this).closest('li').hide(0);
+        });
+    })();
+
+    (function () {
+
+        $('body').on(clickHandler,'.js-accord-btn', function(e) {
+            e.preventDefault();
+            $(this).closest('.js-accord-block').toggleClass('accord_minimise');
         });
     })();
 

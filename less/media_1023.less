@@ -123,6 +123,11 @@
         color: @textColorDark;
         font-size: 20px;
         line-height: 56px;
+
+        &.h_30{
+            height:60px;
+            line-height: 56px;
+        }
     }
     .field_telephone{
         max-width: 100%;
@@ -138,6 +143,29 @@
         }
         &__trigger{
             width: 34px;
+        }
+    }
+    .text_block{
+        
+        h3,
+        h4{
+            color: @textColorDark;
+            margin: 0 0 20px;
+            font-size: 21px;
+            line-height: 25px;
+        }
+        .list_tit{
+            margin: 0;
+        }
+        ul{
+            margin: 0 0 20px;
+        }
+        li{
+            &:before{
+                width: 5px;
+                height: 5px;
+                top:12px;
+            }
         }
     }
 
@@ -1814,6 +1842,24 @@
             font-size: 21px;
         }
     }
+
+    //form_table
+    .form_table{
+        max-width: 678px;
+        margin-bottom: 45px;
+
+        .table_cell{
+            padding-bottom:14px;
+        }
+        .name_cell{
+            width:208px;
+            padding:10px 48px 0 0;
+            text-align: right;
+            font-size:21px;
+            line-height: 25px;
+        }
+    }
+    //end form_table
     .fast_cross{
         width: auto;
         padding: 0;
@@ -1865,7 +1911,7 @@
         .delete_cell{
             position: absolute;
             left: 0;
-            top: 142px;
+            top: 130px;
         }
         .img_cell{
             width: 18%;
@@ -1891,6 +1937,8 @@
         .img{
             margin-top: 9px;
             max-height: 100%;
+            max-width: 100px;
+            height: 100px;
             width: 100%;
             border: 1px solid @grayBtn;
         }
@@ -1900,8 +1948,10 @@
             line-height: 30px;
             font-weight: 500;
         }
-        .rouble_sans{
+        .rouble_sans,
+        .price .rouble_sans{
             font-size:20px;
+            vertical-align: baseline;
         }
         .name{
             margin: 0;
@@ -1941,7 +1991,8 @@
             display: none;
         }
     }
-    .delete_pending_item{
+    .delete_pending_item,
+    .delete_prod_item {
         font-size: 24px;
         &:before{
             content: "\f1f8";
@@ -2087,7 +2138,14 @@
 
     //cart
     .cart{
+        border-top: 1px solid @grayBorder;
 
+        &_cnt{
+            margin-right: 0;
+            float: none;
+            max-width: none;
+            border-top: 0;
+        }
         &_order{
 
             .checkbox_item{
@@ -2134,6 +2192,505 @@
                 letter-spacing: 0.025em;
                 text-align: center;
             }
+        }
+        &_aside{
+            width: auto;
+            float: none;
+            padding: 14px 23px 10px;
+            margin: 0 -24px 40px;
+
+            .descript,
+            .hint_txt{
+                font-size:18px;
+                line-height: 25px;
+            }
+            .small_caption{
+                margin: 0 0 10px;
+                font-size:26px;
+                line-height: 30px;
+            }
+            .total_pack .table_cell{
+                font-size: 21px;
+                display: inline-block;
+                padding-right: 5px;
+                margin: 0;
+            }
+        }
+        .pdp_check_headline{
+            padding: 8px 20px 6px 74px;
+            margin: 0 0 17px;
+            border-bottom: 1px solid @blueIcons;
+            
+            .caption{
+                border:0;
+            }
+        }
+        .pdp_check_icon{
+            width: 54px;
+            height: 43px;
+            background-position: 0 -400px;
+        }
+
+        //cart_total
+        &_total{
+            border-top:0;
+
+            &_sum_bl{
+                margin: 0 -15px 35px;
+                .clear_fix();
+            }
+            &_sum{
+                width: 50%;
+                padding: 0 15px;
+                float: left;
+                text-align: left;  
+                font-size:33px;
+                line-height: 40px;
+                vertical-align: top;
+
+                .tit_sum{
+                    padding-top: 2px;
+                    display: inline-block;
+                }
+                .price{
+                    display: inline-block;
+                }
+            }
+            &_btns{
+                width: 100%;
+                max-width: 450px;
+                text-align: center;
+                margin: 0 auto 30px;
+                padding: 0 0 80px;
+                position: relative;
+
+                .btn{
+                    width: 100%;
+                    margin: 0;
+                    letter-spacing: .025em;
+                }
+                .btn_order{
+                    font-size: 26px;
+                    padding: 18px 20px 20px 20px;
+                }
+                .back_to_shop{
+                    position: absolute;
+                    left: 0;
+                    bottom: 0;
+                }
+            }
+            &_discount_txt{
+                display: block;
+            }
+            &_post_info{
+                text-align: center;
+                color: @textColorDark;
+            }
+        }
+        &_discount{
+            &_code{
+                width: 50%;
+                padding: 0 15px;
+                margin: 0;
+                float: left;
+
+                &_tit{
+                    font-size: 18px;
+                    margin: 0 0 5px;
+                    display: none;
+                }
+
+                .discount_code_btn{
+                    display: none;
+                }
+                &_wrap{
+                    display: block;
+                    text-align: left;
+                }
+                &_wrap2{
+                    padding: 0;
+                    max-width: 290px;
+                }
+                .field{
+                    height: 50px;
+                    width: 235px;
+                    border-radius:2px;
+                    padding: 0 18px 2px;
+                }
+                .row_input{
+                    margin-right: 60px;
+                }
+                .arrow_btn{
+                    width: 50px;
+                    height: 50px;
+                    padding: 0;
+                    border-radius:2px;
+                    background-position: 0 -500px;
+                }
+            }
+        }
+    }
+    .cart_total_discount_txt{
+        font-size: 18px;
+        line-height: 20px;
+        color:@green;
+    }
+    .success_code:before{
+        background-position: 0 -450px;
+        width: 50px;
+        height: 50px;
+    }
+    .prod_pack_list{
+        color:@textColor;
+        font-size:18px;
+        line-height: 25px;
+    }
+    .accord_btn{
+        position: absolute;
+        right: 2px;
+        top:5px;
+        width: 45px;
+        height: 45px;
+
+        &:after{
+            content: '';
+            position: absolute;
+            top: 15px;
+            right: 2px;
+            border-top:0;
+            border-right:8px solid transparent;
+            border-left:8px solid transparent;
+            border-bottom:8px solid @linkColor;
+        }
+    }
+    .accord_minimise{
+
+        .accord_btn{
+            &:after{
+                border-top:8px solid @linkColor;
+                border-bottom: 0;
+            }
+        }
+    }
+    .packing{
+
+        &.accord_minimise{
+            
+            >*{
+                display: none;
+            }
+            .pdp_check_headline{
+                display: block;
+                margin-bottom: 0;
+                border-bottom:0;
+            }
+        }
+        
+        &_columns{
+            .clear_fix();
+            padding: 0 0 10px;
+            margin: 0 -15px;
+        }
+        &_col{
+            width: 50%;
+            float: left;
+            padding: 0 15px;
+        }
+    }
+    .packing_col{
+        width: 100%;
+    }
+
+    //art
+    .art{
+
+        //art_left
+        &_left{
+            width: auto;
+            margin-right: 0;
+            float: none;
+        }
+        //art_right
+        &_right{
+            width: auto;
+            margin: 0 0 30px;
+            float: none;
+        }
+
+    }
+
+    //select_box
+    .select_box{
+        margin:0 0 45px;
+
+        .jq-selectbox{
+
+            &__select{
+
+                &-text{
+                    padding: 10px 3px 0 80px;
+                    line-height: 30px;
+                }
+            }
+            &__trigger{
+                width: 60px;
+                height: 60px;
+                margin: -20px 0 0;
+            }
+            &__dropdown{
+                top:0!important;
+                padding: 0 0 4px 0;
+
+                li{
+                    padding: 15px 16px 15px 80px;
+                    line-height: 20px;
+
+                    &:after{
+                        left: 80px;
+                    }
+
+                    &.sel{
+                        &:before{
+                            left: 20px;
+                            top: 2px;
+                            height: 50px;
+                            color: @green;
+                            font-size: 20px;
+                            line-height: 60px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .ui-datepicker{
+        width: 450px;
+        margin: 0 auto;
+        border:none;
+        transition: none;
+
+        .ui-datepicker-prev,
+        .ui-datepicker-next {
+            width: 16px;
+            height: 50px;
+            font-size: 26px;
+            line-height: 50px;
+
+            &:before{
+                line-height: 50px;
+            }
+        }
+        .ui-datepicker-next {
+            left: 160px;
+        }
+        .ui-datepicker-title {
+            font-size: 26px;
+            line-height: 50px;
+
+            .ui-datepicker-month,
+            .ui-datepicker-year {
+                width: 150px;
+            }
+            .ui-datepicker-year{
+                left: 190px;
+            }
+        }
+
+        th,
+        td{
+            width: 60px;
+            height: 50px;
+            max-width: 60px;
+            max-height: 50px;
+            padding:4px;
+            line-height: 30px;
+        }
+        td {
+            height: 60px;
+            max-height: 60px;
+
+            span,
+            a {
+                height: 50px;
+                width: 50px;
+                padding: 1px;
+                font-size: 20px;
+                line-height: 48px;
+            }
+        }
+    }
+    .calendar_block{
+        margin: 0 0 2px;
+        
+        &.opened_dp{
+            .datepicker_pp{
+                //right: 0;
+                left: 50%;
+                margin-left: -225px;
+                border:1px solid @linkColor;
+            }
+        }
+    }
+    .datepicker_btn{
+        font-size:21px;
+
+        .fa{
+            font-size:24px;
+        }
+    }
+    .list_events{
+
+        p{
+            font-style: italic;
+        }
+    }
+
+    //seminar
+
+    .seminar{
+
+        &_cnt{
+            &_wrap{
+                height: auto;
+                min-height: 350px;
+                padding: 15px 25px 88px 5.6%;
+                position: relative;
+            }
+        }
+        &_item_right .seminar_cnt_wrap{
+            padding-bottom: 88px;
+        }
+        .big_caption{
+            margin: 0 0 5px;
+        }
+        .descript,
+        .address{
+            font-size:18px;
+            line-height: 25px;
+            margin: 0 0 11px;
+        }
+        .address{
+            margin: 0 0 3px;
+        }
+        .price{
+            font-size: 26px;
+            margin-bottom: 8px;
+        }
+        .btn_row{
+            position: absolute;
+            margin: 0;
+            left: 5.6%;
+            right: 34px;
+            bottom: 20px;
+
+            .btn{
+                max-width: 100%;
+            }
+        }
+        //seminar_join_pp
+        &_join_pp{
+            position: fixed;
+
+            left: 0;
+            top:0;
+            right: 0;
+            bottom: 0;
+            overflow: hidden;
+            overflow-y: auto;
+
+            //seminar_join_pp_wrap
+            &_wrap{
+                max-width: 450px;
+                width: 100%;
+                text-align: center;
+            }
+            .title{
+                margin-bottom: 7px;
+            }
+            .field_telephone{
+                max-width: none;
+                float: none;
+            }
+            .field_calendar{
+                max-width: 60%;
+                width: 60%;
+                text-align: left;
+                .field{
+                    max-width: 180px;
+                }
+                .calendar_block{
+                    display: inline-block;
+                    margin: 9px 0 0 10px;
+                    float: none;
+                }
+            }
+            .field_email{
+                margin-left: 0;
+            }
+            .field_counts_guest{
+                text-align: left;
+                margin-left: 0;
+                float: right;
+                .amount_goods{
+                    margin: 0;
+                }
+            }
+            .tit_label{
+                margin: 0 0 3px;
+                display: block;
+                font-size: 21px;
+                color:@textColorDark;
+            }
+            .checkbox_item{
+                margin-top: 20px;
+                display: block;
+                color: @textColorDark;
+
+                .checkbox_ico{
+                    top:-3px;
+                    color: @white;
+                    background-color: @white;
+                }
+            }
+            &_btn_bl{
+                max-width: 450px;
+                width: 100%;
+                margin: 0 auto;
+                background: none;
+                position: relative;
+                right: auto;
+                padding:30px 0 15px;
+                
+                .btn{
+                    max-width: 100%;
+                }
+            }
+            .field_group{
+                margin-bottom: 12px;
+            }
+            >.close_btn{
+                font-size: 24px;
+            }
+        }
+    }
+    .tablet_info_cnt{
+        margin-bottom: 8px;
+    }
+    .map_block{
+        width: 100%;
+        height: 450px;
+    }
+    .photo{
+        &_cnt{
+            float: none;
+            margin: 0 0 35px;
+
+            .clear_fix();
+        }
+
+        &_list{
+            float: none;
+            width: auto;
         }
     }
 }
