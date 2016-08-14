@@ -168,10 +168,19 @@
             }
         }
     }
+    .dash_list{
+
+        li{
+            padding-left: 20px;
+            &:before{
+                color:@textColorDark;
+            }
+        }
+    }
 
 
 
-    //header
+        //header
     .header{
         max-width:768px;
         margin:0 auto 50px;
@@ -2417,6 +2426,21 @@
             float: none;
         }
 
+        &_columns{
+
+        }
+        &_navigate{
+
+            li{
+                font-size: 21px;
+                &.active{
+
+                }
+            }
+            span{
+                padding:10px 0 9px;
+            }
+        }
     }
 
     //select_box
@@ -2691,6 +2715,114 @@
         &_list{
             float: none;
             width: auto;
+        }
+    }
+    .seminars{
+        position: relative;
+        padding: 0 0 70px;
+
+        &_cnt{
+            width: auto;
+            min-height: auto;
+            padding: 0;
+            background:none;
+            float: none;
+        }
+        .subtitle{
+            color: @textColorDark;
+            font-weight: 400;
+        }
+        a{
+            color:@linkColor;
+        }
+        p{
+            color: @textColorDark;
+            font-style: italic;
+        }
+        .btn{
+            color:@white;
+        }
+        .btn_row{
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            text-align: center;
+        }
+
+        &_img{
+            width: auto;
+            margin: 0 0 41px;
+
+            .clear_fix();
+        }
+    }
+    //training_info
+    .training_info{
+        &_item{
+            width: 100%;
+            margin: 0 0 20px;
+            float: none;
+
+            &_wrap{
+                border:none;
+                min-height: auto;
+            }
+        }
+        .training_link{
+            width: 260px;
+            font-size: 20px;
+            line-height: 25px;
+            padding-left: 80px;
+
+            &:before{
+                top:10px;
+                left: 15px;
+                font-size: 30px;
+                line-height: 40px;
+            }
+        }
+        .training_img{
+            max-width: 420px;
+
+            &.w_50{
+                max-width: 210px;
+            }
+        }
+    }
+    .training_docs{
+        padding-left: 0;
+
+        &_list{
+            padding: 0;
+            columns: 2;
+        }
+        .cart_order_buttons{
+            padding: 10px 0;
+        }
+        .big_caption{
+            padding-left: 0;
+        }
+    }
+    .video_list{
+
+        .go_all_video{
+            font-size: 18px;
+            line-height: 25px;
+        }
+    }
+    .video_a_archive{
+        .archive_table .table_cell:first-child{
+            max-width: 210px;
+        }
+    }
+    .archive_link{
+        padding-left: 30px;
+
+        &:before{
+            top: 5px;
+            font-size: 24px;
+            line-height: 30px;
         }
     }
 }

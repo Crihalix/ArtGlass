@@ -1197,11 +1197,13 @@
 
         .article{
             border-bottom: 0;
+            margin: 0 0 25px;
         }
     }
     .article{
         border-bottom: 0;
         .title{
+            margin: 0;
             font-size: 33px;
             line-height: 40px;
         }
@@ -1269,5 +1271,133 @@
             height: auto;
         }
     }
+    .seminars_img{
 
+        &_list{
+            float: none;
+            .clear_fix();
+
+            li{
+                float: left;
+                width: auto;
+                text-align: center;
+            }
+        }
+    }
+
+    .training_info{
+
+        .table,
+        .table_cell{
+            display: inline-block;
+            width: 100%;
+            padding: 0;
+        }
+        .table_cell{
+            display: table-header-group;
+            
+            &:first-child{
+                display: table-footer-group;
+            }
+            .training_link{
+                margin-top: 40px;
+            }
+        }
+        .table.archive_table{
+            .table_cell{
+                display: block;
+                max-width: none;
+                padding: 0 0 15px;
+
+                &:first-child{
+                    padding: 0;
+                    color:@grayDark;
+                    font-size: 15px;
+                    line-height: 20px;
+                }
+            }
+        }
+        .training_link{
+            width: 100%;
+            padding: 16px 10px 17px 80px;
+
+            br{
+                display: none;
+            }
+        }
+        &_item_wrap{
+            padding: 20px 0 10px;
+            margin: 0 0 33px;
+            border-top: 1px solid @grayBorder;
+            background: none;
+        }
+        .big_caption{
+            margin: 0 0 15px;
+        }
+    }
+    .archive_link{
+        padding-left: 0;
+
+        &:before{
+            display: none;
+        }
+    }
+    .training_docs{
+        margin: 0 0 25px;
+        padding-top: 20px;
+        border-top:1px solid @grayBorder;
+
+        &_list{
+            columns: 1;
+        }
+        .big_caption{
+            padding-bottom: 0;
+            border:none;
+        }
+    }
+    .video_a_archive{
+        padding-top: 20px;
+        border-top:1px solid @grayBorder;
+
+        .training_info_item_wrap{
+            padding: 0;
+            border:none;
+        }
+        .big_caption{
+            margin-bottom: 20px;
+        }
+    }
+    .close_btn_youtube_pp{
+        top:-28px;
+        right: 2px;
+    }
+    .video_list{
+        padding: 0 0 25px;
+        margin: 0 0 20px;
+        border-bottom:1px solid @grayBorder;
+
+        li{
+            width: 50%;
+        }
+        a{
+            height: 180px;
+        }
+        .show_all_video_wrap{
+            width:auto;
+            padding:10px 0 0;
+
+            a{
+                height: auto;
+                border:none;
+                display: inline;
+
+                span{
+                    display: inline;
+                }
+            }
+        }
+        .video_link_txt:after{
+            display: none;
+        }
+    }
 }
