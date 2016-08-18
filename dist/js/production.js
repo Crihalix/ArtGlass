@@ -7640,7 +7640,7 @@ $(document).ready(function() {
                         verticalGutter: 30
                     });
                 }
-                $modal.find('.js-mask_tel').inputmask('+38 (999) 999 99 99', {'placeholder': '+38 (___) ___ __ __'});
+                $modal.find('.js-mask_tel').inputmask('+7 (999) 999 99 99', {'placeholder': '+7 (___) ___ __ __'});
 
 
                 //$modal.find('.question_ico').popover({trigger: 'manual'}).on(clickHandler, function(e) {
