@@ -7254,10 +7254,10 @@ $(document).ready(function() {
             if(_this.closest('.cut_txt_wrap').hasClass('opened')){
                 wrapArtTxt.removeClass('opened');
                 _this.removeClass('fa-angle-up');
-                //_this.addClass('fa-angle-down');
+                _this.addClass('fa-angle-down');
                 replaceTxt();
             } else{
-                //_this.removeClass('fa-angle-down');
+                _this.removeClass('fa-angle-down');
                 _this.addClass('fa-angle-up');
                 wrapArtTxt.addClass('opened');
                 replaceTxt();
