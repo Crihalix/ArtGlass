@@ -7116,21 +7116,22 @@ $(document).ready(function() {
 
         //jq_list
         function resetSize() {
-            drpd_lvl1Height = $('.catalog_menu_main_page').length ? 408 : catalogList.height();
-            catalogDropdown.outerWidth(catalogListWidth).height(drpd_lvl1Height);
+            // drpd_lvl1Height = $('.catalog_menu_main_page').length ? 408 : catalogList.height();
+            // catalogDropdown.outerWidth(catalogListWidth).height(drpd_lvl1Height);
+            catalogDropdown.outerWidth(catalogListWidth);
             catalogDropdown.removeClass('drpd_lvl3_line drpd_lvl2_line');
         }
 
         function resetSizeDrpd2(event) {
             var maxHeight;
-            catalogDropdown.outerWidth(catalogListWidth * 2 + 2);//2 - this is border-width pixels
+            catalogDropdown.outerWidth(catalogListWidth * 2 + 2);//2 - this it's border-width pixels
 
-            drpd_lvl1Height = $('.catalog_menu_main_page').length ? 408 : catalogList.height();
-            drpd_lvl2Height = $(event.target).parents('li').find('>.list_lvl2').height();
+            // drpd_lvl1Height = $('.catalog_menu_main_page').length ? 408 : catalogList.height();
+            // drpd_lvl2Height = $(event.target).parents('li').find('>.list_lvl2').height();
             //set and calculate height
-            maxHeight = Math.max(drpd_lvl1Height, drpd_lvl2Height);
-            catalogDropdown.height(maxHeight);
-            $(event.target).parents('li').find('>.list_lvl2').css('min-height', maxHeight + 'px');
+            // maxHeight = Math.max(drpd_lvl1Height, drpd_lvl2Height);
+            // catalogDropdown.height(maxHeight);
+            // $(event.target).parents('li').find('>.list_lvl2').css('min-height', maxHeight + 'px');
             catalogDropdown.removeClass('drpd_lvl3_line');
             catalogDropdown.addClass('drpd_lvl2_line');
         }
@@ -7139,13 +7140,13 @@ $(document).ready(function() {
             var maxHeight;
             catalogDropdown.outerWidth(containerWidth);
             drpd_lvl3.outerWidth(containerWidth - (catalogListWidth * 2) - 2); //2 - this is border-width pixels
-
+/*
             drpd_lvl1Height = $('.catalog_menu_main_page').length ? 408 : catalogList.height();
             drpd_lvl2Height = $(event.target).parents('li').find('>.list_lvl2').height();
             drpd_lvl3Height = $(event.target).parents('li').find('>.drpd_bl_lvl3').height();
-            //set and calculate height
+            //set and calculate heightS
             maxHeight = Math.max(drpd_lvl1Height, drpd_lvl2Height, drpd_lvl3Height);
-            catalogDropdown.height(maxHeight);
+            catalogDropdown.height(maxHeight);*/
             $(event.target).parents('li').find('>.drpd_bl_lvl3').css('min-height', maxHeight + 'px');
             catalogDropdown.addClass('drpd_lvl3_line');
         }
@@ -8059,6 +8060,29 @@ $(document).ready(function() {
             //}
             $slider.slider('values', 1, $('#to').val());
         }
+
+
+        $( "#slider1" ).slider({
+            range: "max",
+            min: 1,
+            max: 10,
+            value: 2,
+            slide: function( event, ui ) {
+                $( "#slider1_amount" ).val( ui.value );
+            }
+        });
+        $( "#slider1_amount" ).val( $( "#slider1" ).slider( "value" ) );
+
+        $( "#slider2" ).slider({
+            range: "max",
+            min: 1,
+            max: 10,
+            value: 2,
+            slide: function( event, ui ) {
+                $( "#slider2_amount" ).val( ui.value );
+            }
+        });
+        $( "#slider2_amount" ).val( $( "#slider2" ).slider( "value" ) );
 
     })();
 
