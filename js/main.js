@@ -97,11 +97,14 @@ $(document).ready(function() {
         }
 
         $('.catalog_menu').on('mouseover', function (event) {
+
             if(winWidth > 1023){
                 setSize(event);
             }
         });
         $('.catalog_menu').on('mouseleave', function (event) {
+
+
             if(winWidth > 1023){
                 resetSize(event);
             }

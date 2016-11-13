@@ -208,7 +208,8 @@
     &.catalog_menu_main_page{
 
         .catalog_menu_dropdown{
-            height:442px;
+            height:430px;
+            min-height:430px;
         }
         .headline_catalog{
             background-color:@redDarken;
@@ -273,7 +274,7 @@
         //overflow:hidden;
         left:0;
         //top:100%;
-        padding:10px 0;
+        padding:2px 0;
         border:1px solid @redDarken;
         box-shadow:0 2px 3px rgba(0,0,0,0.2);
         background-color:@white;
@@ -420,8 +421,9 @@
         opacity:0;
         visibility:hidden;
         //left:80%;
-        left:74%;
+        left:100%;
         //transition:opacity 300ms ease, left 300ms ease, visibility 0ms ease;
+        //transition: visibility 500ms ease, opacity 0ms ease 500ms;
     }
 
     .drpd_menu_list{
@@ -434,7 +436,6 @@
                 >.drpd_menu_block{
                     opacity:1;
                     visibility:visible;
-                    left:100%;
                     //transition:opacity 600ms ease, left 400ms ease;
                     display:block!important;
                 }
