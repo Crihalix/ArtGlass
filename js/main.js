@@ -800,8 +800,10 @@ $(document).ready(function() {
     (function() {
         $('a[href*=#]').bind(clickHandler, function(scrolling){
             var anchor = $(this);
-            $('html, body').stop().animate({
-                scrollTop: $(anchor.attr('href')).offset().top - 15}, 500);
+            if(!anchor.attr('data-href')) {
+                $('html, body').stop().animate({
+                    scrollTop: $(anchor.attr('href')).offset().top - 15}, 500);
+            }
             scrolling.preventDefault();
         });
     })();
